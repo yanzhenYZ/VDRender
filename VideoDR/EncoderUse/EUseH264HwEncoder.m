@@ -11,6 +11,7 @@
 
 @interface EUseH264HwEncoder ()
 @property (nonatomic, assign) int64_t frames;
+@property (nonatomic, assign) BOOL gotPPS;
 
 - (void)sendSps:(NSData *)sps pps:(NSData *)pps;
 - (void)sendData:(NSData *)data isKeyframe:(BOOL)isKeyframe;
@@ -37,7 +38,8 @@ void EUSEYXVideoCompressionOutputCallback(void *outputCallbackRefCon,
     //todo
     // Check if we have got a key frame first 判断当前帧是否为关键帧
     BOOL keyframe = !CFDictionaryContainsKey((CFDictionaryRef) CFArrayGetValueAtIndex(CMSampleBufferGetSampleAttachmentsArray(sampleBuffer, true), 0), kCMSampleAttachmentKey_NotSync);
-    if (keyframe)
+    if (keyframe && !encoder.gotPPS)
+    //if (keyframe)
     {
         CMFormatDescriptionRef format = CMSampleBufferGetFormatDescription(sampleBuffer);
         size_t sparameterSetSize, sparameterSetCount;
@@ -57,6 +59,7 @@ void EUSEYXVideoCompressionOutputCallback(void *outputCallbackRefCon,
                 //图像参数集
                 NSData *ppsData = [NSData dataWithBytes:(void*)pparameterSet length:pparameterSetSize];
                 [encoder sendSps:spsData pps:ppsData];
+                encoder.gotPPS = YES;
             }
         }
     }
