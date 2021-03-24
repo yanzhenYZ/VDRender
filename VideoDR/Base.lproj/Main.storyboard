@@ -61,6 +61,34 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Video" id="mAd-8o-v4D" userLabel="VideoE">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="W4a-pC-FpR">
+                                        <rect key="frame" x="0.0" y="127.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="W4a-pC-FpR" id="KNp-s5-M4o">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encoder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Apr-0a-8DR">
+                                                    <rect key="frame" x="15" y="0.0" width="64" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Apr-0a-8DR" firstAttribute="leading" secondItem="KNp-s5-M4o" secondAttribute="leading" constant="15" id="Cte-VE-pVP"/>
+                                                <constraint firstAttribute="bottom" secondItem="Apr-0a-8DR" secondAttribute="bottom" id="Sot-lp-qfu"/>
+                                                <constraint firstItem="Apr-0a-8DR" firstAttribute="top" secondItem="KNp-s5-M4o" secondAttribute="top" id="zPE-cx-ba8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="2pT-b7-8ZK" kind="show" id="LKF-BN-Qtd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="nbY-Ns-RM9" id="lAg-85-5G2"/>
@@ -81,7 +109,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jG-Td-iEx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1272" y="184"/>
+            <point key="canvasLocation" x="1145" y="-126"/>
+        </scene>
+        <!--Encoder-->
+        <scene sceneID="VUD-wX-0Mx">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Encoder" id="2pT-b7-8ZK" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Mhx-8r-hR2"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bgf-eg-pnB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1391" y="222"/>
         </scene>
     </scenes>
     <resources>
