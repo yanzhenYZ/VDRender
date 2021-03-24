@@ -1,24 +1,24 @@
 //
-//  EncoderViewController.m
+//  EUseViewController.m
 //  VideoDR
 //
 //  Created by yanzhen on 2021/3/24.
 //
 
-#import "EncoderViewController.h"
-#import "EncoderCapture.h"
-#import "H264HwEncoder.h"
+#import "EUseViewController.h"
+#import "EUseH264HwEncoder.h"
+#import "EncoderUseCapture.h"
 #import "YXFileHandle.h"
 
-@interface EncoderViewController ()<EncoderCaptureDelegate, H264HwEncoderDelegate>
+@interface EUseViewController ()<EUseH264HwEncoderDelegate, EncoderUseCaptureDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *showPlayer;
 
-@property (nonatomic, strong) EncoderCapture *capture;
-@property (nonatomic, strong) H264HwEncoder *encoder;
+@property (nonatomic, strong) EncoderUseCapture *capture;
+@property (nonatomic, strong) EUseH264HwEncoder *encoder;
 @property (nonatomic, strong) YXFileHandle *fileHandle;
 @end
 
-@implementation EncoderViewController
+@implementation EUseViewController
 
 - (void)dealloc
 {
@@ -29,27 +29,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _encoder = [[H264HwEncoder alloc] init];
+    _encoder = [[EUseH264HwEncoder alloc] init];
     _encoder.delegate = self;
     [_encoder startEncode:480 height:640];
     
     //_fileHandle = [[YXFileHandle alloc] init];
     
-    _capture = [[EncoderCapture alloc] initWithPlayer:_showPlayer];
+    _capture = [[EncoderUseCapture alloc] initWithPlayer:_showPlayer];
     _capture.delegate = self;
     [_capture startRunning];
 }
 
-#pragma mark - EncoderCaptureDelegate
-- (void)capture:(EncoderCapture *)capture pixelBuffer:(CVPixelBufferRef)pixelBuffer {
-    //NSLog(@"%d:%d", CVPixelBufferGetWidth(pixelBuffer), CVPixelBufferGetHeight(pixelBuffer));
+#pragma mark - EncoderUseCaptureDelegate
+- (void)capture:(EncoderUseCapture *)capture pixelBuffer:(CVPixelBufferRef)pixelBuffer {
     [_encoder encodePixelBuffer:pixelBuffer];
 }
 
-#pragma mark - H264HwEncoderDelegate
-- (void)encoder:(H264HwEncoder *)encoder sendSps:(NSData *)sps pps:(NSData *)pps {
+#pragma mark - EUseH264HwEncoderDelegate
+- (void)encoder:(EUseH264HwEncoder *)encoder sendSps:(NSData *)sps pps:(NSData *)pps {
     //NSLog(@"SPS:%lu:%lu", (unsigned long)sps.length, (unsigned long)pps.length);
-    
     const char bytes[] = "\x00\x00\x00\x01";
     size_t length = (sizeof bytes) - 1;
     NSData *ByteHeader = [NSData dataWithBytes:bytes length:length];
@@ -67,7 +65,7 @@
     [_fileHandle writeData:h264Data];
 }
 
-- (void)encoder:(H264HwEncoder *)encoder sendData:(NSData *)data isKeyFrame:(BOOL)isKey {
+- (void)encoder:(EUseH264HwEncoder *)encoder sendData:(NSData *)data isKeyFrame:(BOOL)isKey {
     //NSLog(@"Data:%lu:%d", (unsigned long)data.length, isKey);
     const char bytes[] = "\x00\x00\x00\x01";
     size_t length = (sizeof bytes) - 1;

@@ -16,7 +16,7 @@
 {
     self = [super init];
     if (self) {
-        NSString *path = [NSHomeDirectory() stringByAppendingString:@"/Documents/test.h264"];
+        NSString *path = [NSHomeDirectory() stringByAppendingString:@"/Documents/EUse.h264"];
         NSFileManager *manager = NSFileManager.defaultManager;
         if ([manager fileExistsAtPath:path]) {
             [manager removeItemAtPath:path error:nil];
