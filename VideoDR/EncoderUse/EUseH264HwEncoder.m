@@ -34,6 +34,7 @@ void EUSEYXVideoCompressionOutputCallback(void *outputCallbackRefCon,
     EUseH264HwEncoder *encoder = (__bridge EUseH264HwEncoder *)outputCallbackRefCon;
     //NSLog(@"123:%@", sampleBuffer);
     
+    //todo
     // Check if we have got a key frame first 判断当前帧是否为关键帧
     BOOL keyframe = !CFDictionaryContainsKey((CFDictionaryRef) CFArrayGetValueAtIndex(CMSampleBufferGetSampleAttachmentsArray(sampleBuffer, true), 0), kCMSampleAttachmentKey_NotSync);
     if (keyframe)
@@ -109,26 +110,26 @@ void EUSEYXVideoCompressionOutputCallback(void *outputCallbackRefCon,
         NSLog(@"H264: Unable to create a H264 session code %d",status);
         return;
     }
+    int videoMaxKeyframeInterval = 10;
+    int fps = 10;
+    int bitrate = 800 * 1000;
+    // 设置关键帧间隔，即gop size
+    VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_MaxKeyFrameInterval, (__bridge CFTypeRef)@(videoMaxKeyframeInterval));
+    VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_ExpectedFrameRate, (__bridge CFTypeRef)@(fps));
+    // 设置编码码率(比特率)，如果不设置，默认将会以很低的码率编码，导致编码出来的视频很模糊
+    VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_AverageBitRate, (__bridge CFTypeRef)@(bitrate));
+    VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_DataRateLimits, (__bridge CFArrayRef)@[@(bitrate*1.5/8), @1]);
     // 设置实时编码输出，降低编码延迟
     VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_RealTime, kCFBooleanTrue);
     // h264 profile, 直播一般使用baseline，可减少由于b帧带来的延时
-    VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_ProfileLevel, kVTProfileLevel_H264_Baseline_AutoLevel);
-
-    // 设置编码码率(比特率)，如果不设置，默认将会以很低的码率编码，导致编码出来的视频很模糊
-    SInt32 bitRate = width * height * 200;
-    //2000 * 1024 -> assume 2 Mbits/s
-    VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_AverageBitRate, (__bridge CFTypeRef)(@(bitRate)));
-    VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_DataRateLimits, (__bridge CFArrayRef)@[@(bitRate * 2 / 8), @1]); // Bps
-    
-    //??
-//    VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_AverageBitRate, (__bridge CFTypeRef)(@(brate)));
-
-    
-    
-    VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_Quality, (__bridge CFTypeRef)(@(1.0)));
-    // 设置关键帧间隔，即gop size
-    VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_MaxKeyFrameInterval, (__bridge CFTypeRef)(@(10)));
-    VTCompressionSessionPrepareToEncodeFrames(_encodeSession);
+    VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_ProfileLevel, kVTProfileLevel_H264_High_AutoLevel);
+    VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_AllowFrameReordering, kCFBooleanFalse);
+    //if baseline delete this mode
+    VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_H264EntropyMode, kVTH264EntropyMode_CABAC);
+    status = VTCompressionSessionPrepareToEncodeFrames(_encodeSession);
+    if (status != noErr) {
+        NSLog(@"Encoder H264: prepare to encode frame failed");
+    }
 }
 
 - (void)stop
@@ -136,6 +137,7 @@ void EUSEYXVideoCompressionOutputCallback(void *outputCallbackRefCon,
     if (NULL != _encodeSession) {
         VTCompressionSessionCompleteFrames(_encodeSession, kCMTimeInvalid);
         
+        //部分设备会出现问题？？
         VTCompressionSessionInvalidate(_encodeSession);
         CFRelease(_encodeSession);
         _encodeSession = NULL;

@@ -33,7 +33,7 @@
     _encoder.delegate = self;
     [_encoder startEncode:480 height:640];
     
-    //_fileHandle = [[YXFileHandle alloc] init];
+    _fileHandle = [[YXFileHandle alloc] init];
     
     _capture = [[EncoderUseCapture alloc] initWithPlayer:_showPlayer];
     _capture.delegate = self;
