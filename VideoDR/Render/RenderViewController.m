@@ -6,10 +6,11 @@
 //
 
 #import "RenderViewController.h"
+#import "RenderCapture.h"
 
-@interface RenderViewController ()
+@interface RenderViewController ()<RenderCaptureDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *showPlayer;
-
+@property (nonatomic, strong) RenderCapture *capture;
 @end
 
 @implementation RenderViewController
@@ -17,9 +18,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = UIColor.redColor;
+    _capture = [[RenderCapture alloc] initWithPlayer:_showPlayer];
+    _capture.delegate = self;
+    [_capture startRunning];
 }
 
+#pragma mark - RenderCaptureDelegate
+- (void)capture:(RenderCapture *)capture pixelBuffer:(CVPixelBufferRef)pixelBuffer {
+    
+}
+
+#pragma mark - ui
 - (IBAction)exitCapture:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
