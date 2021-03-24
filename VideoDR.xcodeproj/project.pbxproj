@@ -19,6 +19,7 @@
 		9BBCC64C260B215F00D4E37B /* EncoderCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC64B260B215F00D4E37B /* EncoderCapture.m */; };
 		9BBCC651260B217600D4E37B /* EncoderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC650260B217600D4E37B /* EncoderViewController.m */; };
 		9BBCC656260B229400D4E37B /* H264HwEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC655260B229400D4E37B /* H264HwEncoder.m */; };
+		9BBCC65B260B2EE100D4E37B /* YXFileHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC65A260B2EE100D4E37B /* YXFileHandle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,8 @@
 		9BBCC650260B217600D4E37B /* EncoderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncoderViewController.m; sourceTree = "<group>"; };
 		9BBCC654260B229400D4E37B /* H264HwEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = H264HwEncoder.h; sourceTree = "<group>"; };
 		9BBCC655260B229400D4E37B /* H264HwEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = H264HwEncoder.m; sourceTree = "<group>"; };
+		9BBCC659260B2EE100D4E37B /* YXFileHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXFileHandle.h; sourceTree = "<group>"; };
+		9BBCC65A260B2EE100D4E37B /* YXFileHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXFileHandle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,7 @@
 				9BBCC60B260B18B200D4E37B /* AppDelegate.m */,
 				9BBCC649260B214D00D4E37B /* Encoder */,
 				9BBCC632260B1C8700D4E37B /* Render */,
+				9BBCC658260B2ECB00D4E37B /* Tool */,
 				9BBCC613260B18B200D4E37B /* Main.storyboard */,
 				9BBCC645260B213D00D4E37B /* Encoder.storyboard */,
 				9BBCC62E260B1C4F00D4E37B /* Render.storyboard */,
@@ -111,6 +115,15 @@
 				9BBCC655260B229400D4E37B /* H264HwEncoder.m */,
 			);
 			path = Encoder;
+			sourceTree = "<group>";
+		};
+		9BBCC658260B2ECB00D4E37B /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				9BBCC659260B2EE100D4E37B /* YXFileHandle.h */,
+				9BBCC65A260B2EE100D4E37B /* YXFileHandle.m */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +203,7 @@
 				9BBCC61D260B18B300D4E37B /* main.m in Sources */,
 				9BBCC651260B217600D4E37B /* EncoderViewController.m in Sources */,
 				9BBCC639260B1CDC00D4E37B /* RenderCapture.m in Sources */,
+				9BBCC65B260B2EE100D4E37B /* YXFileHandle.m in Sources */,
 				9BBCC635260B1CA000D4E37B /* RenderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
