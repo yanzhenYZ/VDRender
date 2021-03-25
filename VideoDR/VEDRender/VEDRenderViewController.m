@@ -13,6 +13,9 @@
 #import "VEDRDecoder.h"
 #import "YXMetalManager.h"
 
+#import "YXYMTKView.h"
+#import "YXDMTKView.h"
+
 #define MTK 1
 
 @interface VEDRenderViewController ()<VEDRCaptureDelegate, VEDRDecoderDelegate, VEDREncoderDelegate>
@@ -20,7 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *showPlayer;
 
 #if MTK
-@property (nonatomic, strong) YXSMKTView *player;
+//@property (nonatomic, strong) YXSMKTView *player;
+@property (nonatomic, strong) YXDMTKView *player;
 #else
 @property (nonatomic, strong) YXLayerPlayer *player;
 #endif
@@ -42,7 +46,8 @@
     // Do any additional setup after loading the view.
     [YXMetalManager manager];
 #if MTK
-    _player = [[YXSMKTView alloc] initWithFrame:self.showPlayer.bounds];
+//    _player = [[YXSMKTView alloc] initWithFrame:self.showPlayer.bounds];
+    _player = [[YXDMTKView alloc] initWithFrame:self.showPlayer.bounds];
     _player.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.showPlayer addSubview:_player];
 #else
@@ -67,7 +72,7 @@
 
 #pragma mark - VEDRDecoderDelegate
 -(void)decoder:(VEDRDecoder *)decoder didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer {
-    //[_player displayVideo:pixelBuffer];
+    [_player displayVideo:pixelBuffer];
 }
 
 #pragma mark - VEDREncoderDelegate
