@@ -6,11 +6,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
+@protocol VEDH264DecoderDelegate;
 @interface VEDH264Decoder : NSObject
+@property (nonatomic, assign) id<VEDH264DecoderDelegate> delegate;
 
+- (void)decodeData:(NSData *)data;
 @end
 
-NS_ASSUME_NONNULL_END
+@protocol VEDH264DecoderDelegate <NSObject>
+
+- (void)decoder:(VEDH264Decoder *)decoder didOutputSampleBuffer:(CMSampleBufferRef)sample;
+
+@end

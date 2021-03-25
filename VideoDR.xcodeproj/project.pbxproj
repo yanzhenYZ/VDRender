@@ -29,6 +29,7 @@
 		9BBCC68E260C2DBA00D4E37B /* VEDCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC68D260C2DBA00D4E37B /* VEDCapture.m */; };
 		9BBCC692260C2DC900D4E37B /* VEDH264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC691260C2DC900D4E37B /* VEDH264Encoder.m */; };
 		9BBCC696260C2DD700D4E37B /* VEDH264Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC695260C2DD700D4E37B /* VEDH264Decoder.m */; };
+		9BBCC69C260C366900D4E37B /* YXLayerPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC69B260C366900D4E37B /* YXLayerPlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,8 @@
 		9BBCC691260C2DC900D4E37B /* VEDH264Encoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDH264Encoder.m; sourceTree = "<group>"; };
 		9BBCC694260C2DD700D4E37B /* VEDH264Decoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDH264Decoder.h; sourceTree = "<group>"; };
 		9BBCC695260C2DD700D4E37B /* VEDH264Decoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDH264Decoder.m; sourceTree = "<group>"; };
+		9BBCC69A260C366900D4E37B /* YXLayerPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXLayerPlayer.h; sourceTree = "<group>"; };
+		9BBCC69B260C366900D4E37B /* YXLayerPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXLayerPlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,7 @@
 				9BBCC649260B214D00D4E37B /* Encoder */,
 				9BBCC632260B1C8700D4E37B /* Render */,
 				9BBCC658260B2ECB00D4E37B /* Tool */,
+				9BBCC698260C35C100D4E37B /* Player */,
 				9BBCC613260B18B200D4E37B /* Main.storyboard */,
 				9BBCC682260C2BD300D4E37B /* VED.storyboard */,
 				9BBCC663260B337000D4E37B /* EncoderUse.storyboard */,
@@ -181,6 +185,15 @@
 				9BBCC695260C2DD700D4E37B /* VEDH264Decoder.m */,
 			);
 			path = VED;
+			sourceTree = "<group>";
+		};
+		9BBCC698260C35C100D4E37B /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				9BBCC69A260C366900D4E37B /* YXLayerPlayer.h */,
+				9BBCC69B260C366900D4E37B /* YXLayerPlayer.m */,
+			);
+			path = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +274,7 @@
 				9BBCC64C260B215F00D4E37B /* EncoderCapture.m in Sources */,
 				9BBCC656260B229400D4E37B /* H264HwEncoder.m in Sources */,
 				9BBCC60C260B18B200D4E37B /* AppDelegate.m in Sources */,
+				9BBCC69C260C366900D4E37B /* YXLayerPlayer.m in Sources */,
 				9BBCC68E260C2DBA00D4E37B /* VEDCapture.m in Sources */,
 				9BBCC61D260B18B300D4E37B /* main.m in Sources */,
 				9BBCC66F260B33A100D4E37B /* EUseViewController.m in Sources */,
