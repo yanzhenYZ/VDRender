@@ -54,7 +54,7 @@
 
 #pragma mark - VEDRDecoderDelegate
 -(void)decoder:(VEDRDecoder *)decoder didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer {
-//    [_player displayVideo:pixelBuffer];
+    [_player displayVideo:pixelBuffer];
 }
 
 #pragma mark - VEDREncoderDelegate
