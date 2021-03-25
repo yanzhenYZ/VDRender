@@ -58,7 +58,7 @@
 
 #pragma mark - VEDUseEncoderDelegate
 - (void)encoder:(VEDUseEncoder *)encoder sendSps:(NSData *)sps pps:(NSData *)pps {
-    NSLog(@"SPS:%lu:%lu", (unsigned long)sps.length, (unsigned long)pps.length);
+    //NSLog(@"SPS:%lu:%lu", (unsigned long)sps.length, (unsigned long)pps.length);
     const char bytes[] = "\x00\x00\x00\x01";
     size_t length = (sizeof bytes) - 1;
     NSData *ByteHeader = [NSData dataWithBytes:bytes length:length];
@@ -66,25 +66,25 @@
     NSMutableData *h264Data = [[NSMutableData alloc] init];
     [h264Data appendData:ByteHeader];
     [h264Data appendData:sps];
-    //[_decoder decodeData:h264Data];
+    [_decoder decodeData:h264Data];
     
     //发pps
     [h264Data resetBytesInRange:NSMakeRange(0, [h264Data length])];
     [h264Data setLength:0];
     [h264Data appendData:ByteHeader];
     [h264Data appendData:pps];
-    //[_decoder decodeData:h264Data];
+    [_decoder decodeData:h264Data];
 }
 
 - (void)encoder:(VEDUseEncoder *)encoder sendData:(NSData *)data isKeyFrame:(BOOL)isKey {
-    NSLog(@"Data:%lu:%d", (unsigned long)data.length, isKey);
+    //NSLog(@"Data:%lu:%d", (unsigned long)data.length, isKey);
     const char bytes[] = "\x00\x00\x00\x01";
     size_t length = (sizeof bytes) - 1;
     NSData *ByteHeader = [NSData dataWithBytes:bytes length:length];
     NSMutableData *h264Data = [[NSMutableData alloc] init];
     [h264Data appendData:ByteHeader];
     [h264Data appendData:data];
-    //[_decoder decodeData:h264Data];
+    [_decoder decodeData:h264Data];
 }
 
 #pragma mark - VEDUseCaptureDelegate
