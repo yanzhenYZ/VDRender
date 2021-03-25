@@ -35,6 +35,11 @@
 		9BBCC6B3260C3E7F00D4E37B /* VEDUseEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6B2260C3E7F00D4E37B /* VEDUseEncoder.m */; };
 		9BBCC6B7260C3E8A00D4E37B /* VEDUseDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6B6260C3E8A00D4E37B /* VEDUseDecoder.m */; };
 		9BBCC6BB260C3E9D00D4E37B /* VEDUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6BA260C3E9D00D4E37B /* VEDUseViewController.m */; };
+		9BBCC6D6260C88EC00D4E37B /* VEDRender.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BBCC6D4260C88EC00D4E37B /* VEDRender.storyboard */; };
+		9BBCC6DA260C891800D4E37B /* VEDRenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6D9260C891800D4E37B /* VEDRenderViewController.m */; };
+		9BBCC6DE260C8A0000D4E37B /* VEDRCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6DD260C8A0000D4E37B /* VEDRCapture.m */; };
+		9BBCC6E2260C8A0C00D4E37B /* VEDREncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6E1260C8A0C00D4E37B /* VEDREncoder.m */; };
+		9BBCC6E6260C8A1F00D4E37B /* VEDRDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6E5260C8A1F00D4E37B /* VEDRDecoder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +92,15 @@
 		9BBCC6B6260C3E8A00D4E37B /* VEDUseDecoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDUseDecoder.m; sourceTree = "<group>"; };
 		9BBCC6B9260C3E9D00D4E37B /* VEDUseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDUseViewController.h; sourceTree = "<group>"; };
 		9BBCC6BA260C3E9D00D4E37B /* VEDUseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDUseViewController.m; sourceTree = "<group>"; };
+		9BBCC6D5260C88EC00D4E37B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/VEDRender.storyboard; sourceTree = "<group>"; };
+		9BBCC6D8260C891800D4E37B /* VEDRenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDRenderViewController.h; sourceTree = "<group>"; };
+		9BBCC6D9260C891800D4E37B /* VEDRenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDRenderViewController.m; sourceTree = "<group>"; };
+		9BBCC6DC260C8A0000D4E37B /* VEDRCapture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDRCapture.h; sourceTree = "<group>"; };
+		9BBCC6DD260C8A0000D4E37B /* VEDRCapture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDRCapture.m; sourceTree = "<group>"; };
+		9BBCC6E0260C8A0C00D4E37B /* VEDREncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDREncoder.h; sourceTree = "<group>"; };
+		9BBCC6E1260C8A0C00D4E37B /* VEDREncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDREncoder.m; sourceTree = "<group>"; };
+		9BBCC6E4260C8A1F00D4E37B /* VEDRDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDRDecoder.h; sourceTree = "<group>"; };
+		9BBCC6E5260C8A1F00D4E37B /* VEDRDecoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDRDecoder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +135,7 @@
 			children = (
 				9BBCC60A260B18B200D4E37B /* AppDelegate.h */,
 				9BBCC60B260B18B200D4E37B /* AppDelegate.m */,
+				9BBCC6CD260C87FE00D4E37B /* VEDRender */,
 				9BBCC6AB260C3E1400D4E37B /* VEDUse */,
 				9BBCC686260C2D9700D4E37B /* VED */,
 				9BBCC667260B338300D4E37B /* EncoderUse */,
@@ -129,6 +144,7 @@
 				9BBCC658260B2ECB00D4E37B /* Tool */,
 				9BBCC698260C35C100D4E37B /* Player */,
 				9BBCC613260B18B200D4E37B /* Main.storyboard */,
+				9BBCC6D4260C88EC00D4E37B /* VEDRender.storyboard */,
 				9BBCC6A5260C3C7C00D4E37B /* VEDUse.storyboard */,
 				9BBCC682260C2BD300D4E37B /* VED.storyboard */,
 				9BBCC663260B337000D4E37B /* EncoderUse.storyboard */,
@@ -227,6 +243,21 @@
 			path = VEDUse;
 			sourceTree = "<group>";
 		};
+		9BBCC6CD260C87FE00D4E37B /* VEDRender */ = {
+			isa = PBXGroup;
+			children = (
+				9BBCC6D8260C891800D4E37B /* VEDRenderViewController.h */,
+				9BBCC6D9260C891800D4E37B /* VEDRenderViewController.m */,
+				9BBCC6DC260C8A0000D4E37B /* VEDRCapture.h */,
+				9BBCC6DD260C8A0000D4E37B /* VEDRCapture.m */,
+				9BBCC6E0260C8A0C00D4E37B /* VEDREncoder.h */,
+				9BBCC6E1260C8A0C00D4E37B /* VEDREncoder.m */,
+				9BBCC6E4260C8A1F00D4E37B /* VEDRDecoder.h */,
+				9BBCC6E5260C8A1F00D4E37B /* VEDRDecoder.m */,
+			);
+			path = VEDRender;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -283,6 +314,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BBCC6D6260C88EC00D4E37B /* VEDRender.storyboard in Resources */,
 				9BBCC630260B1C4F00D4E37B /* Render.storyboard in Resources */,
 				9BBCC61A260B18B300D4E37B /* LaunchScreen.storyboard in Resources */,
 				9BBCC617260B18B300D4E37B /* Assets.xcassets in Resources */,
@@ -306,13 +338,17 @@
 				9BBCC689260C2DA500D4E37B /* VEDViewController.m in Sources */,
 				9BBCC64C260B215F00D4E37B /* EncoderCapture.m in Sources */,
 				9BBCC656260B229400D4E37B /* H264HwEncoder.m in Sources */,
+				9BBCC6DA260C891800D4E37B /* VEDRenderViewController.m in Sources */,
 				9BBCC60C260B18B200D4E37B /* AppDelegate.m in Sources */,
+				9BBCC6E6260C8A1F00D4E37B /* VEDRDecoder.m in Sources */,
 				9BBCC6AE260C3E2900D4E37B /* VEDUseCapture.m in Sources */,
+				9BBCC6E2260C8A0C00D4E37B /* VEDREncoder.m in Sources */,
 				9BBCC6B3260C3E7F00D4E37B /* VEDUseEncoder.m in Sources */,
 				9BBCC69C260C366900D4E37B /* YXLayerPlayer.m in Sources */,
 				9BBCC68E260C2DBA00D4E37B /* VEDCapture.m in Sources */,
 				9BBCC61D260B18B300D4E37B /* main.m in Sources */,
 				9BBCC66F260B33A100D4E37B /* EUseViewController.m in Sources */,
+				9BBCC6DE260C8A0000D4E37B /* VEDRCapture.m in Sources */,
 				9BBCC6BB260C3E9D00D4E37B /* VEDUseViewController.m in Sources */,
 				9BBCC66A260B339600D4E37B /* EncoderUseCapture.m in Sources */,
 				9BBCC692260C2DC900D4E37B /* VEDH264Encoder.m in Sources */,
@@ -381,6 +417,14 @@
 				9BBCC6A6260C3C7C00D4E37B /* Base */,
 			);
 			name = VEDUse.storyboard;
+			sourceTree = "<group>";
+		};
+		9BBCC6D4260C88EC00D4E37B /* VEDRender.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BBCC6D5260C88EC00D4E37B /* Base */,
+			);
+			name = VEDRender.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
