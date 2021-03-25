@@ -14,6 +14,8 @@
 @property (nonatomic, strong, readonly) id<MTLDevice> device;
 
 - (id<MTLCommandBuffer>)commandBuffer;
++ (MTLRenderPassDescriptor *)newRenderPassDescriptor:(id<MTLTexture>)texture;
+- (id<MTLRenderPipelineState>)newRenderPipeline:(NSString *)vertex fragment:(NSString *)fragment;
 @end
 
 

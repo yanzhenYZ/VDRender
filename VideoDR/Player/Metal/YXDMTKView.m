@@ -12,9 +12,19 @@
 @interface YXDMTKView ()<MTKViewDelegate>
 @property (nonatomic, strong) id<MTLTexture> texture;
 @property (nonatomic, assign) CVMetalTextureCacheRef textureCache;
+@property (nonatomic, strong) id<MTLRenderPipelineState> pipeline;
 @end
 
 @implementation YXDMTKView
+
+- (void)dealloc
+{
+    if (_textureCache) {
+        CVMetalTextureCacheFlush(_textureCache, 0);
+        CFRelease(_textureCache);
+        _textureCache = nil;
+    }
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -29,6 +39,7 @@
         self.enableSetNeedsDisplay = NO;
         self.device = YXMetalManager.manager.device;
         CVMetalTextureCacheCreate(NULL, NULL, self.device, NULL, &_textureCache);
+        _pipeline = [YXMetalManager.manager newRenderPipeline:@"YZInputVertex" fragment:@"YZFragment"];
     }
     return self;
 }

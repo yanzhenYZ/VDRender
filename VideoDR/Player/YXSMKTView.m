@@ -16,6 +16,15 @@
 @end
 
 @implementation YXSMKTView
+- (void)dealloc
+{
+    if (_textureCache) {
+        CVMetalTextureCacheFlush(_textureCache, 0);
+        CFRelease(_textureCache);
+        _textureCache = nil;
+    }
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
