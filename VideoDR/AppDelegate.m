@@ -7,9 +7,16 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+/**
+ encoder
+  1. 使用需要加锁
+  2. 进入后台需要重启编码器
 
-@end
+ decoder
+  1. 使用需要加锁
+  2. 进入后台需要重启编码器
+ 
+ */
 
 @implementation AppDelegate
 
