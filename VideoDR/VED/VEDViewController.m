@@ -16,13 +16,20 @@
 @property (weak, nonatomic) IBOutlet UIImageView *showPlayer;
 
 @property (nonatomic, strong) YXLayerPlayer *player;
-
+@property (nonatomic, strong) NSLock *lock;
 @property (nonatomic, strong) VEDH264Encoder *encoder;
 @property (nonatomic, strong) VEDH264Decoder *decoder;
 @property (nonatomic, strong) VEDCapture *capture;
 @end
 
 @implementation VEDViewController
+
+- (void)dealloc
+{
+    [_lock lock];
+    _encoder = nil;
+    [_lock unlock];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,7 +39,7 @@
     [self.showPlayer addSubview:player];
     _player = player;
     
-    
+    _lock = [[NSLock alloc] init];
     _encoder = [[VEDH264Encoder alloc] init];
     _encoder.delegate = self;
     [_encoder startEncode:480 height:640];
@@ -52,7 +59,9 @@
 
 #pragma mark - VEDCaptureDelegate
 - (void)capture:(VEDCapture *)capture pixelBuffer:(CVPixelBufferRef)pixelBuffer {
+    [_lock lock];
     [_encoder encodePixelBuffer:pixelBuffer];
+    [_lock unlock];
 }
 
 #pragma mark - VEDH264EncoderDelegate

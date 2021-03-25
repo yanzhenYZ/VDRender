@@ -11,7 +11,7 @@
 #import "VEDUseCapture.h"
 #import "YXLayerPlayer.h"
 
-@interface VEDUseViewController ()<VEDUseCaptureDelegate, VEDUseEncoderDelegate>
+@interface VEDUseViewController ()<VEDUseCaptureDelegate, VEDUseEncoderDelegate, VEDUseDecoderDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *mainPlayer;
 @property (weak, nonatomic) IBOutlet UIImageView *showPlayer;
 
@@ -37,13 +37,18 @@
     _encoder = [[VEDUseEncoder alloc] init];
     _encoder.delegate = self;
     [_encoder startEncode:480 height:640];
-//
-//    _decoder = [[VEDH264Decoder alloc] init];
-//    _decoder.delegate = self;
+
+    _decoder = [[VEDUseDecoder alloc] init];
+    _decoder.delegate = self;
     
     _capture = [[VEDUseCapture alloc] initWithPlayer:_mainPlayer];
     _capture.delegate = self;
     [_capture startRunning];
+}
+
+#pragma mark - VEDUseDecoderDelegate
+- (void)decoder:(VEDUseDecoder *)decoder didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer {
+    [_player displayVideo:pixelBuffer];
 }
 
 #pragma mark - VEDUseEncoderDelegate

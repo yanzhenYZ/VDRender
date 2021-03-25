@@ -6,11 +6,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
+@protocol VEDUseDecoderDelegate;
 @interface VEDUseDecoder : NSObject
+@property (nonatomic, assign) id<VEDUseDecoderDelegate> delegate;
 
+- (void)decodeData:(NSData *)data;
 @end
 
-NS_ASSUME_NONNULL_END
+@protocol VEDUseDecoderDelegate <NSObject>
+
+- (void)decoder:(VEDUseDecoder *)decoder didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer;
+
+@end

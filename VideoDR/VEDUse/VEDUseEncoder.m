@@ -100,18 +100,20 @@ void VEDUseVideoCompressionOutputCallback(void *outputCallbackRefCon,
     VTEncodeInfoFlags flags;
     CMTime presentationTimeStamp = CMTimeMake(++_frames, 1000);
     OSStatus status = VTCompressionSessionEncodeFrame(_encodeSession, pixelBuffer, presentationTimeStamp, kCMTimeInvalid, NULL, NULL, &flags);
+    //kVTVideoDecoderBadDataErr
     if (status != noErr) {
         NSLog(@"Encoder Error:%d", status);
     }
 }
 
 - (void)startEncode:(int)width height:(int)height {
-    OSStatus status = VTCompressionSessionCreate(NULL, width, height, kCMVideoCodecType_H264, NULL, NULL, NULL, VEDUseVideoCompressionOutputCallback, (__bridge void *)(self), &_encodeSession);
-    
-    if (noErr != status) {
-        NSLog(@"H264: Unable to create a H264 session code %d",status);
-        return;
+    int retryTimes = 0;
+    while (VTCompressionSessionCreate(NULL, width, height, kCMVideoCodecType_H264, NULL, NULL, NULL, VEDUseVideoCompressionOutputCallback, (__bridge void *)(self), &_encodeSession) != noErr && retryTimes < 5) {
+        NSLog(@"H264: Unable to create a H264 session code");
+        retryTimes ++;
+        sleep(1);
     }
+    
     int videoMaxKeyframeInterval = 10;
     int fps = 10;
     int bitrate = 800 * 1000;
@@ -128,7 +130,7 @@ void VEDUseVideoCompressionOutputCallback(void *outputCallbackRefCon,
     VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_AllowFrameReordering, kCFBooleanFalse);
     //if baseline delete this mode
     VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_H264EntropyMode, kVTH264EntropyMode_CABAC);
-    status = VTCompressionSessionPrepareToEncodeFrames(_encodeSession);
+    OSStatus status = VTCompressionSessionPrepareToEncodeFrames(_encodeSession);
     if (status != noErr) {
         NSLog(@"Encoder H264: prepare to encode frame failed");
     }
@@ -140,7 +142,7 @@ void VEDUseVideoCompressionOutputCallback(void *outputCallbackRefCon,
         VTCompressionSessionCompleteFrames(_encodeSession, kCMTimeInvalid);
         
         //部分设备会出现问题？？
-        VTCompressionSessionInvalidate(_encodeSession);
+        //VTCompressionSessionInvalidate(_encodeSession);
         CFRelease(_encodeSession);
         _encodeSession = NULL;
     }

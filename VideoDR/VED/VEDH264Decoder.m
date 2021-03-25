@@ -14,8 +14,8 @@
 
 @implementation VEDH264Decoder {
     CMVideoFormatDescriptionRef _formatDescription;
-    uint8_t* _pps;
-    uint8_t* _sps;
+    uint8_t *_pps;
+    uint8_t *_sps;
     size_t _spsSize;
     size_t _ppsSize;
 }
@@ -168,5 +168,23 @@
     _sps = nil;
     _spsSize = 0;
     _ppsSize = 0;
+}
+
+- (void)dealloc
+{
+    if (_formatDescription) {
+        CFRelease(_formatDescription);
+        _formatDescription = NULL;
+    }
+    
+    if (_sps) {
+        free(_sps);
+        _sps = nil;
+    }
+    
+    if (_pps) {
+        free(_pps);
+        _pps = nil;
+    }
 }
 @end
