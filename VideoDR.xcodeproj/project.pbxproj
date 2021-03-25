@@ -101,6 +101,7 @@
 		9BBCC6E1260C8A0C00D4E37B /* VEDREncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDREncoder.m; sourceTree = "<group>"; };
 		9BBCC6E4260C8A1F00D4E37B /* VEDRDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDRDecoder.h; sourceTree = "<group>"; };
 		9BBCC6E5260C8A1F00D4E37B /* VEDRDecoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDRDecoder.m; sourceTree = "<group>"; };
+		9BBCC6E8260C8E1A00D4E37B /* VEDRNote.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDRNote.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +255,7 @@
 				9BBCC6E1260C8A0C00D4E37B /* VEDREncoder.m */,
 				9BBCC6E4260C8A1F00D4E37B /* VEDRDecoder.h */,
 				9BBCC6E5260C8A1F00D4E37B /* VEDRDecoder.m */,
+				9BBCC6E8260C8E1A00D4E37B /* VEDRNote.h */,
 			);
 			path = VEDRender;
 			sourceTree = "<group>";
