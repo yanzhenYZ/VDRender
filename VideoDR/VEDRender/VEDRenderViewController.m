@@ -6,17 +6,24 @@
 //
 
 #import "VEDRenderViewController.h"
+#import "YXSMKTView.h"
 #import "YXLayerPlayer.h"
 #import "VEDRCapture.h"
 #import "VEDREncoder.h"
 #import "VEDRDecoder.h"
 
 
+#define MTK 1
+
 @interface VEDRenderViewController ()<VEDRCaptureDelegate, VEDRDecoderDelegate, VEDREncoderDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *mainPlayer;
 @property (weak, nonatomic) IBOutlet UIImageView *showPlayer;
 
+#if 1
+@property (nonatomic, strong) YXSMKTView *player;
+#else
 @property (nonatomic, strong) YXLayerPlayer *player;
+#endif
 
 @property (nonatomic, strong) VEDREncoder *encoder;
 @property (nonatomic, strong) VEDRDecoder *decoder;
@@ -34,10 +41,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+#if 1
+    _player = [[YXSMKTView alloc] initWithFrame:self.showPlayer.bounds];
+    _player.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.showPlayer addSubview:_player];
+#else
     YXLayerPlayer *player = [[YXLayerPlayer alloc] initWithFrame:self.showPlayer.bounds];
     player.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.showPlayer addSubview:player];
     _player = player;
+#endif
     
     
     _encoder = [[VEDREncoder alloc] init];
