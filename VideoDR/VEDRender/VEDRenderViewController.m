@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *mainPlayer;
 @property (weak, nonatomic) IBOutlet UIImageView *showPlayer;
 
-#if 1
+#if MTK
 @property (nonatomic, strong) YXSMKTView *player;
 #else
 @property (nonatomic, strong) YXLayerPlayer *player;
@@ -41,7 +41,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-#if 1
+#if MTK
     _player = [[YXSMKTView alloc] initWithFrame:self.showPlayer.bounds];
     _player.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.showPlayer addSubview:_player];
@@ -67,7 +67,7 @@
 
 #pragma mark - VEDRDecoderDelegate
 -(void)decoder:(VEDRDecoder *)decoder didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer {
-    [_player displayVideo:pixelBuffer];
+    //[_player displayVideo:pixelBuffer];
 }
 
 #pragma mark - VEDREncoderDelegate
