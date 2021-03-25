@@ -10,6 +10,8 @@
 
 @interface VEDUseDecoder ()
 @property (nonatomic) BOOL isKeyFrame;
+
+- (void)outoutPixelBuffer:(CVImageBufferRef)imageBuffer;
 @end
 
 static void YXDidDecompressH264(void * CM_NULLABLE decompressionOutputRefCon,
@@ -25,8 +27,7 @@ static void YXDidDecompressH264(void * CM_NULLABLE decompressionOutputRefCon,
         NSLog(@"YXDecoder imageBuffer is nil, status is [%d] !!!!!", (int)status);
         return;
     }
-    NSLog(@"____%@", imageBuffer);
-    //[decoder didDecompressPixelBuffer:imageBuffer];
+    [decoder outoutPixelBuffer:imageBuffer];
 }
 
 @implementation VEDUseDecoder {
@@ -87,13 +88,13 @@ static void YXDidDecompressH264(void * CM_NULLABLE decompressionOutputRefCon,
     {
         case 0x07://SPS
         {
-            if (_sps == NULL || _spsSize != nalSize - 4
+            if (_sps == NULL || _spsSize != nalSize
                 || memcmp(_sps, frame+4, _spsSize) != 0)
             {
                 if (_sps != NULL) {
                     free(_sps);
                 }
-                _spsSize = nalSize - 4;
+                _spsSize = nalSize;
                 if (_spsSize <= 0) {
                     return;
                 }
@@ -105,13 +106,13 @@ static void YXDidDecompressH264(void * CM_NULLABLE decompressionOutputRefCon,
             break;
         case 0x08://PPS
         {
-            if (_pps == NULL || _ppsSize != nalSize - 4
+            if (_pps == NULL || _ppsSize != nalSize
                 || memcmp(_pps, frame+4, _ppsSize) != 0)
             {
                 if (_pps != NULL) {
                     free(_pps);
                 }
-                _ppsSize = nalSize - 4;
+                _ppsSize = nalSize;
                 if (_ppsSize <= 0) {
                     return;
                 }
@@ -124,11 +125,18 @@ static void YXDidDecompressH264(void * CM_NULLABLE decompressionOutputRefCon,
         default://I//B/P frame
             break;
     }
-    [self initH264Decoder:reset];
-    [self decompressWithNalUint:data timestamp:1000];
+    if ([self initH264Decoder:reset]) {
+        [self decompressWithNalUint:data timestamp:1000];
+    }
 }
 
 #pragma mark - helper
+- (void)outoutPixelBuffer:(CVImageBufferRef)imageBuffer {
+    if ([_delegate respondsToSelector:@selector(decoder:didOutputPixelBuffer:)]) {
+        [_delegate decoder:self didOutputPixelBuffer:imageBuffer];
+    }
+}
+
 -(BOOL)initH264Decoder:(BOOL)reset
 {
     if (reset)
@@ -191,7 +199,7 @@ static void YXDidDecompressH264(void * CM_NULLABLE decompressionOutputRefCon,
     
     //1.Fetch video data and generate CMBlockBuffer
     OSStatus status = CMBlockBufferCreateWithMemoryBlock(kCFAllocatorDefault,
-                                                         data.bytes,
+                                                         (void *)data.bytes,
                                                          data.length,
                                                          kCFAllocatorNull,
                                                          NULL,
@@ -223,9 +231,9 @@ static void YXDidDecompressH264(void * CM_NULLABLE decompressionOutputRefCon,
                                                                       frameFlags,
                                                                       NULL,
                                                                       &infoFlags);
-            
+            //kVTVideoDecoderBadDataErr
             if(decodeStatus != noErr){
-                NSLog(@"3TDecoder VTDecompressionSessionDecodeFrame return error: %d", (int)decodeStatus);
+                NSLog(@"YXDecoder VTDecompressionSessionDecodeFrame error: %d", (int)decodeStatus);
             }
             
             CFRelease(sampleBufferRef);
