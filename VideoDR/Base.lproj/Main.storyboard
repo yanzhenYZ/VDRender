@@ -61,7 +61,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Video" id="mAd-8o-v4D" userLabel="VideoE">
+                            <tableViewSection headerTitle="VideoE" id="mAd-8o-v4D" userLabel="VideoE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="W4a-pC-FpR">
                                         <rect key="frame" x="0.0" y="127.5" width="414" height="43.5"/>
@@ -113,6 +113,34 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="VideoED" id="jNO-F5-nkT">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="Uuw-8f-lEj">
+                                        <rect key="frame" x="0.0" y="270.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uuw-8f-lEj" id="MCH-KI-eqN">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTM-dv-CMH">
+                                                    <rect key="frame" x="15" y="0.0" width="33" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cTM-dv-CMH" firstAttribute="top" secondItem="MCH-KI-eqN" secondAttribute="top" id="1rr-Fg-qMD"/>
+                                                <constraint firstItem="cTM-dv-CMH" firstAttribute="leading" secondItem="MCH-KI-eqN" secondAttribute="leading" constant="15" id="5rh-sy-0h2"/>
+                                                <constraint firstAttribute="bottom" secondItem="cTM-dv-CMH" secondAttribute="bottom" id="rhX-ZU-vSF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="BNA-V6-4RE" kind="show" id="vbe-YL-AaI"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="nbY-Ns-RM9" id="lAg-85-5G2"/>
@@ -123,7 +151,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="II3-H0-YZv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="362" y="202"/>
+            <point key="canvasLocation" x="481" y="194"/>
         </scene>
         <!--Render-->
         <scene sceneID="2q0-Um-9P3">
@@ -154,6 +182,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vOb-z1-fX7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1314" y="17"/>
+        </scene>
+        <!--VED-->
+        <scene sceneID="nkb-cN-DnC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="VED" id="BNA-V6-4RE" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="sGt-Ai-9Ba"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KCv-E2-pUw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1738" y="182"/>
         </scene>
     </scenes>
     <resources>
