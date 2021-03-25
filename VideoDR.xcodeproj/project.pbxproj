@@ -41,6 +41,13 @@
 		9BBCC6E2260C8A0C00D4E37B /* VEDREncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6E1260C8A0C00D4E37B /* VEDREncoder.m */; };
 		9BBCC6E6260C8A1F00D4E37B /* VEDRDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6E5260C8A1F00D4E37B /* VEDRDecoder.m */; };
 		9BBCC6EF260C9ABD00D4E37B /* YXSMKTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6EE260C9ABD00D4E37B /* YXSMKTView.m */; };
+		9BBCC6F7260CB42B00D4E37B /* YXMetalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6F6260CB42B00D4E37B /* YXMetalManager.m */; };
+		9BBCC6FC260CB56400D4E37B /* YXDefault.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6FB260CB56400D4E37B /* YXDefault.metal */; };
+		9BBCC6FF260CB57300D4E37B /* YXNV21.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6FE260CB57300D4E37B /* YXNV21.metal */; };
+		9BBCC702260CB58A00D4E37B /* YXY420.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC701260CB58A00D4E37B /* YXY420.metal */; };
+		9BBCC706260CB5D800D4E37B /* YXDMTKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC705260CB5D800D4E37B /* YXDMTKView.m */; };
+		9BBCC70A260CB5EE00D4E37B /* YXNMTKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC709260CB5EE00D4E37B /* YXNMTKView.m */; };
+		9BBCC70E260CB5F900D4E37B /* YXYMTKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC70D260CB5F900D4E37B /* YXYMTKView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +112,17 @@
 		9BBCC6E8260C8E1A00D4E37B /* VEDRNote.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDRNote.h; sourceTree = "<group>"; };
 		9BBCC6ED260C9ABD00D4E37B /* YXSMKTView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXSMKTView.h; sourceTree = "<group>"; };
 		9BBCC6EE260C9ABD00D4E37B /* YXSMKTView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXSMKTView.m; sourceTree = "<group>"; };
+		9BBCC6F5260CB42B00D4E37B /* YXMetalManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXMetalManager.h; sourceTree = "<group>"; };
+		9BBCC6F6260CB42B00D4E37B /* YXMetalManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXMetalManager.m; sourceTree = "<group>"; };
+		9BBCC6FB260CB56400D4E37B /* YXDefault.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = YXDefault.metal; sourceTree = "<group>"; };
+		9BBCC6FE260CB57300D4E37B /* YXNV21.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = YXNV21.metal; sourceTree = "<group>"; };
+		9BBCC701260CB58A00D4E37B /* YXY420.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = YXY420.metal; sourceTree = "<group>"; };
+		9BBCC704260CB5D800D4E37B /* YXDMTKView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXDMTKView.h; sourceTree = "<group>"; };
+		9BBCC705260CB5D800D4E37B /* YXDMTKView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXDMTKView.m; sourceTree = "<group>"; };
+		9BBCC708260CB5EE00D4E37B /* YXNMTKView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXNMTKView.h; sourceTree = "<group>"; };
+		9BBCC709260CB5EE00D4E37B /* YXNMTKView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXNMTKView.m; sourceTree = "<group>"; };
+		9BBCC70C260CB5F900D4E37B /* YXYMTKView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXYMTKView.h; sourceTree = "<group>"; };
+		9BBCC70D260CB5F900D4E37B /* YXYMTKView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXYMTKView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +244,7 @@
 		9BBCC698260C35C100D4E37B /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				9BBCC6F4260CB39600D4E37B /* Metal */,
 				9BBCC69A260C366900D4E37B /* YXLayerPlayer.h */,
 				9BBCC69B260C366900D4E37B /* YXLayerPlayer.m */,
 				9BBCC6ED260C9ABD00D4E37B /* YXSMKTView.h */,
@@ -263,6 +282,24 @@
 				9BBCC6E8260C8E1A00D4E37B /* VEDRNote.h */,
 			);
 			path = VEDRender;
+			sourceTree = "<group>";
+		};
+		9BBCC6F4260CB39600D4E37B /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				9BBCC6F5260CB42B00D4E37B /* YXMetalManager.h */,
+				9BBCC6F6260CB42B00D4E37B /* YXMetalManager.m */,
+				9BBCC6FB260CB56400D4E37B /* YXDefault.metal */,
+				9BBCC6FE260CB57300D4E37B /* YXNV21.metal */,
+				9BBCC701260CB58A00D4E37B /* YXY420.metal */,
+				9BBCC704260CB5D800D4E37B /* YXDMTKView.h */,
+				9BBCC705260CB5D800D4E37B /* YXDMTKView.m */,
+				9BBCC708260CB5EE00D4E37B /* YXNMTKView.h */,
+				9BBCC709260CB5EE00D4E37B /* YXNMTKView.m */,
+				9BBCC70C260CB5F900D4E37B /* YXYMTKView.h */,
+				9BBCC70D260CB5F900D4E37B /* YXYMTKView.m */,
+			);
+			path = Metal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,15 +378,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BBCC696260C2DD700D4E37B /* VEDH264Decoder.m in Sources */,
+				9BBCC6FC260CB56400D4E37B /* YXDefault.metal in Sources */,
+				9BBCC70A260CB5EE00D4E37B /* YXNMTKView.m in Sources */,
 				9BBCC6B7260C3E8A00D4E37B /* VEDUseDecoder.m in Sources */,
 				9BBCC689260C2DA500D4E37B /* VEDViewController.m in Sources */,
 				9BBCC64C260B215F00D4E37B /* EncoderCapture.m in Sources */,
+				9BBCC706260CB5D800D4E37B /* YXDMTKView.m in Sources */,
 				9BBCC656260B229400D4E37B /* H264HwEncoder.m in Sources */,
 				9BBCC6DA260C891800D4E37B /* VEDRenderViewController.m in Sources */,
+				9BBCC6F7260CB42B00D4E37B /* YXMetalManager.m in Sources */,
 				9BBCC60C260B18B200D4E37B /* AppDelegate.m in Sources */,
+				9BBCC6FF260CB57300D4E37B /* YXNV21.metal in Sources */,
 				9BBCC6E6260C8A1F00D4E37B /* VEDRDecoder.m in Sources */,
 				9BBCC6AE260C3E2900D4E37B /* VEDUseCapture.m in Sources */,
 				9BBCC6E2260C8A0C00D4E37B /* VEDREncoder.m in Sources */,
+				9BBCC702260CB58A00D4E37B /* YXY420.metal in Sources */,
 				9BBCC6B3260C3E7F00D4E37B /* VEDUseEncoder.m in Sources */,
 				9BBCC69C260C366900D4E37B /* YXLayerPlayer.m in Sources */,
 				9BBCC68E260C2DBA00D4E37B /* VEDCapture.m in Sources */,
@@ -358,6 +401,7 @@
 				9BBCC6DE260C8A0000D4E37B /* VEDRCapture.m in Sources */,
 				9BBCC6EF260C9ABD00D4E37B /* YXSMKTView.m in Sources */,
 				9BBCC6BB260C3E9D00D4E37B /* VEDUseViewController.m in Sources */,
+				9BBCC70E260CB5F900D4E37B /* YXYMTKView.m in Sources */,
 				9BBCC66A260B339600D4E37B /* EncoderUseCapture.m in Sources */,
 				9BBCC692260C2DC900D4E37B /* VEDH264Encoder.m in Sources */,
 				9BBCC651260B217600D4E37B /* EncoderViewController.m in Sources */,

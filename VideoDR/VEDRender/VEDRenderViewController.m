@@ -11,7 +11,7 @@
 #import "VEDRCapture.h"
 #import "VEDREncoder.h"
 #import "VEDRDecoder.h"
-
+#import "YXMetalManager.h"
 
 #define MTK 1
 
@@ -40,7 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [YXMetalManager manager];
 #if MTK
     _player = [[YXSMKTView alloc] initWithFrame:self.showPlayer.bounds];
     _player.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
