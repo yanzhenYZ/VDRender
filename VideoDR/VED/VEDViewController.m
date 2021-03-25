@@ -27,7 +27,7 @@
 - (void)dealloc
 {
     [_lock lock];
-    _encoder = nil;
+    [_encoder stop];
     [_lock unlock];
 }
 

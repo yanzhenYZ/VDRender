@@ -24,6 +24,11 @@
 
 @implementation VEDUseViewController
 
+- (void)dealloc
+{
+    [_encoder stop];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

@@ -22,6 +22,7 @@
 
 - (void)dealloc
 {
+    [_encoder stop];
     [_fileHandle stop];
 }
 

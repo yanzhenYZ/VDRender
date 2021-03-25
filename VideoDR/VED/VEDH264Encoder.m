@@ -146,6 +146,11 @@ void VEDVideoCompressionOutputCallback(void *outputCallbackRefCon,
     }
 }
 
+- (void)dealloc
+{
+    [self stop];
+}
+
 #pragma mark - helper
 - (void)sendSps:(NSData *)sps pps:(NSData *)pps {
     if ([_delegate respondsToSelector:@selector(encoder:sendSps:pps:)]) {
