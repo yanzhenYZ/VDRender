@@ -86,6 +86,9 @@ static void YXDidDecompressH264(void * CM_NULLABLE decompressionOutputRefCon,
     BOOL reset = NO;
     switch (nalu_type)
     {
+        case 0x06://sei not decoder
+            return;
+            break;
         case 0x07://SPS
         {
             if (_sps == NULL || _spsSize != nalSize

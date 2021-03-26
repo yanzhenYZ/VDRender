@@ -82,12 +82,16 @@ static void VEDRDidDecompressH264(void * CM_NULLABLE decompressionOutputRefCon,
     frame[1] = pNalSize[2];
     frame[2] = pNalSize[1];
     frame[3] = pNalSize[0];
-    
     BOOL reset = NO;
+    BOOL sps = NO;
     switch (nalu_type)
     {
+        case 0x06://sei not decoder
+            return;
+            break;
         case 0x07://SPS
         {
+            sps = YES;
             if (_sps == NULL || _spsSize != nalSize
                 || memcmp(_sps, frame+4, _spsSize) != 0)
             {
@@ -106,6 +110,7 @@ static void VEDRDidDecompressH264(void * CM_NULLABLE decompressionOutputRefCon,
             break;
         case 0x08://PPS
         {
+            sps = YES;
             if (_pps == NULL || _ppsSize != nalSize
                 || memcmp(_pps, frame+4, _ppsSize) != 0)
             {
@@ -122,11 +127,13 @@ static void VEDRDidDecompressH264(void * CM_NULLABLE decompressionOutputRefCon,
             }
         }
             break;
-        default://I//B/P frame
+            //0x01  //B/P
+            //0x05 I frame
+        default:
             break;
     }
-    if ([self initH264Decoder:reset]) {
-        [self decompressWithNalUint:data timestamp:1000];
+    if ([self initH264Decoder:reset] && !sps) {
+        [self decompressWithNalUint:data];
     }
 }
 
@@ -193,7 +200,7 @@ static void VEDRDidDecompressH264(void * CM_NULLABLE decompressionOutputRefCon,
     return YES;
 }
 
--(void)decompressWithNalUint:(NSData *)data timestamp:(long long)timestamp
+-(void)decompressWithNalUint:(NSData *)data
 {
     CMBlockBufferRef blockBufferRef = NULL;
     
