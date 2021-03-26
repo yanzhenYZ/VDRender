@@ -32,18 +32,18 @@
  
  不渲染：初始化对象YXLayerPlayer
     解码
-    kCVPixelFormatType_32BGRA                      4% 35.2MB YXSMKTView=35.7MB
+    kCVPixelFormatType_32BGRA                      4% 35.2MB YXSMKTView=35.8MB
     kCVPixelFormatType_420YpCbCr8BiPlanarFullRange 4% 35MB
     kCVPixelFormatType_420YpCbCr8Planar            4% 35MB
  
   渲染AVSampleBufferDisplayLayer
     解码
-    kCVPixelFormatType_32BGRA                      4% 35.3MB
-    kCVPixelFormatType_420YpCbCr8BiPlanarFullRange 4% 35.2MB
-    kCVPixelFormatType_420YpCbCr8Planar            4% 35.1MB
+    kCVPixelFormatType_32BGRA                      5% 35.2MB
+    kCVPixelFormatType_420YpCbCr8BiPlanarFullRange 5% 35.2MB
+    kCVPixelFormatType_420YpCbCr8Planar            5% 35.2MB
  
   渲染YXSMKTView
     解码
-    kCVPixelFormatType_32BGRA                      5% 40.1MB
+    kCVPixelFormatType_32BGRA                      5% 47.4MB
  
  */
