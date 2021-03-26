@@ -61,7 +61,7 @@
   
     解码
     kCVPixelFormatType_32BGRA                      渲染YXDMTKView 6% 52.5MB
+    kCVPixelFormatType_420YpCbCr8BiPlanarFullRange 渲染YXDMTKView 6% 52MB
  
-    kCVPixelFormatType_420YpCbCr8BiPlanarFullRange 渲染YXDMTKView 6% 52.4MB
- 
+    kCVPixelFormatType_420YpCbCr8Planar            渲染YXYMTKView 6% 51.8MB
  */
