@@ -84,10 +84,15 @@ static void VEDRDidDecompressH264(void * CM_NULLABLE decompressionOutputRefCon,
     frame[3] = pNalSize[0];
     
     BOOL reset = NO;
+    BOOL spsOrPps = NO;
     switch (nalu_type)
     {
+        case 0x06://SPS
+            return;
+            break;
         case 0x07://SPS
         {
+            spsOrPps = YES;
             if (_sps == NULL || _spsSize != nalSize
                 || memcmp(_sps, frame+4, _spsSize) != 0)
             {
@@ -106,6 +111,7 @@ static void VEDRDidDecompressH264(void * CM_NULLABLE decompressionOutputRefCon,
             break;
         case 0x08://PPS
         {
+            spsOrPps = YES;
             if (_pps == NULL || _ppsSize != nalSize
                 || memcmp(_pps, frame+4, _ppsSize) != 0)
             {
@@ -125,7 +131,7 @@ static void VEDRDidDecompressH264(void * CM_NULLABLE decompressionOutputRefCon,
         default://I//B/P frame
             break;
     }
-    if ([self initH264Decoder:reset]) {
+    if ([self initH264Decoder:reset] && !spsOrPps) {
         [self decompressWithNalUint:data timestamp:1000];
     }
 }
