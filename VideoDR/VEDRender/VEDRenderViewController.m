@@ -18,6 +18,9 @@
 #import "YXNMTKView.h"
 #import <YZLibyuv/YZLibyuv.h>
 
+
+#import "WXSDLGLView_RTC.h"
+
 #define MTK 1
 
 @interface VEDRenderViewController ()<VEDRCaptureDelegate, VEDRDecoderDelegate, VEDREncoderDelegate>
@@ -36,6 +39,9 @@
 @property (nonatomic, strong) VEDREncoder *encoder;
 @property (nonatomic, strong) VEDRDecoder *decoder;
 @property (nonatomic, strong) VEDRCapture *capture;
+
+
+@property (nonatomic, strong) WXSDLGLView *renderView;
 @end
 
 @implementation VEDRenderViewController
@@ -49,11 +55,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [YXMetalManager manager];
+    
+    _renderView = [[WXSDLGLView alloc] initWithFrame:self.showPlayer.bounds withCropFrame:nil];
+    _renderView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.showPlayer addSubview:_renderView];
 #if MTK
 //    _player = [[YXSMKTView alloc] initWithFrame:self.showPlayer.bounds];
-    _player = [[YXYMTKView alloc] initWithFrame:self.showPlayer.bounds];
-    _player.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self.showPlayer addSubview:_player];
+//    _player = [[YXYMTKView alloc] initWithFrame:self.showPlayer.bounds];
+//    _player.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//    [self.showPlayer addSubview:_player];
 #else
     YXLayerPlayer *player = [[YXLayerPlayer alloc] initWithFrame:self.showPlayer.bounds];
     player.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -77,7 +87,40 @@
 -(void)decoder:(VEDRDecoder *)decoder didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer {
     
     
-    [_player displayVideo:pixelBuffer];
+//    [_player displayVideo:pixelBuffer];
+    [self diiplay:pixelBuffer];
+    
+}
+
+- (void)diiplay:(CVPixelBufferRef)pixelBuffer {
+    YXVideoData *data = [YXVideoData new];
+    size_t width = CVPixelBufferGetWidth(pixelBuffer);
+    size_t height = CVPixelBufferGetHeight(pixelBuffer);
+    data.width = width;
+    data.height = height;
+    
+    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
+    data.yStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 0);
+    data.uStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 1);
+    data.vStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 2);
+    if (data.uStride * 2 > data.yStride) {//todo 320x240横屏
+        int a = (data.uStride - data.yStride / 2) / 2;
+        data.uStride = data.yStride / 2;
+        data.vStride = data.uStride;
+        int8_t *yBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
+        int8_t *uBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 1);
+        int8_t *vBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 2);
+        data.yBuffer = yBuffer;
+        data.uBuffer = uBuffer;
+        data.vBuffer = vBuffer;
+    } else {//==
+        data.yBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
+        data.uBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 1);
+        data.vBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 2);
+    }
+    
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+    [_renderView displayData:data];
 }
 
 #pragma mark - VEDREncoderDelegate
