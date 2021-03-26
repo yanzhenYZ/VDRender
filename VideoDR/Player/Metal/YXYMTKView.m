@@ -32,7 +32,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = UIColor.blackColor;
-        self.contentMode = UIViewContentModeScaleAspectFill;
+        self.contentMode = UIViewContentModeScaleAspectFit;
         self.clipsToBounds = YES;
         self.paused = YES;
         self.delegate = self;
@@ -45,41 +45,37 @@
     return self;
 }
 
-//todo test
 - (void)displayVideo:(CVPixelBufferRef)pixelBuffer {
     size_t w = CVPixelBufferGetWidth(pixelBuffer);
     size_t h = CVPixelBufferGetHeight(pixelBuffer);
     
-    CVMetalTextureRef textureRef = NULL;
-    size_t width = CVPixelBufferGetWidthOfPlane(pixelBuffer, 0);
-    size_t height = CVPixelBufferGetHeightOfPlane(pixelBuffer, 0);
-    CVReturn status = CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, self.textureCache, pixelBuffer, NULL, MTLPixelFormatR8Unorm, width, height, 0, &textureRef);
-    if(status != kCVReturnSuccess) {
-        return;
-    }
-    _textureY = CVMetalTextureGetTexture(textureRef);
-    CFRelease(textureRef);
-    textureRef = NULL;
+    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
     
-    width = CVPixelBufferGetWidthOfPlane(pixelBuffer, 1);
-    height = CVPixelBufferGetHeightOfPlane(pixelBuffer, 1);
-    status = CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, self.textureCache, pixelBuffer, NULL, MTLPixelFormatR8Unorm, width, height, 1, &textureRef);
-    if(status != kCVReturnSuccess) {
-        return;
-    }
-    _textureU = CVMetalTextureGetTexture(textureRef);
-    CFRelease(textureRef);
-    textureRef = NULL;
+    int8_t *yBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
+    size_t yStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 0);
+    MTLTextureDescriptor *yDesc = [MTLTextureDescriptor texture2DDescriptorWithPixelFormat:MTLPixelFormatR8Unorm width:w height:h mipmapped:NO];
+    yDesc.usage = MTLTextureUsageShaderWrite | MTLTextureUsageRenderTarget | MTLTextureUsageShaderRead;
+    id<MTLTexture> textureY = [self.device newTextureWithDescriptor:yDesc];
+    [textureY replaceRegion:MTLRegionMake2D(0, 0, textureY.width, textureY.height) mipmapLevel:0 withBytes:yBuffer bytesPerRow:yStride];
+    _textureY = textureY;
     
-    width = CVPixelBufferGetWidthOfPlane(pixelBuffer, 2);
-    height = CVPixelBufferGetHeightOfPlane(pixelBuffer, 2);
-    status = CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, self.textureCache, pixelBuffer, NULL, MTLPixelFormatR8Unorm, width, height, 2, &textureRef);
-    if(status != kCVReturnSuccess) {
-        return;
-    }
-    _textureV = CVMetalTextureGetTexture(textureRef);
-    CFRelease(textureRef);
-    textureRef = NULL;
+    int8_t *uBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 1);
+    size_t uStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 1);
+    MTLTextureDescriptor *uDesc = [MTLTextureDescriptor texture2DDescriptorWithPixelFormat:MTLPixelFormatR8Unorm width:w / 2 height:h / 2 mipmapped:NO];
+    uDesc.usage = MTLTextureUsageShaderWrite | MTLTextureUsageRenderTarget | MTLTextureUsageShaderRead;
+    id<MTLTexture> textureU = [self.device newTextureWithDescriptor:uDesc];
+    [textureU replaceRegion:MTLRegionMake2D(0, 0, textureU.width, textureU.height) mipmapLevel:0 withBytes:uBuffer bytesPerRow:uStride];
+    _textureU = textureU;
+    
+    int8_t *vBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 2);
+    size_t vStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 2);
+    MTLTextureDescriptor *vDesc = [MTLTextureDescriptor texture2DDescriptorWithPixelFormat:MTLPixelFormatR8Unorm width:w / 2 height:h / 2 mipmapped:NO];
+    vDesc.usage = MTLTextureUsageShaderWrite | MTLTextureUsageRenderTarget | MTLTextureUsageShaderRead;
+    id<MTLTexture> textureV = [self.device newTextureWithDescriptor:vDesc];
+    [textureV replaceRegion:MTLRegionMake2D(0, 0, textureV.width, textureV.height) mipmapLevel:0 withBytes:vBuffer bytesPerRow:vStride];
+    _textureV = textureV;
+    
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
     
     self.drawableSize = CGSizeMake(w, h);
     [self draw];
