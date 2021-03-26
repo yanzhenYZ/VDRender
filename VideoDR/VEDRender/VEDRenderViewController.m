@@ -15,6 +15,7 @@
 
 #import "YXYMTKView.h"
 #import "YXDMTKView.h"
+#import "YXNMTKView.h"
 
 #define MTK 1
 
@@ -24,7 +25,8 @@
 
 #if MTK
 //@property (nonatomic, strong) YXSMKTView *player;
-@property (nonatomic, strong) YXDMTKView *player;
+//@property (nonatomic, strong) YXDMTKView *player;
+@property (nonatomic, strong) YXNMTKView *player;
 #else
 @property (nonatomic, strong) YXLayerPlayer *player;
 #endif
@@ -47,7 +49,7 @@
     [YXMetalManager manager];
 #if MTK
 //    _player = [[YXSMKTView alloc] initWithFrame:self.showPlayer.bounds];
-    _player = [[YXDMTKView alloc] initWithFrame:self.showPlayer.bounds];
+    _player = [[YXNMTKView alloc] initWithFrame:self.showPlayer.bounds];
     _player.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.showPlayer addSubview:_player];
 #else
