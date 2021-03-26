@@ -98,11 +98,11 @@
     previewLayer.frame = UIScreen.mainScreen.bounds;
     [_player.layer addSublayer:previewLayer];
     
-    self.session.sessionPreset = AVCaptureSessionPreset1280x720;
+    self.session.sessionPreset = AVCaptureSessionPreset640x480;
 
     [_session beginConfiguration];
     _connect = [self.dataOutput connectionWithMediaType:AVMediaTypeVideo];
-    [_connect setVideoOrientation:AVCaptureVideoOrientationPortrait];
+    [_connect setVideoOrientation:AVCaptureVideoOrientationLandscapeLeft];
     [_session commitConfiguration];
     
     [camera lockForConfiguration:nil];
