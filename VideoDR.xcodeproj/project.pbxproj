@@ -48,6 +48,7 @@
 		9BBCC706260CB5D800D4E37B /* YXDMTKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC705260CB5D800D4E37B /* YXDMTKView.m */; };
 		9BBCC70A260CB5EE00D4E37B /* YXNMTKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC709260CB5EE00D4E37B /* YXNMTKView.m */; };
 		9BBCC70E260CB5F900D4E37B /* YXYMTKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC70D260CB5F900D4E37B /* YXYMTKView.m */; };
+		9BBCC71A260DBB0D00D4E37B /* YZLibyuv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBCC719260DBB0D00D4E37B /* YZLibyuv.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +124,7 @@
 		9BBCC709260CB5EE00D4E37B /* YXNMTKView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXNMTKView.m; sourceTree = "<group>"; };
 		9BBCC70C260CB5F900D4E37B /* YXYMTKView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXYMTKView.h; sourceTree = "<group>"; };
 		9BBCC70D260CB5F900D4E37B /* YXYMTKView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXYMTKView.m; sourceTree = "<group>"; };
+		9BBCC719260DBB0D00D4E37B /* YZLibyuv.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YZLibyuv.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BBCC71A260DBB0D00D4E37B /* YZLibyuv.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +274,7 @@
 		9BBCC6CD260C87FE00D4E37B /* VEDRender */ = {
 			isa = PBXGroup;
 			children = (
+				9BBCC719260DBB0D00D4E37B /* YZLibyuv.framework */,
 				9BBCC6D8260C891800D4E37B /* VEDRenderViewController.h */,
 				9BBCC6D9260C891800D4E37B /* VEDRenderViewController.m */,
 				9BBCC6DC260C8A0000D4E37B /* VEDRCapture.h */,
@@ -602,6 +606,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 210324;
 				DEVELOPMENT_TEAM = 7XP66VHL84;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VideoDR/VEDRender",
+				);
 				INFOPLIST_FILE = VideoDR/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -622,6 +630,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 210324;
 				DEVELOPMENT_TEAM = 7XP66VHL84;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VideoDR/VEDRender",
+				);
 				INFOPLIST_FILE = VideoDR/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

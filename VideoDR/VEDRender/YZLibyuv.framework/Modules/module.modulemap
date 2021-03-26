@@ -1,0 +1,6 @@
+framework module YZLibyuv {
+  umbrella header "YZLibyuv.h"
+
+  export *
+  module * { export * }
+}

@@ -16,6 +16,7 @@
 #import "YXYMTKView.h"
 #import "YXDMTKView.h"
 #import "YXNMTKView.h"
+#import <YZLibyuv/YZLibyuv.h>
 
 #define MTK 1
 
@@ -60,7 +61,6 @@
     _player = player;
 #endif
     
-    
     _encoder = [[VEDREncoder alloc] init];
     _encoder.delegate = self;
     [_encoder startEncode:720 height:1280];
@@ -75,6 +75,22 @@
 
 #pragma mark - VEDRDecoderDelegate
 -(void)decoder:(VEDRDecoder *)decoder didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer {
+    size_t width = CVPixelBufferGetWidth(pixelBuffer);
+    size_t height = CVPixelBufferGetHeight(pixelBuffer);
+    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
+    size_t bytesPerrow =  CVPixelBufferGetBytesPerRow(pixelBuffer);
+
+    uint8_t *bgra = CVPixelBufferGetBaseAddress(pixelBuffer);
+
+    uint8_t *y = malloc(width * height);
+    uint8_t *u = malloc(width * height / 4);
+    uint8_t *v = malloc(width * height / 4);
+    [YZLibyuv BGRAToI420:bgra bgraStride:bytesPerrow dstY:y strideY:width dstU:u strideU:width / 2 dstV:v strideV:width / 2 width:width height:height];
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+    free(y);
+    free(u);
+    free(v);
+    
     [_player displayVideo:pixelBuffer];
 }
 

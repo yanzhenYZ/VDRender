@@ -64,3 +64,12 @@
     kCVPixelFormatType_420YpCbCr8BiPlanarFullRange 渲染YXDMTKView 6% 52MB
     kCVPixelFormatType_420YpCbCr8Planar            渲染YXYMTKView 6% 50.2MB
  */
+
+
+/** iPhone6s 1280x720 10fps
+ 采集kCVPixelFormatType_420YpCbCr8BiPlanarFullRange
+
+       解码
+       kCVPixelFormatType_32BGRA                      渲染YXDMTKView 6% 52.5MB
+Libyuv kCVPixelFormatType_32BGRA                      渲染YXDMTKView 9% 52.5MB
+ */
