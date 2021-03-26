@@ -31,7 +31,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = UIColor.blackColor;
-        self.contentMode = UIViewContentModeScaleAspectFill;
+        self.contentMode = UIViewContentModeScaleAspectFit;
         self.clipsToBounds = YES;
         self.paused = YES;
         self.delegate = self;

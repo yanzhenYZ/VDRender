@@ -60,7 +60,7 @@
     
     _encoder = [[VEDREncoder alloc] init];
     _encoder.delegate = self;
-    [_encoder startEncode:480 height:640];
+    [_encoder startEncode:720 height:1280];
 
     _decoder = [[VEDRDecoder alloc] init];
     _decoder.delegate = self;
