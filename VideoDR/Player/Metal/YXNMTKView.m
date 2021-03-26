@@ -73,7 +73,7 @@
     _textureUV = CVMetalTextureGetTexture(textureRef);
     CFRelease(textureRef);
     textureRef = NULL;
-    self.drawableSize = CGSizeMake(width, height);
+    self.drawableSize = CGSizeMake(w, h);
     [self draw];
 }
 
