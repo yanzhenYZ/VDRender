@@ -58,6 +58,7 @@
 #if 1
     _renderView = [[WXSDLGLView alloc] initWithFrame:self.showPlayer.bounds withCropFrame:nil];
     _renderView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _renderView.contentMode = UIViewContentModeScaleAspectFit;
     [self.showPlayer addSubview:_renderView];
 #else
     _player = [[YXYMTKView alloc] initWithFrame:self.showPlayer.bounds];
@@ -110,6 +111,13 @@
     data.yStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 0);
     data.uStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 1);
     data.vStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 2);
+#if 0
+    data.yBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
+    data.uBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 1);
+    data.vBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 2);
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+    [_renderView displayData:data];
+#else
     if (data.uStride * 2 > data.yStride) {//todo 320x240横屏
         int a = (data.uStride - data.yStride / 2) / 2;
         data.uStride = data.yStride / 2;
@@ -121,10 +129,8 @@
         
         data.uBuffer = uBuffer;
         data.vBuffer = vBuffer;
-#if 1
-        CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
-        [_renderView displayData:data];
-#else
+
+        
         int len = data.uStride * data.height / 2;
         int8_t *newUBuffer = malloc(len);
         int8_t *newVBuffer = malloc(len);
@@ -141,7 +147,6 @@
         [_renderView displayData:data];
         free(newUBuffer);
         free(newVBuffer);
-#endif
     } else {//==
         data.yBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
         data.uBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 1);
@@ -149,7 +154,7 @@
         CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
         [_renderView displayData:data];
     }
-    
+#endif
     
 }
 
