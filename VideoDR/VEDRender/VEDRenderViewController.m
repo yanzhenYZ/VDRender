@@ -55,21 +55,27 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [YXMetalManager manager];
-    
+#if 1
     _renderView = [[WXSDLGLView alloc] initWithFrame:self.showPlayer.bounds withCropFrame:nil];
     _renderView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.showPlayer addSubview:_renderView];
-#if MTK
+#else
+    _player = [[YXYMTKView alloc] initWithFrame:self.showPlayer.bounds];
+    _player = [[YXYMTKView alloc] initWithFrame:self.showPlayer.bounds];
+    _player.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.showPlayer addSubview:_player];
+#endif
+//#if MTK
 //    _player = [[YXSMKTView alloc] initWithFrame:self.showPlayer.bounds];
 //    _player = [[YXYMTKView alloc] initWithFrame:self.showPlayer.bounds];
 //    _player.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 //    [self.showPlayer addSubview:_player];
-#else
-    YXLayerPlayer *player = [[YXLayerPlayer alloc] initWithFrame:self.showPlayer.bounds];
-    player.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self.showPlayer addSubview:player];
-    _player = player;
-#endif
+//#else
+//    YXLayerPlayer *player = [[YXLayerPlayer alloc] initWithFrame:self.showPlayer.bounds];
+//    player.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//    [self.showPlayer addSubview:player];
+//    _player = player;
+//#endif
     
     _encoder = [[VEDREncoder alloc] init];
     _encoder.delegate = self;
@@ -87,7 +93,8 @@
 -(void)decoder:(VEDRDecoder *)decoder didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer {
     
     
-//    [_player displayVideo:pixelBuffer];
+    [_player displayVideo:pixelBuffer];
+    
     [self diiplay:pixelBuffer];
     
 }
@@ -111,16 +118,34 @@
         int8_t *uBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 1);
         int8_t *vBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 2);
         data.yBuffer = yBuffer;
-        data.uBuffer = uBuffer;
-        data.vBuffer = vBuffer;
+        int len = data.uStride * data.height / 2;
+        int8_t *newUBuffer = malloc(len);
+        int8_t *newVBuffer = malloc(len);
+        
+//        data.uBuffer = uBuffer;
+//        data.vBuffer = vBuffer;
+        int stride = data.uStride;
+        int uByytesPerrow = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 1);
+        for (int i = 0; i < data.height / 2; i++) {
+            memcpy(newUBuffer + stride * i, uBuffer + uByytesPerrow * i, stride);
+            memcpy(newVBuffer + stride * i, vBuffer + uByytesPerrow * i, stride);
+        }
+        
+        data.uBuffer = newUBuffer;
+        data.vBuffer = newVBuffer;
+        CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+        [_renderView displayData:data];
+        free(newUBuffer);
+        free(newVBuffer);
     } else {//==
         data.yBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
         data.uBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 1);
         data.vBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 2);
+        CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+        [_renderView displayData:data];
     }
     
-    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
-    [_renderView displayData:data];
+    
 }
 
 #pragma mark - VEDREncoderDelegate
