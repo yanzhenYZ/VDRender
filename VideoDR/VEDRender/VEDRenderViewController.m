@@ -118,25 +118,30 @@
         int8_t *uBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 1);
         int8_t *vBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 2);
         data.yBuffer = yBuffer;
+        
+        data.uBuffer = uBuffer;
+        data.vBuffer = vBuffer;
+#if 1
+        CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+        [_renderView displayData:data];
+#else
         int len = data.uStride * data.height / 2;
         int8_t *newUBuffer = malloc(len);
         int8_t *newVBuffer = malloc(len);
-        
-//        data.uBuffer = uBuffer;
-//        data.vBuffer = vBuffer;
         int stride = data.uStride;
         int uByytesPerrow = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 1);
         for (int i = 0; i < data.height / 2; i++) {
             memcpy(newUBuffer + stride * i, uBuffer + uByytesPerrow * i, stride);
             memcpy(newVBuffer + stride * i, vBuffer + uByytesPerrow * i, stride);
         }
-        
+
         data.uBuffer = newUBuffer;
         data.vBuffer = newVBuffer;
         CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
         [_renderView displayData:data];
         free(newUBuffer);
         free(newVBuffer);
+#endif
     } else {//==
         data.yBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
         data.uBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 1);
