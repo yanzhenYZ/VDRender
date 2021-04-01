@@ -36,7 +36,7 @@
 }
 
 #pragma mark - add 20210401
-- (void)displayNv12:(CVPixelBufferRef)pixelBuffer  {
+- (void)displayNv12:(CVPixelBufferRef)pixelBuffer rotation:(int)rotation {
     WX_SDL_VoutOverlay bb;
     bb.format = SDL_FCC_NV12;
     bb.w = (int)CVPixelBufferGetWidth(pixelBuffer);
@@ -49,7 +49,7 @@
     bb.pitches[1] = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 1);
     
     bb.planes = 2;
-    bb.rotation = 0;
+    bb.rotation = rotation;
     bb.sar_den = 0;
     bb.sar_num = 0;
     [self display:&bb];

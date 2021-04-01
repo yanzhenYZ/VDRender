@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (void)displayBgra:(CVPixelBufferRef)pixelBuffer;
-- (void)displayNv12:(CVPixelBufferRef)pixelBuffer;
+- (void)displayNv12:(CVPixelBufferRef)pixelBuffer rotation:(int)rotation;
 @end
 
 NS_ASSUME_NONNULL_END

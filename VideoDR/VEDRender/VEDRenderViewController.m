@@ -174,7 +174,7 @@
 }
 
 - (void)nv12Render:(CVPixelBufferRef)pixelBuffer {
-    [_renderView displayNv12:pixelBuffer];
+    [_renderView displayNv12:pixelBuffer rotation:0];
 }
 
 - (void)bgraRender:(CVPixelBufferRef)pixelBuffer {
