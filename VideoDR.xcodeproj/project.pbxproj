@@ -65,6 +65,7 @@
 		9BBCC75A260DF47600D4E37B /* WXSDLGLView_RTC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC749260DF47600D4E37B /* WXSDLGLView_RTC.m */; };
 		9BBCC75B260DF47600D4E37B /* WXSDLGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC74A260DF47600D4E37B /* WXSDLGLView.m */; };
 		9BBCC75F260DF4D800D4E37B /* YXVideoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC75E260DF4D800D4E37B /* YXVideoData.m */; };
+		9BD0A34326156D3200665B2B /* renderer_yuv420sp.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A34226156D3200665B2B /* renderer_yuv420sp.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,6 +171,7 @@
 		9BBCC74C260DF47600D4E37B /* ijksdl_log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_log.h; sourceTree = "<group>"; };
 		9BBCC75D260DF4D800D4E37B /* YXVideoData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXVideoData.h; sourceTree = "<group>"; };
 		9BBCC75E260DF4D800D4E37B /* YXVideoData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXVideoData.m; sourceTree = "<group>"; };
+		9BD0A34226156D3200665B2B /* renderer_yuv420sp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = renderer_yuv420sp.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +391,7 @@
 		9BBCC732260DF47600D4E37B /* gles2 */ = {
 			isa = PBXGroup;
 			children = (
+				9BD0A34226156D3200665B2B /* renderer_yuv420sp.c */,
 				9BBCC733260DF47600D4E37B /* renderer_yuv444p10le.c */,
 				9BBCC734260DF47600D4E37B /* common.c */,
 				9BBCC735260DF47600D4E37B /* internal.h */,
@@ -532,6 +535,7 @@
 				9BBCC6B3260C3E7F00D4E37B /* VEDUseEncoder.m in Sources */,
 				9BBCC69C260C366900D4E37B /* YXLayerPlayer.m in Sources */,
 				9BBCC751260DF47600D4E37B /* renderer_rgb.c in Sources */,
+				9BD0A34326156D3200665B2B /* renderer_yuv420sp.c in Sources */,
 				9BBCC68E260C2DBA00D4E37B /* VEDCapture.m in Sources */,
 				9BBCC750260DF47600D4E37B /* mvp.vsh.c in Sources */,
 				9BBCC75B260DF47600D4E37B /* WXSDLGLView.m in Sources */,

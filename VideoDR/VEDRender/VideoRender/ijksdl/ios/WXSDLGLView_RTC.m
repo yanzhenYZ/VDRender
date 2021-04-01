@@ -35,6 +35,27 @@
     [self display:&bb];
 }
 
+#pragma mark - add 20210401
+- (void)displayNv12:(CVPixelBufferRef)pixelBuffer  {
+    WX_SDL_VoutOverlay bb;
+    bb.format = SDL_FCC_NV12;
+    bb.w = (int)CVPixelBufferGetWidth(pixelBuffer);
+    bb.h = (int)CVPixelBufferGetHeight(pixelBuffer);
+    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
+    
+    bb.pixels[0] = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
+    bb.pixels[1] = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 1);
+    bb.pitches[0] = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 0);
+    bb.pitches[1] = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 1);
+    
+    bb.planes = 2;
+    bb.rotation = 0;
+    bb.sar_den = 0;
+    bb.sar_num = 0;
+    [self display:&bb];
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+}
+
 - (void)displayBgra:(CVPixelBufferRef)pixelBuffer {
     WX_SDL_VoutOverlay bb;
     bb.format = SDL_FCC_RV32;

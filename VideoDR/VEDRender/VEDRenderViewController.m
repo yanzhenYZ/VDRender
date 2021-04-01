@@ -98,11 +98,17 @@
     //[_player displayVideo:pixelBuffer];
     
     //[self diiplay:pixelBuffer];
-    [self bgraRender:pixelBuffer];
+    
+    [self nv12Render:pixelBuffer];
 }
 
 
+- (void)nv12Render:(CVPixelBufferRef)pixelBuffer {
+    [_renderView displayNv12:pixelBuffer];
+}
+
 - (void)bgraRender:(CVPixelBufferRef)pixelBuffer {
+    //不是RGBA-渲染有问题
     [_renderView displayBgra:pixelBuffer];
 }
 

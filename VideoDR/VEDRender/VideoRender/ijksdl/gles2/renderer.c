@@ -195,7 +195,7 @@ WX_GLES2_Renderer *WX_GLES2_Renderer_create(WX_SDL_VoutOverlay *overlay)
         case SDL_FCC_RV24:      renderer = WX_GLES2_Renderer_create_rgb888(); break;
         case SDL_FCC_RV32:      renderer = WX_GLES2_Renderer_create_rgbx8888(); break;
 #ifdef __APPLE__
-//        case SDL_FCC_NV12:      renderer = WX_GLES2_Renderer_create_yuv420sp(); break;
+        case SDL_FCC_NV12:      renderer = WX_GLES2_Renderer_create_yuv420sp(); break;
         case SDL_FCC__VTB:
         {
 //            renderer = WX_GLES2_Renderer_create_yuv420sp_vtb(overlay);
