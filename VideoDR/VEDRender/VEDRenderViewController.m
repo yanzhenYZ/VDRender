@@ -136,7 +136,7 @@
 
 #pragma mark - VEDRCaptureDelegate
 - (void)capture:(VEDRCapture *)capture pixelBuffer:(CVPixelBufferRef)pixelBuffer {
-#if TESTROTATION
+#if TESTROTATION //WX只支持横屏
     [_renderView displayNv12:pixelBuffer rotation:[self getOutputRotation]];
 #else
     [self.encoder encodePixelBuffer:pixelBuffer];
