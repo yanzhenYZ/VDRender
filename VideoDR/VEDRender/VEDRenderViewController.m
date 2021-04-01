@@ -19,7 +19,8 @@
 #import <YZLibyuv/YZLibyuv.h>
 
 
-#import "WXSDLGLView_RTC.h"
+//#import "WXSDLGLView_RTC.h"
+#import <WXVPlayer/WXVPlayer.h>
 
 #define MTK 1
 

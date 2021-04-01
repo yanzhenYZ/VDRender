@@ -49,24 +49,64 @@
 		9BBCC70A260CB5EE00D4E37B /* YXNMTKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC709260CB5EE00D4E37B /* YXNMTKView.m */; };
 		9BBCC70E260CB5F900D4E37B /* YXYMTKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC70D260CB5F900D4E37B /* YXYMTKView.m */; };
 		9BBCC71A260DBB0D00D4E37B /* YZLibyuv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBCC719260DBB0D00D4E37B /* YZLibyuv.framework */; };
-		9BBCC74D260DF47600D4E37B /* WXCommonTool.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC72D260DF47600D4E37B /* WXCommonTool.c */; };
-		9BBCC74E260DF47600D4E37B /* renderer_yuv444p10le.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC733260DF47600D4E37B /* renderer_yuv444p10le.c */; };
-		9BBCC74F260DF47600D4E37B /* common.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC734260DF47600D4E37B /* common.c */; };
-		9BBCC750260DF47600D4E37B /* mvp.vsh.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC737260DF47600D4E37B /* mvp.vsh.c */; };
-		9BBCC751260DF47600D4E37B /* renderer_rgb.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC738260DF47600D4E37B /* renderer_rgb.c */; };
-		9BBCC752260DF47600D4E37B /* renderer_yuv420p.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC739260DF47600D4E37B /* renderer_yuv420p.c */; };
-		9BBCC753260DF47600D4E37B /* shader.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC73A260DF47600D4E37B /* shader.c */; };
-		9BBCC754260DF47600D4E37B /* renderer.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC73B260DF47600D4E37B /* renderer.c */; };
-		9BBCC755260DF47600D4E37B /* yuv444p10le.fsh.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC73D260DF47600D4E37B /* yuv444p10le.fsh.c */; };
-		9BBCC756260DF47600D4E37B /* yuv420p.fsh.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC73E260DF47600D4E37B /* yuv420p.fsh.c */; };
-		9BBCC757260DF47600D4E37B /* yuv420sp.fsh.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC73F260DF47600D4E37B /* yuv420sp.fsh.c */; };
-		9BBCC758260DF47600D4E37B /* rgb.fsh.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC740260DF47600D4E37B /* rgb.fsh.c */; };
-		9BBCC759260DF47600D4E37B /* color.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC741260DF47600D4E37B /* color.c */; };
-		9BBCC75A260DF47600D4E37B /* WXSDLGLView_RTC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC749260DF47600D4E37B /* WXSDLGLView_RTC.m */; };
-		9BBCC75B260DF47600D4E37B /* WXSDLGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC74A260DF47600D4E37B /* WXSDLGLView.m */; };
-		9BBCC75F260DF4D800D4E37B /* YXVideoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC75E260DF4D800D4E37B /* YXVideoData.m */; };
-		9BD0A34326156D3200665B2B /* renderer_yuv420sp.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A34226156D3200665B2B /* renderer_yuv420sp.c */; };
+		9BD0A3AC2615A06000665B2B /* WXVPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0A3AA2615A06000665B2B /* WXVPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BD0A3AF2615A06000665B2B /* WXVPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD0A3A82615A06000665B2B /* WXVPlayer.framework */; };
+		9BD0A3B02615A06000665B2B /* WXVPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD0A3A82615A06000665B2B /* WXVPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9BD0A3DB2615A08A00665B2B /* YXVideoData.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0A3B72615A08A00665B2B /* YXVideoData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BD0A3DC2615A08A00665B2B /* WXCommonTool.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A3B92615A08A00665B2B /* WXCommonTool.c */; };
+		9BD0A3DD2615A08A00665B2B /* WXCommonTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0A3BA2615A08A00665B2B /* WXCommonTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BD0A3DE2615A08A00665B2B /* YXVideoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A3BB2615A08A00665B2B /* YXVideoData.m */; };
+		9BD0A3DF2615A08A00665B2B /* ijksdl_gles2.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0A3BD2615A08A00665B2B /* ijksdl_gles2.h */; };
+		9BD0A3E02615A08A00665B2B /* ijksdl_vout.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0A3BE2615A08A00665B2B /* ijksdl_vout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BD0A3E12615A08A00665B2B /* renderer_yuv444p10le.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A3C02615A08A00665B2B /* renderer_yuv444p10le.c */; };
+		9BD0A3E22615A08A00665B2B /* common.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A3C12615A08A00665B2B /* common.c */; };
+		9BD0A3E32615A08A00665B2B /* internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0A3C22615A08A00665B2B /* internal.h */; };
+		9BD0A3E42615A08A00665B2B /* mvp.vsh.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A3C42615A08A00665B2B /* mvp.vsh.c */; };
+		9BD0A3E52615A08A00665B2B /* renderer_rgb.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A3C52615A08A00665B2B /* renderer_rgb.c */; };
+		9BD0A3E62615A08A00665B2B /* renderer_yuv420p.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A3C62615A08A00665B2B /* renderer_yuv420p.c */; };
+		9BD0A3E72615A08A00665B2B /* renderer_yuv420sp.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A3C72615A08A00665B2B /* renderer_yuv420sp.c */; };
+		9BD0A3E82615A08A00665B2B /* shader.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A3C82615A08A00665B2B /* shader.c */; };
+		9BD0A3E92615A08A00665B2B /* renderer.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A3C92615A08A00665B2B /* renderer.c */; };
+		9BD0A3EA2615A08A00665B2B /* yuv444p10le.fsh.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A3CB2615A08A00665B2B /* yuv444p10le.fsh.c */; };
+		9BD0A3EB2615A08A00665B2B /* yuv420p.fsh.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A3CC2615A08A00665B2B /* yuv420p.fsh.c */; };
+		9BD0A3EC2615A08A00665B2B /* yuv420sp.fsh.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A3CD2615A08A00665B2B /* yuv420sp.fsh.c */; };
+		9BD0A3ED2615A08A00665B2B /* rgb.fsh.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A3CE2615A08A00665B2B /* rgb.fsh.c */; };
+		9BD0A3EE2615A08A00665B2B /* color.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A3CF2615A08A00665B2B /* color.c */; };
+		9BD0A3EF2615A08A00665B2B /* ijksdl_fourcc.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0A3D02615A08A00665B2B /* ijksdl_fourcc.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BD0A3F02615A08A00665B2B /* ijksdl_endian.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0A3D12615A08A00665B2B /* ijksdl_endian.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BD0A3F12615A08A00665B2B /* WXSDLGLView_RTC.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0A3D32615A08A00665B2B /* WXSDLGLView_RTC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BD0A3F22615A08A00665B2B /* ijksdl_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0A3D42615A08A00665B2B /* ijksdl_ios.h */; };
+		9BD0A3F32615A08A00665B2B /* WXSDLGLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0A3D52615A08A00665B2B /* WXSDLGLView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BD0A3F42615A08A00665B2B /* WXSDLGLViewProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0A3D62615A08A00665B2B /* WXSDLGLViewProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BD0A3F52615A08A00665B2B /* WXSDLGLView_RTC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A3D72615A08A00665B2B /* WXSDLGLView_RTC.m */; };
+		9BD0A3F62615A08A00665B2B /* WXSDLGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0A3D82615A08A00665B2B /* WXSDLGLView.m */; };
+		9BD0A3F72615A08A00665B2B /* IJKSDLGLViewProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0A3D92615A08A00665B2B /* IJKSDLGLViewProtocol.h */; };
+		9BD0A3F82615A08A00665B2B /* ijksdl_log.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD0A3DA2615A08A00665B2B /* ijksdl_log.h */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9BD0A3AD2615A06000665B2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BBCC5FF260B18B200D4E37B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BD0A3A72615A06000665B2B;
+			remoteInfo = WXVPlayer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9BD0A3B12615A06000665B2B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9BD0A3B02615A06000665B2B /* WXVPlayer.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9BBCC607260B18B200D4E37B /* VideoDR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoDR.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,36 +182,39 @@
 		9BBCC70C260CB5F900D4E37B /* YXYMTKView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXYMTKView.h; sourceTree = "<group>"; };
 		9BBCC70D260CB5F900D4E37B /* YXYMTKView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXYMTKView.m; sourceTree = "<group>"; };
 		9BBCC719260DBB0D00D4E37B /* YZLibyuv.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YZLibyuv.framework; sourceTree = "<group>"; };
-		9BBCC72D260DF47600D4E37B /* WXCommonTool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = WXCommonTool.c; sourceTree = "<group>"; };
-		9BBCC72E260DF47600D4E37B /* WXCommonTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCommonTool.h; sourceTree = "<group>"; };
-		9BBCC730260DF47600D4E37B /* ijksdl_gles2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_gles2.h; sourceTree = "<group>"; };
-		9BBCC731260DF47600D4E37B /* ijksdl_vout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_vout.h; sourceTree = "<group>"; };
-		9BBCC733260DF47600D4E37B /* renderer_yuv444p10le.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = renderer_yuv444p10le.c; sourceTree = "<group>"; };
-		9BBCC734260DF47600D4E37B /* common.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = common.c; sourceTree = "<group>"; };
-		9BBCC735260DF47600D4E37B /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
-		9BBCC737260DF47600D4E37B /* mvp.vsh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mvp.vsh.c; sourceTree = "<group>"; };
-		9BBCC738260DF47600D4E37B /* renderer_rgb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = renderer_rgb.c; sourceTree = "<group>"; };
-		9BBCC739260DF47600D4E37B /* renderer_yuv420p.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = renderer_yuv420p.c; sourceTree = "<group>"; };
-		9BBCC73A260DF47600D4E37B /* shader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = shader.c; sourceTree = "<group>"; };
-		9BBCC73B260DF47600D4E37B /* renderer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = renderer.c; sourceTree = "<group>"; };
-		9BBCC73D260DF47600D4E37B /* yuv444p10le.fsh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yuv444p10le.fsh.c; sourceTree = "<group>"; };
-		9BBCC73E260DF47600D4E37B /* yuv420p.fsh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yuv420p.fsh.c; sourceTree = "<group>"; };
-		9BBCC73F260DF47600D4E37B /* yuv420sp.fsh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yuv420sp.fsh.c; sourceTree = "<group>"; };
-		9BBCC740260DF47600D4E37B /* rgb.fsh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rgb.fsh.c; sourceTree = "<group>"; };
-		9BBCC741260DF47600D4E37B /* color.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = color.c; sourceTree = "<group>"; };
-		9BBCC742260DF47600D4E37B /* ijksdl_fourcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_fourcc.h; sourceTree = "<group>"; };
-		9BBCC743260DF47600D4E37B /* ijksdl_endian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_endian.h; sourceTree = "<group>"; };
-		9BBCC745260DF47600D4E37B /* WXSDLGLView_RTC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSDLGLView_RTC.h; sourceTree = "<group>"; };
-		9BBCC746260DF47600D4E37B /* ijksdl_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_ios.h; sourceTree = "<group>"; };
-		9BBCC747260DF47600D4E37B /* WXSDLGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSDLGLView.h; sourceTree = "<group>"; };
-		9BBCC748260DF47600D4E37B /* WXSDLGLViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSDLGLViewProtocol.h; sourceTree = "<group>"; };
-		9BBCC749260DF47600D4E37B /* WXSDLGLView_RTC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXSDLGLView_RTC.m; sourceTree = "<group>"; };
-		9BBCC74A260DF47600D4E37B /* WXSDLGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXSDLGLView.m; sourceTree = "<group>"; };
-		9BBCC74B260DF47600D4E37B /* IJKSDLGLViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKSDLGLViewProtocol.h; sourceTree = "<group>"; };
-		9BBCC74C260DF47600D4E37B /* ijksdl_log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_log.h; sourceTree = "<group>"; };
-		9BBCC75D260DF4D800D4E37B /* YXVideoData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXVideoData.h; sourceTree = "<group>"; };
-		9BBCC75E260DF4D800D4E37B /* YXVideoData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXVideoData.m; sourceTree = "<group>"; };
-		9BD0A34226156D3200665B2B /* renderer_yuv420sp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = renderer_yuv420sp.c; sourceTree = "<group>"; };
+		9BD0A3A82615A06000665B2B /* WXVPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WXVPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BD0A3AA2615A06000665B2B /* WXVPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXVPlayer.h; sourceTree = "<group>"; };
+		9BD0A3AB2615A06000665B2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BD0A3B72615A08A00665B2B /* YXVideoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXVideoData.h; sourceTree = "<group>"; };
+		9BD0A3B92615A08A00665B2B /* WXCommonTool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = WXCommonTool.c; sourceTree = "<group>"; };
+		9BD0A3BA2615A08A00665B2B /* WXCommonTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCommonTool.h; sourceTree = "<group>"; };
+		9BD0A3BB2615A08A00665B2B /* YXVideoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXVideoData.m; sourceTree = "<group>"; };
+		9BD0A3BD2615A08A00665B2B /* ijksdl_gles2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_gles2.h; sourceTree = "<group>"; };
+		9BD0A3BE2615A08A00665B2B /* ijksdl_vout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_vout.h; sourceTree = "<group>"; };
+		9BD0A3C02615A08A00665B2B /* renderer_yuv444p10le.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = renderer_yuv444p10le.c; sourceTree = "<group>"; };
+		9BD0A3C12615A08A00665B2B /* common.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = common.c; sourceTree = "<group>"; };
+		9BD0A3C22615A08A00665B2B /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
+		9BD0A3C42615A08A00665B2B /* mvp.vsh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mvp.vsh.c; sourceTree = "<group>"; };
+		9BD0A3C52615A08A00665B2B /* renderer_rgb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = renderer_rgb.c; sourceTree = "<group>"; };
+		9BD0A3C62615A08A00665B2B /* renderer_yuv420p.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = renderer_yuv420p.c; sourceTree = "<group>"; };
+		9BD0A3C72615A08A00665B2B /* renderer_yuv420sp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = renderer_yuv420sp.c; sourceTree = "<group>"; };
+		9BD0A3C82615A08A00665B2B /* shader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = shader.c; sourceTree = "<group>"; };
+		9BD0A3C92615A08A00665B2B /* renderer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = renderer.c; sourceTree = "<group>"; };
+		9BD0A3CB2615A08A00665B2B /* yuv444p10le.fsh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yuv444p10le.fsh.c; sourceTree = "<group>"; };
+		9BD0A3CC2615A08A00665B2B /* yuv420p.fsh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yuv420p.fsh.c; sourceTree = "<group>"; };
+		9BD0A3CD2615A08A00665B2B /* yuv420sp.fsh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yuv420sp.fsh.c; sourceTree = "<group>"; };
+		9BD0A3CE2615A08A00665B2B /* rgb.fsh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rgb.fsh.c; sourceTree = "<group>"; };
+		9BD0A3CF2615A08A00665B2B /* color.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = color.c; sourceTree = "<group>"; };
+		9BD0A3D02615A08A00665B2B /* ijksdl_fourcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_fourcc.h; sourceTree = "<group>"; };
+		9BD0A3D12615A08A00665B2B /* ijksdl_endian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_endian.h; sourceTree = "<group>"; };
+		9BD0A3D32615A08A00665B2B /* WXSDLGLView_RTC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSDLGLView_RTC.h; sourceTree = "<group>"; };
+		9BD0A3D42615A08A00665B2B /* ijksdl_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_ios.h; sourceTree = "<group>"; };
+		9BD0A3D52615A08A00665B2B /* WXSDLGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSDLGLView.h; sourceTree = "<group>"; };
+		9BD0A3D62615A08A00665B2B /* WXSDLGLViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSDLGLViewProtocol.h; sourceTree = "<group>"; };
+		9BD0A3D72615A08A00665B2B /* WXSDLGLView_RTC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXSDLGLView_RTC.m; sourceTree = "<group>"; };
+		9BD0A3D82615A08A00665B2B /* WXSDLGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXSDLGLView.m; sourceTree = "<group>"; };
+		9BD0A3D92615A08A00665B2B /* IJKSDLGLViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKSDLGLViewProtocol.h; sourceTree = "<group>"; };
+		9BD0A3DA2615A08A00665B2B /* ijksdl_log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_log.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +223,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BBCC71A260DBB0D00D4E37B /* YZLibyuv.framework in Frameworks */,
+				9BD0A3AF2615A06000665B2B /* WXVPlayer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BD0A3A52615A06000665B2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				9BBCC609260B18B200D4E37B /* VideoDR */,
+				9BD0A3A92615A06000665B2B /* WXVPlayer */,
 				9BBCC608260B18B200D4E37B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -198,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				9BBCC607260B18B200D4E37B /* VideoDR.app */,
+				9BD0A3A82615A06000665B2B /* WXVPlayer.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -321,7 +374,6 @@
 		9BBCC6CD260C87FE00D4E37B /* VEDRender */ = {
 			isa = PBXGroup;
 			children = (
-				9BBCC72B260DF47600D4E37B /* VideoRender */,
 				9BBCC719260DBB0D00D4E37B /* YZLibyuv.framework */,
 				9BBCC6D8260C891800D4E37B /* VEDRenderViewController.h */,
 				9BBCC6D9260C891800D4E37B /* VEDRenderViewController.m */,
@@ -354,92 +406,126 @@
 			path = Metal;
 			sourceTree = "<group>";
 		};
-		9BBCC72B260DF47600D4E37B /* VideoRender */ = {
+		9BD0A3A92615A06000665B2B /* WXVPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				9BBCC72C260DF47600D4E37B /* common */,
-				9BBCC72F260DF47600D4E37B /* ijksdl */,
-				9BBCC75D260DF4D800D4E37B /* YXVideoData.h */,
-				9BBCC75E260DF4D800D4E37B /* YXVideoData.m */,
+				9BD0A3B62615A08A00665B2B /* VideoRender */,
+				9BD0A3AB2615A06000665B2B /* Info.plist */,
+			);
+			path = WXVPlayer;
+			sourceTree = "<group>";
+		};
+		9BD0A3B62615A08A00665B2B /* VideoRender */ = {
+			isa = PBXGroup;
+			children = (
+				9BD0A3AA2615A06000665B2B /* WXVPlayer.h */,
+				9BD0A3B72615A08A00665B2B /* YXVideoData.h */,
+				9BD0A3BB2615A08A00665B2B /* YXVideoData.m */,
+				9BD0A3D52615A08A00665B2B /* WXSDLGLView.h */,
+				9BD0A3D82615A08A00665B2B /* WXSDLGLView.m */,
+				9BD0A3D32615A08A00665B2B /* WXSDLGLView_RTC.h */,
+				9BD0A3D72615A08A00665B2B /* WXSDLGLView_RTC.m */,
+				9BD0A3B82615A08A00665B2B /* common */,
+				9BD0A3BC2615A08A00665B2B /* ijksdl */,
 			);
 			path = VideoRender;
 			sourceTree = "<group>";
 		};
-		9BBCC72C260DF47600D4E37B /* common */ = {
+		9BD0A3B82615A08A00665B2B /* common */ = {
 			isa = PBXGroup;
 			children = (
-				9BBCC72D260DF47600D4E37B /* WXCommonTool.c */,
-				9BBCC72E260DF47600D4E37B /* WXCommonTool.h */,
+				9BD0A3B92615A08A00665B2B /* WXCommonTool.c */,
+				9BD0A3BA2615A08A00665B2B /* WXCommonTool.h */,
 			);
 			path = common;
 			sourceTree = "<group>";
 		};
-		9BBCC72F260DF47600D4E37B /* ijksdl */ = {
+		9BD0A3BC2615A08A00665B2B /* ijksdl */ = {
 			isa = PBXGroup;
 			children = (
-				9BBCC730260DF47600D4E37B /* ijksdl_gles2.h */,
-				9BBCC731260DF47600D4E37B /* ijksdl_vout.h */,
-				9BBCC732260DF47600D4E37B /* gles2 */,
-				9BBCC742260DF47600D4E37B /* ijksdl_fourcc.h */,
-				9BBCC743260DF47600D4E37B /* ijksdl_endian.h */,
-				9BBCC744260DF47600D4E37B /* ios */,
-				9BBCC74C260DF47600D4E37B /* ijksdl_log.h */,
+				9BD0A3BD2615A08A00665B2B /* ijksdl_gles2.h */,
+				9BD0A3BE2615A08A00665B2B /* ijksdl_vout.h */,
+				9BD0A3BF2615A08A00665B2B /* gles2 */,
+				9BD0A3D02615A08A00665B2B /* ijksdl_fourcc.h */,
+				9BD0A3D12615A08A00665B2B /* ijksdl_endian.h */,
+				9BD0A3D22615A08A00665B2B /* ios */,
+				9BD0A3DA2615A08A00665B2B /* ijksdl_log.h */,
 			);
 			path = ijksdl;
 			sourceTree = "<group>";
 		};
-		9BBCC732260DF47600D4E37B /* gles2 */ = {
+		9BD0A3BF2615A08A00665B2B /* gles2 */ = {
 			isa = PBXGroup;
 			children = (
-				9BD0A34226156D3200665B2B /* renderer_yuv420sp.c */,
-				9BBCC733260DF47600D4E37B /* renderer_yuv444p10le.c */,
-				9BBCC734260DF47600D4E37B /* common.c */,
-				9BBCC735260DF47600D4E37B /* internal.h */,
-				9BBCC736260DF47600D4E37B /* vsh */,
-				9BBCC738260DF47600D4E37B /* renderer_rgb.c */,
-				9BBCC739260DF47600D4E37B /* renderer_yuv420p.c */,
-				9BBCC73A260DF47600D4E37B /* shader.c */,
-				9BBCC73B260DF47600D4E37B /* renderer.c */,
-				9BBCC73C260DF47600D4E37B /* fsh */,
-				9BBCC741260DF47600D4E37B /* color.c */,
+				9BD0A3C02615A08A00665B2B /* renderer_yuv444p10le.c */,
+				9BD0A3C12615A08A00665B2B /* common.c */,
+				9BD0A3C22615A08A00665B2B /* internal.h */,
+				9BD0A3C32615A08A00665B2B /* vsh */,
+				9BD0A3C52615A08A00665B2B /* renderer_rgb.c */,
+				9BD0A3C62615A08A00665B2B /* renderer_yuv420p.c */,
+				9BD0A3C72615A08A00665B2B /* renderer_yuv420sp.c */,
+				9BD0A3C82615A08A00665B2B /* shader.c */,
+				9BD0A3C92615A08A00665B2B /* renderer.c */,
+				9BD0A3CA2615A08A00665B2B /* fsh */,
+				9BD0A3CF2615A08A00665B2B /* color.c */,
 			);
 			path = gles2;
 			sourceTree = "<group>";
 		};
-		9BBCC736260DF47600D4E37B /* vsh */ = {
+		9BD0A3C32615A08A00665B2B /* vsh */ = {
 			isa = PBXGroup;
 			children = (
-				9BBCC737260DF47600D4E37B /* mvp.vsh.c */,
+				9BD0A3C42615A08A00665B2B /* mvp.vsh.c */,
 			);
 			path = vsh;
 			sourceTree = "<group>";
 		};
-		9BBCC73C260DF47600D4E37B /* fsh */ = {
+		9BD0A3CA2615A08A00665B2B /* fsh */ = {
 			isa = PBXGroup;
 			children = (
-				9BBCC73D260DF47600D4E37B /* yuv444p10le.fsh.c */,
-				9BBCC73E260DF47600D4E37B /* yuv420p.fsh.c */,
-				9BBCC73F260DF47600D4E37B /* yuv420sp.fsh.c */,
-				9BBCC740260DF47600D4E37B /* rgb.fsh.c */,
+				9BD0A3CB2615A08A00665B2B /* yuv444p10le.fsh.c */,
+				9BD0A3CC2615A08A00665B2B /* yuv420p.fsh.c */,
+				9BD0A3CD2615A08A00665B2B /* yuv420sp.fsh.c */,
+				9BD0A3CE2615A08A00665B2B /* rgb.fsh.c */,
 			);
 			path = fsh;
 			sourceTree = "<group>";
 		};
-		9BBCC744260DF47600D4E37B /* ios */ = {
+		9BD0A3D22615A08A00665B2B /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				9BBCC745260DF47600D4E37B /* WXSDLGLView_RTC.h */,
-				9BBCC746260DF47600D4E37B /* ijksdl_ios.h */,
-				9BBCC747260DF47600D4E37B /* WXSDLGLView.h */,
-				9BBCC748260DF47600D4E37B /* WXSDLGLViewProtocol.h */,
-				9BBCC749260DF47600D4E37B /* WXSDLGLView_RTC.m */,
-				9BBCC74A260DF47600D4E37B /* WXSDLGLView.m */,
-				9BBCC74B260DF47600D4E37B /* IJKSDLGLViewProtocol.h */,
+				9BD0A3D42615A08A00665B2B /* ijksdl_ios.h */,
+				9BD0A3D62615A08A00665B2B /* WXSDLGLViewProtocol.h */,
+				9BD0A3D92615A08A00665B2B /* IJKSDLGLViewProtocol.h */,
 			);
 			path = ios;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9BD0A3A32615A06000665B2B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD0A3AC2615A06000665B2B /* WXVPlayer.h in Headers */,
+				9BD0A3F12615A08A00665B2B /* WXSDLGLView_RTC.h in Headers */,
+				9BD0A3DB2615A08A00665B2B /* YXVideoData.h in Headers */,
+				9BD0A3F32615A08A00665B2B /* WXSDLGLView.h in Headers */,
+				9BD0A3E02615A08A00665B2B /* ijksdl_vout.h in Headers */,
+				9BD0A3EF2615A08A00665B2B /* ijksdl_fourcc.h in Headers */,
+				9BD0A3DD2615A08A00665B2B /* WXCommonTool.h in Headers */,
+				9BD0A3F42615A08A00665B2B /* WXSDLGLViewProtocol.h in Headers */,
+				9BD0A3F02615A08A00665B2B /* ijksdl_endian.h in Headers */,
+				9BD0A3F72615A08A00665B2B /* IJKSDLGLViewProtocol.h in Headers */,
+				9BD0A3F82615A08A00665B2B /* ijksdl_log.h in Headers */,
+				9BD0A3DF2615A08A00665B2B /* ijksdl_gles2.h in Headers */,
+				9BD0A3E32615A08A00665B2B /* internal.h in Headers */,
+				9BD0A3F22615A08A00665B2B /* ijksdl_ios.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		9BBCC606260B18B200D4E37B /* VideoDR */ = {
@@ -449,15 +535,35 @@
 				9BBCC603260B18B200D4E37B /* Sources */,
 				9BBCC604260B18B200D4E37B /* Frameworks */,
 				9BBCC605260B18B200D4E37B /* Resources */,
+				9BD0A3B12615A06000665B2B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9BD0A3AE2615A06000665B2B /* PBXTargetDependency */,
 			);
 			name = VideoDR;
 			productName = VideoDR;
 			productReference = 9BBCC607260B18B200D4E37B /* VideoDR.app */;
 			productType = "com.apple.product-type.application";
+		};
+		9BD0A3A72615A06000665B2B /* WXVPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BD0A3B42615A06000665B2B /* Build configuration list for PBXNativeTarget "WXVPlayer" */;
+			buildPhases = (
+				9BD0A3A32615A06000665B2B /* Headers */,
+				9BD0A3A42615A06000665B2B /* Sources */,
+				9BD0A3A52615A06000665B2B /* Frameworks */,
+				9BD0A3A62615A06000665B2B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WXVPlayer;
+			productName = WXVPlayer;
+			productReference = 9BD0A3A82615A06000665B2B /* WXVPlayer.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -468,6 +574,9 @@
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
 					9BBCC606260B18B200D4E37B = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					9BD0A3A72615A06000665B2B = {
 						CreatedOnToolsVersion = 12.3;
 					};
 				};
@@ -486,6 +595,7 @@
 			projectRoot = "";
 			targets = (
 				9BBCC606260B18B200D4E37B /* VideoDR */,
+				9BD0A3A72615A06000665B2B /* WXVPlayer */,
 			);
 		};
 /* End PBXProject section */
@@ -507,6 +617,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9BD0A3A62615A06000665B2B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -514,9 +631,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BBCC75A260DF47600D4E37B /* WXSDLGLView_RTC.m in Sources */,
 				9BBCC696260C2DD700D4E37B /* VEDH264Decoder.m in Sources */,
-				9BBCC74F260DF47600D4E37B /* common.c in Sources */,
 				9BBCC6FC260CB56400D4E37B /* YXDefault.metal in Sources */,
 				9BBCC70A260CB5EE00D4E37B /* YXNMTKView.m in Sources */,
 				9BBCC6B7260C3E8A00D4E37B /* VEDUseDecoder.m in Sources */,
@@ -534,39 +649,56 @@
 				9BBCC702260CB58A00D4E37B /* YXY420.metal in Sources */,
 				9BBCC6B3260C3E7F00D4E37B /* VEDUseEncoder.m in Sources */,
 				9BBCC69C260C366900D4E37B /* YXLayerPlayer.m in Sources */,
-				9BBCC751260DF47600D4E37B /* renderer_rgb.c in Sources */,
-				9BD0A34326156D3200665B2B /* renderer_yuv420sp.c in Sources */,
 				9BBCC68E260C2DBA00D4E37B /* VEDCapture.m in Sources */,
-				9BBCC750260DF47600D4E37B /* mvp.vsh.c in Sources */,
-				9BBCC75B260DF47600D4E37B /* WXSDLGLView.m in Sources */,
 				9BBCC61D260B18B300D4E37B /* main.m in Sources */,
 				9BBCC66F260B33A100D4E37B /* EUseViewController.m in Sources */,
-				9BBCC75F260DF4D800D4E37B /* YXVideoData.m in Sources */,
-				9BBCC759260DF47600D4E37B /* color.c in Sources */,
-				9BBCC758260DF47600D4E37B /* rgb.fsh.c in Sources */,
 				9BBCC6DE260C8A0000D4E37B /* VEDRCapture.m in Sources */,
-				9BBCC756260DF47600D4E37B /* yuv420p.fsh.c in Sources */,
-				9BBCC753260DF47600D4E37B /* shader.c in Sources */,
-				9BBCC752260DF47600D4E37B /* renderer_yuv420p.c in Sources */,
 				9BBCC6EF260C9ABD00D4E37B /* YXSMKTView.m in Sources */,
 				9BBCC6BB260C3E9D00D4E37B /* VEDUseViewController.m in Sources */,
 				9BBCC70E260CB5F900D4E37B /* YXYMTKView.m in Sources */,
 				9BBCC66A260B339600D4E37B /* EncoderUseCapture.m in Sources */,
 				9BBCC692260C2DC900D4E37B /* VEDH264Encoder.m in Sources */,
-				9BBCC74E260DF47600D4E37B /* renderer_yuv444p10le.c in Sources */,
 				9BBCC651260B217600D4E37B /* EncoderViewController.m in Sources */,
-				9BBCC755260DF47600D4E37B /* yuv444p10le.fsh.c in Sources */,
-				9BBCC754260DF47600D4E37B /* renderer.c in Sources */,
-				9BBCC74D260DF47600D4E37B /* WXCommonTool.c in Sources */,
 				9BBCC639260B1CDC00D4E37B /* RenderCapture.m in Sources */,
 				9BBCC65B260B2EE100D4E37B /* YXFileHandle.m in Sources */,
 				9BBCC635260B1CA000D4E37B /* RenderViewController.m in Sources */,
-				9BBCC757260DF47600D4E37B /* yuv420sp.fsh.c in Sources */,
 				9BBCC674260B34E700D4E37B /* EUseH264HwEncoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9BD0A3A42615A06000665B2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD0A3DE2615A08A00665B2B /* YXVideoData.m in Sources */,
+				9BD0A3E42615A08A00665B2B /* mvp.vsh.c in Sources */,
+				9BD0A3F62615A08A00665B2B /* WXSDLGLView.m in Sources */,
+				9BD0A3E52615A08A00665B2B /* renderer_rgb.c in Sources */,
+				9BD0A3DC2615A08A00665B2B /* WXCommonTool.c in Sources */,
+				9BD0A3F52615A08A00665B2B /* WXSDLGLView_RTC.m in Sources */,
+				9BD0A3E92615A08A00665B2B /* renderer.c in Sources */,
+				9BD0A3E82615A08A00665B2B /* shader.c in Sources */,
+				9BD0A3E22615A08A00665B2B /* common.c in Sources */,
+				9BD0A3EB2615A08A00665B2B /* yuv420p.fsh.c in Sources */,
+				9BD0A3E12615A08A00665B2B /* renderer_yuv444p10le.c in Sources */,
+				9BD0A3EE2615A08A00665B2B /* color.c in Sources */,
+				9BD0A3EA2615A08A00665B2B /* yuv444p10le.fsh.c in Sources */,
+				9BD0A3EC2615A08A00665B2B /* yuv420sp.fsh.c in Sources */,
+				9BD0A3E62615A08A00665B2B /* renderer_yuv420p.c in Sources */,
+				9BD0A3ED2615A08A00665B2B /* rgb.fsh.c in Sources */,
+				9BD0A3E72615A08A00665B2B /* renderer_yuv420sp.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9BD0A3AE2615A06000665B2B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BD0A3A72615A06000665B2B /* WXVPlayer */;
+			targetProxy = 9BD0A3AD2615A06000665B2B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9BBCC613260B18B200D4E37B /* Main.storyboard */ = {
@@ -690,7 +822,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -743,6 +875,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -796,6 +929,64 @@
 			};
 			name = Release;
 		};
+		9BD0A3B22615A06000665B2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7XP66VHL84;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = WXVPlayer/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = yanzhen.WXVPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9BD0A3B32615A06000665B2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7XP66VHL84;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = WXVPlayer/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = yanzhen.WXVPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -813,6 +1004,15 @@
 			buildConfigurations = (
 				9BBCC621260B18B300D4E37B /* Debug */,
 				9BBCC622260B18B300D4E37B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BD0A3B42615A06000665B2B /* Build configuration list for PBXNativeTarget "WXVPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BD0A3B22615A06000665B2B /* Debug */,
+				9BD0A3B32615A06000665B2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
