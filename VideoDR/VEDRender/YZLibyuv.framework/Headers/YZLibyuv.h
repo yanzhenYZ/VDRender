@@ -15,6 +15,8 @@
 - (void)inputVideoData:(YZLibVideoData *)videoData;
 
 + (void)BGRAToI420:(uint8_t *)bgra bgraStride:(int)bgraStride dstY:(uint8_t *)y strideY:(int)strideY dstU:(uint8_t *)u strideU:(int)strideU dstV:(uint8_t *)v strideV:(int)strideV width:(int)width height:(int)height;
+
++ (void)BGRAToNV12:(uint8_t *)bgra bgraStride:(int)bgraStride dstY:(uint8_t *)y strideY:(int)strideY dstUV:(uint8_t *)uv strideUV:(int)strideUV width:(int)width height:(int)height;
 @end
 
 @protocol YZLibyuvDelegate <NSObject>

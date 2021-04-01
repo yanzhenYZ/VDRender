@@ -44,7 +44,9 @@
 @property (nonatomic, strong) WXSDLGLView *renderView;
 @end
 
-@implementation VEDRenderViewController
+@implementation VEDRenderViewController {
+    CVPixelBufferRef _pixelBuffer;
+}
 
 - (void)dealloc
 {
@@ -80,24 +82,23 @@
     
     _encoder = [[VEDREncoder alloc] init];
     _encoder.delegate = self;
-    /** nv12Render
-     120x120           有绿边
-     160x120  120x160  有绿边
-     180x180
-     240x180  180x240
-     320x180  180x320
-     240x240
-     320x240  240x320
-     424x240  240x424
-     360x360
-     480x360 360x480
-     640x360 360x640
-     480x480
-     640x480 480x640
-     840x480 480x840
-     960x720 720x960
-     
-     1280x720 720x1280
+    /** nv12Render             bgraToNV12
+     120x120           有绿边   =
+     160x120  120x160  有绿边   =
+     180x180                   =
+     240x180  180x240          =
+     320x180  180x320          =
+     240x240                   =
+     320x240  240x320          =
+     424x240  240x424          =
+     360x360                   =
+     480x360 360x480           =
+     640x360 360x640           =
+     480x480                   =
+     640x480 480x640           =
+     840x480 480x840           =
+     960x720 720x960           =
+     1280x720 720x1280         =
      */
     [_encoder startEncode:1280 height:720];
 
@@ -117,9 +118,59 @@
     
     //[self diiplay:pixelBuffer];
     
-    [self nv12Render:pixelBuffer];
+    //[self nv12Render:pixelBuffer];
+    
+    [self bgraToNV12:pixelBuffer];
 }
 
+
+- (void)bgraToNV12:(CVPixelBufferRef)pixelBuffer {
+    size_t width = CVPixelBufferGetWidth(pixelBuffer);
+    size_t height = CVPixelBufferGetHeight(pixelBuffer);
+    [self dealPixelBuffer:CGSizeMake(width, height)];
+    if (!_pixelBuffer) {
+        NSLog(@"Error:CVPixelBuffer");
+        return;
+    }
+    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
+    uint8_t *bgra = CVPixelBufferGetBaseAddress(pixelBuffer);
+    int bgraStride = CVPixelBufferGetBytesPerRow(pixelBuffer);
+    
+    CVPixelBufferLockBaseAddress(_pixelBuffer, 0);
+    
+    uint8_t *y = CVPixelBufferGetBaseAddressOfPlane(_pixelBuffer, 0);
+    int strideY = CVPixelBufferGetBytesPerRowOfPlane(_pixelBuffer, 0);
+    uint8_t *uv = CVPixelBufferGetBaseAddressOfPlane(_pixelBuffer, 1);
+    int strideUV = CVPixelBufferGetBytesPerRowOfPlane(_pixelBuffer, 1);
+    
+    [YZLibyuv BGRAToNV12:bgra bgraStride:bgraStride dstY:y strideY:strideY dstUV:uv strideUV:strideUV width:width height:height];
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+    CVPixelBufferUnlockBaseAddress(_pixelBuffer, 0);
+    [self nv12Render:_pixelBuffer];
+}
+
+- (void)dealPixelBuffer:(CGSize)size {
+    if (_pixelBuffer) {
+        if (CVPixelBufferGetWidth(_pixelBuffer) == size.width || CVPixelBufferGetHeight(_pixelBuffer) == size.height) {
+            return;
+        }
+        if (_pixelBuffer) {
+            CVPixelBufferRelease(_pixelBuffer);
+            _pixelBuffer = nil;
+        }
+    }
+    NSDictionary *pixelAttributes = @{(NSString *)kCVPixelBufferIOSurfacePropertiesKey:@{}};
+    CVReturn result = CVPixelBufferCreate(kCFAllocatorDefault,
+                                            size.width,
+                                            size.height,
+                                            kCVPixelFormatType_420YpCbCr8BiPlanarFullRange,
+                                            (__bridge CFDictionaryRef)(pixelAttributes),
+                                            &_pixelBuffer);
+    if (result != kCVReturnSuccess) {
+        NSLog(@"PixelBuffer to create cvpixelbuffer %d", result);
+        return;
+    }
+}
 
 - (void)nv12Render:(CVPixelBufferRef)pixelBuffer {
     [_renderView displayNv12:pixelBuffer];
