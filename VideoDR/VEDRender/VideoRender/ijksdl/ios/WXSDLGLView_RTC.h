@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WXSDLGLView (WXSDLGLView_RTC)
 
 -(void)displayData:(YXVideoData *)data;
+
+
+- (void)displayBgra:(CVPixelBufferRef)pixelBuffer;
 @end
 
 NS_ASSUME_NONNULL_END

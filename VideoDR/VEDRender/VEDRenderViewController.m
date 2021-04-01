@@ -80,24 +80,8 @@
     
     _encoder = [[VEDREncoder alloc] init];
     _encoder.delegate = self;
-    /**       yuv宽高       反转宽高
-     120x120  128-64-64
-     160x120  192-128-128  128-64-64
-     180x180  192-128-128
-     240x180  256-128-128  192-128-128
-     320x180  320-192-192  192-128-128
-     240x240  256-128-128
-     320x240  320-192-192  256-128-128
-     424x240  448-256-256  256-128-128
-     360x360  384-192-192
-     480x360  512-256-256  384-192-192
-     640x360  640-320-320  384-192-192
-     480x480  512-256-256
-     640x480  640-320-320  512-256-256
-     840x480  896-448-448  512-256-256
-     1280x720 1280-640-640 768-384-384
-     */
-    [_encoder startEncode:720 height:1280];
+    
+    [_encoder startEncode:640 height:480];
 
     _decoder = [[VEDRDecoder alloc] init];
     _decoder.delegate = self;
@@ -111,10 +95,15 @@
 -(void)decoder:(VEDRDecoder *)decoder didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer {
     
     
-    [_player displayVideo:pixelBuffer];
+    //[_player displayVideo:pixelBuffer];
     
-    [self diiplay:pixelBuffer];
-    
+    //[self diiplay:pixelBuffer];
+    [self bgraRender:pixelBuffer];
+}
+
+
+- (void)bgraRender:(CVPixelBufferRef)pixelBuffer {
+    [_renderView displayBgra:pixelBuffer];
 }
 
 - (void)diiplay:(CVPixelBufferRef)pixelBuffer {
@@ -128,7 +117,7 @@
     data.yStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 0);
     data.uStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 1);
     data.vStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 2);
-    NSLog(@"__%d:%d:%d:%d", data.width, data.height, data.yStride, data.uStride);
+    //NSLog(@"__%d:%d:%d:%d", data.width, data.height, data.yStride, data.uStride);
 #if 0
     data.yBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
     data.uBuffer = (int8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 1);

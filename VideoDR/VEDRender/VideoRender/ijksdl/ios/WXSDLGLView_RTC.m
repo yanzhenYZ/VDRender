@@ -35,5 +35,21 @@
     [self display:&bb];
 }
 
-
+- (void)displayBgra:(CVPixelBufferRef)pixelBuffer {
+    WX_SDL_VoutOverlay bb;
+    bb.format = SDL_FCC_RV32;
+    
+    bb.w = (int)CVPixelBufferGetWidth(pixelBuffer);
+    bb.h = (int)CVPixelBufferGetHeight(pixelBuffer);
+    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
+    void *address = CVPixelBufferGetBaseAddress(pixelBuffer);
+    bb.pixels[0] = address;
+    bb.pitches[0] = CVPixelBufferGetBytesPerRow(pixelBuffer);
+    bb.planes = 1;
+    bb.rotation = 0;
+    bb.sar_den = 0;
+    bb.sar_num = 0;
+    [self display:&bb];
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+}
 @end
