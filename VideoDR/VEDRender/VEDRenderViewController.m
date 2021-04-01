@@ -80,8 +80,26 @@
     
     _encoder = [[VEDREncoder alloc] init];
     _encoder.delegate = self;
-    
-    [_encoder startEncode:640 height:480];
+    /** nv12Render
+     120x120           有绿边
+     160x120  120x160  有绿边
+     180x180
+     240x180  180x240
+     320x180  180x320
+     240x240
+     320x240  240x320
+     424x240  240x424
+     360x360
+     480x360 360x480
+     640x360 360x640
+     480x480
+     640x480 480x640
+     840x480 480x840
+     960x720 720x960
+     
+     1280x720 720x1280
+     */
+    [_encoder startEncode:1280 height:720];
 
     _decoder = [[VEDRDecoder alloc] init];
     _decoder.delegate = self;
