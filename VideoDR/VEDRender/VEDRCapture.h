@@ -8,6 +8,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreVideo/CoreVideo.h>
 
+#define TESTROTATION 1
+
 @protocol VEDRCaptureDelegate;
 @interface VEDRCapture : NSObject
 @property (nonatomic, weak) id<VEDRCaptureDelegate> delegate;

@@ -99,11 +99,12 @@
     [_player.layer addSublayer:previewLayer];
     
     self.session.sessionPreset = AVCaptureSessionPreset640x480;
-
+#if !TESTROTATION
     [_session beginConfiguration];
     _connect = [self.dataOutput connectionWithMediaType:AVMediaTypeVideo];
     [_connect setVideoOrientation:AVCaptureVideoOrientationLandscapeLeft];
     [_session commitConfiguration];
+#endif
     
     [camera lockForConfiguration:nil];
     camera.activeVideoMinFrameDuration = CMTimeMake(1, 10);

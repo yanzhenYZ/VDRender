@@ -111,6 +111,39 @@
     [_capture startRunning];
 }
 
+- (int)getOutputRotation {//test code
+    int ratation = 0;
+    UIInterfaceOrientation orientation = UIApplication.sharedApplication.statusBarOrientation;
+    switch (orientation) {
+        case UIInterfaceOrientationPortrait:
+            return 90;
+            break;
+        case UIInterfaceOrientationPortraitUpsideDown:
+            return 270;
+            break;
+        case UIInterfaceOrientationLandscapeLeft:
+            return 0;
+            break;
+        case UIInterfaceOrientationLandscapeRight:
+            return 180;
+            break;
+        default:
+            break;
+    }
+    return ratation;
+    
+}
+
+#pragma mark - VEDRCaptureDelegate
+- (void)capture:(VEDRCapture *)capture pixelBuffer:(CVPixelBufferRef)pixelBuffer {
+#if TESTROTATION
+    [_renderView displayNv12:pixelBuffer rotation:[self getOutputRotation]];
+#else
+    [self.encoder encodePixelBuffer:pixelBuffer];
+#endif
+    
+}
+
 #pragma mark - VEDRDecoderDelegate
 -(void)decoder:(VEDRDecoder *)decoder didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer {
     
@@ -269,11 +302,6 @@
     [h264Data appendData:ByteHeader];
     [h264Data appendData:data];
     [_decoder decodeData:h264Data];
-}
-
-#pragma mark - VEDRCaptureDelegate
-- (void)capture:(VEDRCapture *)capture pixelBuffer:(CVPixelBufferRef)pixelBuffer {
-    [self.encoder encodePixelBuffer:pixelBuffer];
 }
 
 #pragma mark - UI
