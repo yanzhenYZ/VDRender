@@ -40,14 +40,27 @@
                                     <action selector="exitCapture:" destination="6cF-4U-wZj" eventType="touchUpInside" id="cMs-ie-762"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="q9X-KY-OIp">
+                                <rect key="frame" x="134" y="807" width="146" height="32"/>
+                                <segments>
+                                    <segment title="Scall"/>
+                                    <segment title="Fit"/>
+                                    <segment title="Fill"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segment:" destination="6cF-4U-wZj" eventType="valueChanged" id="vh8-0C-C9O"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cK7-f8-DfW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2hH-nW-AKK" firstAttribute="top" secondItem="ahu-Ko-gE0" secondAttribute="top" id="16R-Hr-0q9"/>
+                            <constraint firstItem="q9X-KY-OIp" firstAttribute="centerX" secondItem="ahu-Ko-gE0" secondAttribute="centerX" id="DtU-dW-B6m"/>
                             <constraint firstItem="PkC-sk-8h1" firstAttribute="leading" secondItem="cK7-f8-DfW" secondAttribute="leading" constant="8" id="I8V-5t-5fP"/>
                             <constraint firstItem="w5d-wB-ocs" firstAttribute="leading" secondItem="cK7-f8-DfW" secondAttribute="leading" id="Oqv-e1-mkh"/>
                             <constraint firstItem="2hH-nW-AKK" firstAttribute="trailing" secondItem="cK7-f8-DfW" secondAttribute="trailing" id="YeK-7w-PbP"/>
+                            <constraint firstItem="cK7-f8-DfW" firstAttribute="bottom" secondItem="q9X-KY-OIp" secondAttribute="bottom" constant="24" id="bK4-h4-Zwj"/>
                             <constraint firstItem="w5d-wB-ocs" firstAttribute="top" secondItem="ahu-Ko-gE0" secondAttribute="top" id="dmB-sD-XQ1"/>
                             <constraint firstItem="PkC-sk-8h1" firstAttribute="top" secondItem="cK7-f8-DfW" secondAttribute="top" constant="8" id="krR-Zw-LLZ"/>
                             <constraint firstItem="w5d-wB-ocs" firstAttribute="trailing" secondItem="cK7-f8-DfW" secondAttribute="trailing" id="ns2-J6-CJ0"/>

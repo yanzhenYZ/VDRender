@@ -48,8 +48,8 @@
     
     
     _display = [[YZVideoDisplay alloc] init];
+//    [_display setViewFillMode:YZVideoFillModeScaleAspectFit];
     [_display setVideoShowView:_showPlayer];
-    [_display setViewFillMode:YZVideoFillModeScaleAspectFit];
     
     _encoder = [[VEDREncoder alloc] init];
     _encoder.delegate = self;
@@ -61,6 +61,10 @@
     _capture = [[VEDRCapture alloc] initWithPlayer:_mainPlayer];
     _capture.delegate = self;
     [_capture startRunning];
+}
+
+- (IBAction)segment:(UISegmentedControl *)sender {
+    [_display setViewFillMode:sender.selectedSegmentIndex];
 }
 
 #pragma mark - VEDRDecoderDelegate

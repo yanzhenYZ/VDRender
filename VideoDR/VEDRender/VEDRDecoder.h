@@ -8,6 +8,9 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
+
+static const int VIDEOTYPE = 0;
+
 @protocol VEDRDecoderDelegate;
 @interface VEDRDecoder : NSObject
 @property (nonatomic, assign) id<VEDRDecoderDelegate> delegate;
