@@ -41,6 +41,7 @@
 		9BBCC6E2260C8A0C00D4E37B /* VEDREncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6E1260C8A0C00D4E37B /* VEDREncoder.m */; };
 		9BBCC6E6260C8A1F00D4E37B /* VEDRDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6E5260C8A1F00D4E37B /* VEDRDecoder.m */; };
 		9BBCC6EF260C9ABD00D4E37B /* YXSMKTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6EE260C9ABD00D4E37B /* YXSMKTView.m */; };
+		9BD0A4AC261C74BC00665B2B /* YZVideoRender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD0A4AB261C74BC00665B2B /* YZVideoRender.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +106,7 @@
 		9BBCC6E8260C8E1A00D4E37B /* VEDRNote.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDRNote.h; sourceTree = "<group>"; };
 		9BBCC6ED260C9ABD00D4E37B /* YXSMKTView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXSMKTView.h; sourceTree = "<group>"; };
 		9BBCC6EE260C9ABD00D4E37B /* YXSMKTView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXSMKTView.m; sourceTree = "<group>"; };
+		9BD0A4AB261C74BC00665B2B /* YZVideoRender.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YZVideoRender.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BD0A4AC261C74BC00665B2B /* YZVideoRender.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +255,7 @@
 		9BBCC6CD260C87FE00D4E37B /* VEDRender */ = {
 			isa = PBXGroup;
 			children = (
+				9BD0A4AB261C74BC00665B2B /* YZVideoRender.framework */,
 				9BBCC6D8260C891800D4E37B /* VEDRenderViewController.h */,
 				9BBCC6D9260C891800D4E37B /* VEDRenderViewController.m */,
 				9BBCC6DC260C8A0000D4E37B /* VEDRCapture.h */,
@@ -556,14 +560,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 210324;
+				CURRENT_PROJECT_VERSION = 210406;
 				DEVELOPMENT_TEAM = 7XP66VHL84;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VideoDR/VEDRender",
+				);
 				INFOPLIST_FILE = VideoDR/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = yanzhen.VideoDR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -576,14 +585,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 210324;
+				CURRENT_PROJECT_VERSION = 210406;
 				DEVELOPMENT_TEAM = 7XP66VHL84;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VideoDR/VEDRender",
+				);
 				INFOPLIST_FILE = VideoDR/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = yanzhen.VideoDR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

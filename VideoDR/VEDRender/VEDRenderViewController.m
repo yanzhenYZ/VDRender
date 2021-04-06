@@ -12,6 +12,8 @@
 #import "VEDREncoder.h"
 #import "VEDRDecoder.h"
 
+#import <YZVideoRender/YZVideoRender.h>
+
 
 #define MTK 1
 
@@ -28,6 +30,9 @@
 @property (nonatomic, strong) VEDREncoder *encoder;
 @property (nonatomic, strong) VEDRDecoder *decoder;
 @property (nonatomic, strong) VEDRCapture *capture;
+
+
+@property (nonatomic, strong) YZVideoDisplay *display;
 @end
 
 @implementation VEDRenderViewController
@@ -41,17 +46,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-#if MTK
-    _player = [[YXSMKTView alloc] initWithFrame:self.showPlayer.bounds];
-    _player.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self.showPlayer addSubview:_player];
-#else
-    YXLayerPlayer *player = [[YXLayerPlayer alloc] initWithFrame:self.showPlayer.bounds];
-    player.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self.showPlayer addSubview:player];
-    _player = player;
-#endif
     
+    _display = [[YZVideoDisplay alloc] init];
+    [_display setVideoShowView:_showPlayer];
+    [_display setViewFillMode:YZVideoFillModeScaleAspectFit];
     
     _encoder = [[VEDREncoder alloc] init];
     _encoder.delegate = self;
@@ -67,7 +65,10 @@
 
 #pragma mark - VEDRDecoderDelegate
 -(void)decoder:(VEDRDecoder *)decoder didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer {
-    [_player displayVideo:pixelBuffer];
+//    [_player displayVideo:pixelBuffer];
+    YZVideoData *data = [[YZVideoData alloc] init];
+    data.pixelBuffer = pixelBuffer;
+    [_display displayVideo:data];
 }
 
 #pragma mark - VEDREncoderDelegate
