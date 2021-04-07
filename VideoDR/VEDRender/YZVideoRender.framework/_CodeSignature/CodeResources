@@ -6,23 +6,15 @@
 	<dict>
 		<key>Headers/YZVideoData.h</key>
 		<data>
-		qg5YMiVoBm3mGsMgIKuwEd4pdB4=
+		yk/tLo81dmhyM/aNfsHhjJ871cY=
 		</data>
 		<key>Headers/YZVideoDisplay.h</key>
 		<data>
-		82r0S91MDjzEnL5xRYDX1I88fok=
-		</data>
-		<key>Headers/YZVideoOptions.h</key>
-		<data>
-		NsZ/wT8H4K6z1LvFwYNo+UpAnkQ=
+		DwRJliHXM2mzDSX6atkYkbKxH+w=
 		</data>
 		<key>Headers/YZVideoRender.h</key>
 		<data>
-		VlKZIejcsJyXVknBa3B+9/aN0N8=
-		</data>
-		<key>Headers/YZVideoShow.h</key>
-		<data>
-		egKY7zMJQuRmZVYTk25IdH+RizE=
+		8gWDYSks19TBWcw9mFk5hPBEgJY=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -39,55 +31,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qg5YMiVoBm3mGsMgIKuwEd4pdB4=
+			yk/tLo81dmhyM/aNfsHhjJ871cY=
 			</data>
 			<key>hash2</key>
 			<data>
-			H01lPSDCuyjusuxAMOu9ifkpW0+p3M17H07wZSPHiq8=
+			Y3J1AXqo4arEkisbArnSq3PwDCC5S1yTzarFjM+DhbQ=
 			</data>
 		</dict>
 		<key>Headers/YZVideoDisplay.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			82r0S91MDjzEnL5xRYDX1I88fok=
+			DwRJliHXM2mzDSX6atkYkbKxH+w=
 			</data>
 			<key>hash2</key>
 			<data>
-			7kOFn8EiJ2mMrvyGJIN1JxpDQf5kkDTFGaIB7RmLMQc=
-			</data>
-		</dict>
-		<key>Headers/YZVideoOptions.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			NsZ/wT8H4K6z1LvFwYNo+UpAnkQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			KyJURONCyADcqnz/1OS56gkqL4vrhqLQpU0uTPSvcGM=
+			9heU7PKPRliueAMvEkMvlNoJDizKenB6rxu31xjj/f4=
 			</data>
 		</dict>
 		<key>Headers/YZVideoRender.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			VlKZIejcsJyXVknBa3B+9/aN0N8=
+			8gWDYSks19TBWcw9mFk5hPBEgJY=
 			</data>
 			<key>hash2</key>
 			<data>
-			vtQxUQwRGoI0hDvYj3sxgMi9xQv1LND8B16JuB5Ichs=
-			</data>
-		</dict>
-		<key>Headers/YZVideoShow.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			egKY7zMJQuRmZVYTk25IdH+RizE=
-			</data>
-			<key>hash2</key>
-			<data>
-			zNx8Ekhs2S/ccUbDj+DMnZjHWUxse+aEByxUk1/bd2U=
+			Yp1FLLRHX9AO5SQVR+wk/RqKAd0ub6x/Z32QfVdMe8U=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

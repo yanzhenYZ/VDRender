@@ -7,11 +7,11 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum : NSInteger {
+typedef NS_ENUM(NSUInteger, YZVideoFillMode) {
     YZVideoFillModeScaleToFill,     /** Same as UIViewContentModeScaleToFill */
     YZVideoFillModeScaleAspectFit,  /** Same as UIViewContentModeScaleAspectFit */
     YZVideoFillModeScaleAspectFill, /** Same as UIViewContentModeScaleAspectFill */
-} YZVideoFillMode;
+};
 
 @class YZVideoData;
 @interface YZVideoDisplay : NSObject
@@ -24,10 +24,10 @@ typedef enum : NSInteger {
  */
 + (BOOL)isSupportAdditionalFeatures;
 
-- (void)displayVideo:(YZVideoData *)videoData; //show video
-
 - (void)setVideoShowView:(UIView *)view; //set video show view
 - (void)setViewFillMode:(YZVideoFillMode)mode; //see YZVideoFillMode
+
+- (void)displayVideo:(YZVideoData *)videoData; //show video
 @end
 
 
