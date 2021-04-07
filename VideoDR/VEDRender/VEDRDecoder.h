@@ -14,6 +14,7 @@ static const int VIDEOTYPE = 3;
 @protocol VEDRDecoderDelegate;
 @interface VEDRDecoder : NSObject
 @property (nonatomic, assign) id<VEDRDecoderDelegate> delegate;
+@property (nonatomic) int type;
 
 - (void)decodeData:(NSData *)data;
 @end

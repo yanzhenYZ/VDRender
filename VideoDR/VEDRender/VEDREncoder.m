@@ -58,7 +58,7 @@ void VEDRVideoCompressionOutputCallback(void *outputCallbackRefCon,
                 //图像参数集
                 NSData *ppsData = [NSData dataWithBytes:(void*)pparameterSet length:pparameterSetSize];
                 [encoder sendSps:spsData pps:ppsData];
-                encoder.gotPPS = YES;
+//                encoder.gotPPS = YES;
             }
         }
     }

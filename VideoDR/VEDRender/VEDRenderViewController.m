@@ -56,6 +56,7 @@
     [_encoder startEncode:120 height:160];
 
     _decoder = [[VEDRDecoder alloc] init];
+    _decoder.type = 3;
     _decoder.delegate = self;
     
     _capture = [[VEDRCapture alloc] initWithPlayer:_mainPlayer];
@@ -64,7 +65,17 @@
 }
 
 - (IBAction)segment:(UISegmentedControl *)sender {
-    [_display setViewFillMode:sender.selectedSegmentIndex];
+    //[_display setViewFillMode:sender.selectedSegmentIndex];
+    
+    _decoder = [[VEDRDecoder alloc] init];
+    _decoder.type = 3;
+    _decoder.delegate = self;
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    _decoder = [[VEDRDecoder alloc] init];
+    _decoder.type = 1;
+    _decoder.delegate = self;
 }
 
 #pragma mark - VEDRDecoderDelegate
@@ -73,9 +84,15 @@
 //    YZVideoData *data = [[YZVideoData alloc] init];
 //    data.pixelBuffer = pixelBuffer;
 //    [_display displayVideo:data];
-    
-//    [self testNV12:pixelBuffer];
-    [self testI420:pixelBuffer];
+    OSType type = CVPixelBufferGetPixelFormatType(pixelBuffer);
+    if (type == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange) {
+        [self testNV12:pixelBuffer];
+        NSLog(@"xxx001");
+    } else if (type == kCVPixelFormatType_420YpCbCr8Planar) {
+        [self testI420:pixelBuffer];
+        NSLog(@"xxx002");
+    }
+//
 }
 
 - (void)testI420:(CVPixelBufferRef)pixelBuffer {

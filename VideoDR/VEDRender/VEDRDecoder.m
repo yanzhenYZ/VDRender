@@ -181,11 +181,11 @@ static void VEDRDidDecompressH264(void * CM_NULLABLE decompressionOutputRefCon,
     const void* keys[] = { kCVPixelBufferPixelFormatTypeKey};
     //kCVPixelFormatType_420YpCbCr8Planar is YUV420, kCVPixelFormatType_420YpCbCr8BiPlanarFullRange is NV12
     uint32_t biPlanarType = kCVPixelFormatType_32BGRA;
-    if (VIDEOTYPE == 1) {
+    if (self.type == 1) {
         biPlanarType = kCVPixelFormatType_420YpCbCr8BiPlanarFullRange;
-    } else if (VIDEOTYPE == 2) {
+    } else if (self.type == 2) {
         biPlanarType = kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange;
-    } else if (VIDEOTYPE == 3) {
+    } else if (self.type == 3) {
         biPlanarType = kCVPixelFormatType_420YpCbCr8Planar;
     }
     
