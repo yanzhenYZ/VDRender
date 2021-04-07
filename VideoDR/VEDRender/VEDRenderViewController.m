@@ -32,7 +32,7 @@
 @property (nonatomic, strong) VEDRCapture *capture;
 
 
-@property (nonatomic, strong) YZVideoDisplay *display;
+@property (nonatomic, strong) YZVideoShow *display;
 @end
 
 @implementation VEDRenderViewController
@@ -47,13 +47,13 @@
     // Do any additional setup after loading the view.
     
     
-    _display = [[YZVideoDisplay alloc] init];
-//    [_display setViewFillMode:YZVideoFillModeScaleAspectFit];
+    _display = [[YZVideoShow alloc] init];
+//    [_display setViewFillMode:YZVideoFillModeScaleAspectFit];/
     [_display setVideoShowView:_showPlayer];
     
     _encoder = [[VEDREncoder alloc] init];
     _encoder.delegate = self;
-    [_encoder startEncode:120 height:160];
+    [_encoder startEncode:360 height:640];
 
     _decoder = [[VEDRDecoder alloc] init];
     _decoder.type = 3;
@@ -65,32 +65,51 @@
 }
 
 - (IBAction)segment:(UISegmentedControl *)sender {
-    //[_display setViewFillMode:sender.selectedSegmentIndex];
-    
-    _decoder = [[VEDRDecoder alloc] init];
-    _decoder.type = 3;
-    _decoder.delegate = self;
+    [_display setViewFillMode:sender.selectedSegmentIndex];
+    return;
+    if (sender.selectedSegmentIndex == 0) {
+        _decoder = [[VEDRDecoder alloc] init];
+        _decoder.type = 3;
+        _decoder.delegate = self;
+    } else if (sender.selectedSegmentIndex == 1) {
+        _decoder = [[VEDRDecoder alloc] init];
+        _decoder.type = 1;
+        _decoder.delegate = self;
+    } else {
+        _decoder = [[VEDRDecoder alloc] init];
+        _decoder.type = 0;
+        _decoder.delegate = self;
+    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    _decoder = [[VEDRDecoder alloc] init];
-    _decoder.type = 1;
-    _decoder.delegate = self;
+//    _decoder = [[VEDRDecoder alloc] init];
+//    _decoder.type = 1;
+//    _decoder.delegate = self;
 }
 
 #pragma mark - VEDRDecoderDelegate
 -(void)decoder:(VEDRDecoder *)decoder didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer {
-//    [_player displayVideo:pixelBuffer];
-//    YZVideoData *data = [[YZVideoData alloc] init];
-//    data.pixelBuffer = pixelBuffer;
-//    [_display displayVideo:data];
     OSType type = CVPixelBufferGetPixelFormatType(pixelBuffer);
     if (type == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange) {
         [self testNV12:pixelBuffer];
         NSLog(@"xxx001");
     } else if (type == kCVPixelFormatType_420YpCbCr8Planar) {
-        [self testI420:pixelBuffer];
+//        [self testI420:pixelBuffer];
         NSLog(@"xxx002");
+        
+        YZVideoData *data = [[YZVideoData alloc] init];
+        data.format = YZVideoFormatPixelBuffer;
+        data.pixelBuffer = pixelBuffer;
+        data.cropTop = 60;
+        data.cropBottom = 60;
+        [_display displayVideo:data];
+    } else {
+        NSLog(@"xxx003");
+        YZVideoData *data = [[YZVideoData alloc] init];
+        data.format = YZVideoFormatPixelBuffer;
+        data.pixelBuffer = pixelBuffer;
+        [_display displayVideo:data];
     }
 //
 }

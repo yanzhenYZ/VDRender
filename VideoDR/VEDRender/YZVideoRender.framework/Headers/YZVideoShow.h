@@ -1,10 +1,3 @@
-//
-//  YZVideoDisplay.h
-//  YZVideoRender
-//
-//  Created by yanzhen on 2021/4/6.
-//
-
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, YZVideoFillMode) {
@@ -14,10 +7,10 @@ typedef NS_ENUM(NSUInteger, YZVideoFillMode) {
 };
 
 @class YZVideoData;
-@interface YZVideoDisplay : NSObject
+@interface YZVideoShow : NSObject
 /**
  *  isSupportAdditionalFeatures
- *  @abstract   The additional features contain YZVideoData's cropLeft, cropTop, cropRight, cropBottom and rotation.
+ *  @abstract   The additional features contain YZVideoData's cropLeft, cropTop, cropRight, cropBottom, mirror and rotation.
  *
  *  @return     YES             The device is supported.
  *              NO              The device is not supported
@@ -29,5 +22,3 @@ typedef NS_ENUM(NSUInteger, YZVideoFillMode) {
 
 - (void)displayVideo:(YZVideoData *)videoData; //show video
 @end
-
-

@@ -30,40 +30,43 @@ typedef NS_ENUM(NSUInteger, YZVideoFormat) {
 @property (nonatomic, assign) CVPixelBufferRef pixelBuffer;
 
 /** input video width */
-@property (assign, nonatomic) int width;
+@property (nonatomic, assign) int width;
 
 /** input video heigth */
-@property (assign, nonatomic) int height;
+@property (nonatomic, assign) int height;
 
 
 /** crop video left */
-@property (assign, nonatomic) int cropLeft;
+@property (nonatomic, assign) int cropLeft;
 
 /** crop video top */
-@property (assign, nonatomic) int cropTop;
+@property (nonatomic, assign) int cropTop;
 
 /** crop video right */
-@property (assign, nonatomic) int cropRight;
+@property (nonatomic, assign) int cropRight;
 
 /** crop video bottom */
-@property (assign, nonatomic) int cropBottom;
+@property (nonatomic, assign) int cropBottom;
 
 
 /** set the video rotation degree */
-@property (assign, nonatomic) YZVideoRotation rotation;
+@property (nonatomic, assign) YZVideoRotation rotation;
+
+/** mirror */
+@property (nonatomic, assign) BOOL mirror;
 
 
 /** I420 or NV12 y stride */
-@property (nonatomic) int yStride;
+@property (nonatomic, assign) int yStride;
 
 /** I420 u stride */
-@property (nonatomic) int uStride;
+@property (nonatomic, assign) int uStride;
 
 /** I420 v stride */
-@property (nonatomic) int vStride;
+@property (nonatomic, assign) int vStride;
 
 /** NV12 uv stride */
-@property (nonatomic) int uvStride;
+@property (nonatomic, assign) int uvStride;
 
 
 /** I420 or NV12 y buffer */
