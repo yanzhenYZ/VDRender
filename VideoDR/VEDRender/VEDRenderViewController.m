@@ -53,7 +53,7 @@
     
     _encoder = [[VEDREncoder alloc] init];
     _encoder.delegate = self;
-    [_encoder startEncode:720 height:1280];
+    [_encoder startEncode:120 height:160];
 
     _decoder = [[VEDRDecoder alloc] init];
     _decoder.delegate = self;
@@ -70,8 +70,67 @@
 #pragma mark - VEDRDecoderDelegate
 -(void)decoder:(VEDRDecoder *)decoder didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer {
 //    [_player displayVideo:pixelBuffer];
+//    YZVideoData *data = [[YZVideoData alloc] init];
+//    data.pixelBuffer = pixelBuffer;
+//    [_display displayVideo:data];
+    
+//    [self testNV12:pixelBuffer];
+    [self testI420:pixelBuffer];
+}
+
+- (void)testI420:(CVPixelBufferRef)pixelBuffer {
     YZVideoData *data = [[YZVideoData alloc] init];
-    data.pixelBuffer = pixelBuffer;
+    data.format = YZVideoFormatI420;
+    data.width = (int)CVPixelBufferGetWidth(pixelBuffer);
+    data.height = (int)CVPixelBufferGetHeight(pixelBuffer);
+    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
+    uint8_t *yBuffer = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
+    uint8_t *uBuffer = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 1);
+    uint8_t *vBuffer = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 2);
+    
+    size_t yStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 0);
+    size_t uStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 1);
+    size_t vStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 2);
+    //uint8_t *yy = malloc(data.width * data.height);
+//    for (int i = 0; i < data.height; i++) {
+//        memcpy(yy + data.width * i, yBuffer + yStride * i, data.width);
+//    }
+    
+    //data.yBuffer = yy;
+    data.yBuffer = yBuffer;
+    data.uBuffer = uBuffer;
+    data.vBuffer = vBuffer;
+    
+//    data.yStride = data.width;
+    data.yStride = yStride;
+    data.uStride = uStride;
+    data.vStride = vStride;
+    
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+    [_display displayVideo:data];
+//    free(yy);
+}
+
+- (void)testNV12:(CVPixelBufferRef)pixelBuffer {
+    
+    YZVideoData *data = [[YZVideoData alloc] init];
+    data.format = YZVideoFormatNV12;
+    data.width = (int)CVPixelBufferGetWidth(pixelBuffer);
+    data.height = (int)CVPixelBufferGetHeight(pixelBuffer);
+    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
+    uint8_t *yBuffer = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
+    uint8_t *uvBuffer = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 1);
+    
+    size_t yStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 0);
+    size_t uvStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 1);
+    
+    data.yBuffer = yBuffer;
+    data.uvBuffer = uvBuffer;
+    
+    data.yStride = yStride;
+    data.uvStride = uvStride;
+    
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
     [_display displayVideo:data];
 }
 
