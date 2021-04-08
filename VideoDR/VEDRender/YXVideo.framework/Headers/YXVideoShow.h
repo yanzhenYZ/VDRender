@@ -1,9 +1,9 @@
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSUInteger, YZVideoFillMode) {
-    YZVideoFillModeScaleToFill,     /** Same as UIViewContentModeScaleToFill */
-    YZVideoFillModeScaleAspectFit,  /** Same as UIViewContentModeScaleAspectFit */
-    YZVideoFillModeScaleAspectFill, /** Same as UIViewContentModeScaleAspectFill */
+typedef NS_ENUM(NSUInteger, YXVideoFillMode) {
+    YXVideoFillModeScaleToFill,     /** Same as UIViewContentModeScaleToFill */
+    YXVideoFillModeScaleAspectFit,  /** Same as UIViewContentModeScaleAspectFit */
+    YXVideoFillModeScaleAspectFill, /** Same as UIViewContentModeScaleAspectFill */
 };
 
 @class YXVideoData;
@@ -18,7 +18,7 @@ typedef NS_ENUM(NSUInteger, YZVideoFillMode) {
 + (BOOL)isSupportAdditionalFeatures;
 
 - (void)setVideoShowView:(UIView *)view; //set video show view
-- (void)setViewFillMode:(YZVideoFillMode)mode; //see YZVideoFillMode
+- (void)setViewFillMode:(YXVideoFillMode)mode; //see YXVideoFillMode
 
 - (void)displayVideo:(YXVideoData *)videoData; //show video
 @end

@@ -38,9 +38,11 @@
 /**
  YX001: 支持附加功能
  YX002: 切换显示视图
+ YX003: 显示模式
  
  todo
- YX003: 显示模式
+ YX004: YXVideoFormatPixelBuffer
+ 
  */
 
 
@@ -58,7 +60,7 @@
     NSLog(@"_____YX001:%d", [YXVideoShow isSupportAdditionalFeatures]);
     
     _display = [[YXVideoShow alloc] init];
-    [_display setViewFillMode:YZVideoFillModeScaleAspectFit];
+    //[_display setViewFillMode:YXVideoFillModeScaleAspectFit];
     [_display setVideoShowView:_showPlayer];
     
     _encoder = [[VEDREncoder alloc] init];
@@ -75,7 +77,7 @@
 }
 
 - (IBAction)segment:(UISegmentedControl *)sender {
-    [_display setViewFillMode:sender.selectedSegmentIndex];
+    [self setFillMode:sender.selectedSegmentIndex];
     return;
     if (sender.selectedSegmentIndex == 0) {
         _decoder = [[VEDRDecoder alloc] init];
@@ -94,6 +96,11 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self switchShowView];
+}
+
+#pragma mark - YX003
+- (void)setFillMode:(YXVideoFillMode)mode {
+    [_display setViewFillMode:mode];
 }
 
 #pragma mark - YX002
