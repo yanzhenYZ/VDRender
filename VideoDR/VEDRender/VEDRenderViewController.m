@@ -40,8 +40,16 @@
  YX002: 切换显示视图
  YX003: 显示模式
  
- todo
  YX004: YXVideoFormatPixelBuffer
+ YX005: YXVideoFormatI420
+ YX006: YXVideoFormatNV12
+ 
+ todo
+ YX006: crop
+ YX007: rotation
+ YX008: mirror
+ 
+ YX009: 中途切换format
  
  */
 
@@ -60,7 +68,7 @@
     NSLog(@"_____YX001:%d", [YXVideoShow isSupportAdditionalFeatures]);
     
     _display = [[YXVideoShow alloc] init];
-    //[_display setViewFillMode:YXVideoFillModeScaleAspectFit];
+    [_display setViewFillMode:YXVideoFillModeScaleAspectFit];
     [_display setVideoShowView:_showPlayer];
     
     _encoder = [[VEDREncoder alloc] init];
@@ -69,6 +77,15 @@
 
     _decoder = [[VEDRDecoder alloc] init];
     _decoder.type = 3;
+#pragma mark - YX004 -- 类型
+//    _decoder.type = 1;//0,1,2,3
+
+#pragma mark - YX005 -- must type = 3
+//    _decoder.type = 3;
+
+#pragma mark - YX006 -- must type = 1 or 2
+//    _decoder.type = 1;
+    
     _decoder.delegate = self;
     
     _capture = [[VEDRCapture alloc] initWithPlayer:_mainPlayer];
@@ -77,8 +94,8 @@
 }
 
 - (IBAction)segment:(UISegmentedControl *)sender {
-    [self setFillMode:sender.selectedSegmentIndex];
-    return;
+    //[self setFillMode:sender.selectedSegmentIndex];
+    //return;
     if (sender.selectedSegmentIndex == 0) {
         _decoder = [[VEDRDecoder alloc] init];
         _decoder.type = 3;
@@ -95,7 +112,7 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self switchShowView];
+    //[self switchShowView];
 }
 
 #pragma mark - YX003
@@ -114,39 +131,70 @@
 
 #pragma mark - VEDRDecoderDelegate
 -(void)decoder:(VEDRDecoder *)decoder didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer {
-    OSType type = CVPixelBufferGetPixelFormatType(pixelBuffer);
-    if (type == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange) {
-        [self testNV12:pixelBuffer];
-//        NSLog(@"xxx001");
-    } else if (type == kCVPixelFormatType_420YpCbCr8Planar) {
-//        [self testI420:pixelBuffer];
-//        NSLog(@"xxx002");
-        
-        YXVideoData *data = [[YXVideoData alloc] init];
-        data.format = YXVideoFormatPixelBuffer;
-        data.pixelBuffer = pixelBuffer;
-        data.cropTop = 60;
-        data.cropBottom = 60;
-        [_display displayVideo:data];
-    } else {
-//        NSLog(@"xxx003");
-        YXVideoData *data = [[YXVideoData alloc] init];
-        data.format = YXVideoFormatPixelBuffer;
-        data.pixelBuffer = pixelBuffer;
-        [_display displayVideo:data];
-    }
+    //[self displayPixelBuffer:pixelBuffer];
+    
+    //[self displayI420:pixelBuffer];
+    
+    //[self displayNV12:pixelBuffer];
+    
+//    OSType type = CVPixelBufferGetPixelFormatType(pixelBuffer);
+//    if (type == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange) {
+//        [self testNV12:pixelBuffer];
+////        NSLog(@"xxx001");
+//    } else if (type == kCVPixelFormatType_420YpCbCr8Planar) {
+////        [self testI420:pixelBuffer];
+////        NSLog(@"xxx002");
 //
+//        YXVideoData *data = [[YXVideoData alloc] init];
+//        data.format = YXVideoFormatPixelBuffer;
+//        data.pixelBuffer = pixelBuffer;
+//        data.cropTop = 60;
+//        data.cropBottom = 60;
+//        [_display displayVideo:data];
+//    } else {
+////        NSLog(@"xxx003");
+//        YXVideoData *data = [[YXVideoData alloc] init];
+//        data.format = YXVideoFormatPixelBuffer;
+//        data.pixelBuffer = pixelBuffer;
+//        [_display displayVideo:data];
+//    }
+////
 }
 
-- (void)testI420:(CVPixelBufferRef)pixelBuffer {
+#pragma mark - YX006
+- (void)displayNV12:(CVPixelBufferRef)pixelBuffer {
+    
+    YXVideoData *data = [[YXVideoData alloc] init];
+    data.format = YXVideoFormatNV12;
+    data.width = (int)CVPixelBufferGetWidth(pixelBuffer);
+    data.height = (int)CVPixelBufferGetHeight(pixelBuffer);
+    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
+    int8_t *yBuffer = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
+    int8_t *uvBuffer = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 1);
+    
+    size_t yStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 0);
+    size_t uvStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 1);
+    
+    data.yBuffer = yBuffer;
+    data.uvBuffer = uvBuffer;
+    
+    data.yStride = (int)yStride;
+    data.uvStride = (int)uvStride;
+    
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+    [_display displayVideo:data];
+}
+
+#pragma mark - YX005
+- (void)displayI420:(CVPixelBufferRef)pixelBuffer {
     YXVideoData *data = [[YXVideoData alloc] init];
     data.format = YXVideoFormatI420;
     data.width = (int)CVPixelBufferGetWidth(pixelBuffer);
     data.height = (int)CVPixelBufferGetHeight(pixelBuffer);
     CVPixelBufferLockBaseAddress(pixelBuffer, 0);
-    uint8_t *yBuffer = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
-    uint8_t *uBuffer = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 1);
-    uint8_t *vBuffer = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 2);
+    int8_t *yBuffer = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
+    int8_t *uBuffer = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 1);
+    int8_t *vBuffer = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 2);
     
     size_t yStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 0);
     size_t uStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 1);
@@ -162,35 +210,19 @@
     data.vBuffer = vBuffer;
     
 //    data.yStride = data.width;
-    data.yStride = yStride;
-    data.uStride = uStride;
-    data.vStride = vStride;
+    data.yStride = (int)yStride;
+    data.uStride = (int)uStride;
+    data.vStride = (int)vStride;
     
     CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
     [_display displayVideo:data];
-//    free(yy);
 }
 
-- (void)testNV12:(CVPixelBufferRef)pixelBuffer {
-    
+#pragma mark - YX004
+- (void)displayPixelBuffer:(CVPixelBufferRef)pixelBuffer {
     YXVideoData *data = [[YXVideoData alloc] init];
-    data.format = YXVideoFormatNV12;
-    data.width = (int)CVPixelBufferGetWidth(pixelBuffer);
-    data.height = (int)CVPixelBufferGetHeight(pixelBuffer);
-    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
-    uint8_t *yBuffer = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
-    uint8_t *uvBuffer = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 1);
-    
-    size_t yStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 0);
-    size_t uvStride = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 1);
-    
-    data.yBuffer = yBuffer;
-    data.uvBuffer = uvBuffer;
-    
-    data.yStride = yStride;
-    data.uvStride = uvStride;
-    
-    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+    data.format = YXVideoFormatPixelBuffer;
+    data.pixelBuffer = pixelBuffer;
     [_display displayVideo:data];
 }
 
