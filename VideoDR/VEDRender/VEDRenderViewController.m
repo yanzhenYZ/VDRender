@@ -31,6 +31,7 @@
 @property (nonatomic, strong) VEDRDecoder *decoder;
 @property (nonatomic, strong) VEDRCapture *capture;
 
+@property (nonatomic, assign) BOOL mirror;
 
 @property (nonatomic, strong) YXVideoShow *display;
 @end
@@ -43,13 +44,12 @@
  YX004: YXVideoFormatPixelBuffer
  YX005: YXVideoFormatI420
  YX006: YXVideoFormatNV12
+ YX007: crop
+ YX008: rotation
+ YX009: mirror
  
  todo
- YX006: crop
- YX007: rotation
- YX008: mirror
- 
- YX009: 中途切换format
+ YX0010: 中途切换format
  
  */
 
@@ -113,6 +113,8 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     //[self switchShowView];
+    
+    _mirror = !_mirror;
 }
 
 #pragma mark - YX003
@@ -133,7 +135,7 @@
 -(void)decoder:(VEDRDecoder *)decoder didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer {
     //[self displayPixelBuffer:pixelBuffer];
     
-    //[self displayI420:pixelBuffer];
+    [self displayI420:pixelBuffer];
     
     //[self displayNV12:pixelBuffer];
     
@@ -189,6 +191,18 @@
 - (void)displayI420:(CVPixelBufferRef)pixelBuffer {
     YXVideoData *data = [[YXVideoData alloc] init];
     data.format = YXVideoFormatI420;
+    
+#pragma mark - YX007
+//    data.cropTop = 140;
+//    data.cropBottom = 140;
+    
+    
+#pragma mark - YX008
+//    data.rotation = 180;
+    
+#pragma mark - YX009
+//    data.mirror = _mirror;
+    
     data.width = (int)CVPixelBufferGetWidth(pixelBuffer);
     data.height = (int)CVPixelBufferGetHeight(pixelBuffer);
     CVPixelBufferLockBaseAddress(pixelBuffer, 0);
