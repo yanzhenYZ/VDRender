@@ -1,6 +1,0 @@
-framework module YZVideoRender {
-  umbrella header "YZVideoRender.h"
-
-  export *
-  module * { export * }
-}

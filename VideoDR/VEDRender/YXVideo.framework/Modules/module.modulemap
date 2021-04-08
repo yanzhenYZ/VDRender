@@ -1,0 +1,6 @@
+framework module YXVideo {
+  umbrella header "YXVideo.h"
+
+  export *
+  module * { export * }
+}

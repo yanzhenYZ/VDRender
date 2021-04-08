@@ -1,32 +1,32 @@
 #import <Foundation/Foundation.h>
 #import <CoreMedia/CoreMedia.h>
 
-typedef NS_ENUM(NSUInteger, YZVideoRotation) {
-    YZVideoRotation0   = 0,
-    YZVideoRotation90  = 90,
-    YZVideoRotation180 = 180,
-    YZVideoRotation270 = 270,
+typedef NS_ENUM(NSUInteger, YXVideoRotation) {
+    YXVideoRotation0   = 0,
+    YXVideoRotation90  = 90,
+    YXVideoRotation180 = 180,
+    YXVideoRotation270 = 270,
 };
 
-typedef NS_ENUM(NSUInteger, YZVideoFormat) {
+typedef NS_ENUM(NSUInteger, YXVideoFormat) {
     /** support 
      kCVPixelFormatType_32BGRA
      kCVPixelFormatType_420YpCbCr8Planar
      kCVPixelFormatType_420YpCbCr8BiPlanarFullRange
      kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange
      */
-    YZVideoFormatPixelBuffer,
+    YXVideoFormatPixelBuffer,
     /** I420 */
-    YZVideoFormatI420,
+    YXVideoFormatI420,
     /** NV12 */
-    YZVideoFormatNV12,
+    YXVideoFormatNV12,
 };
 
-@interface YZVideoData : NSObject
-/** see YZVideoFormat */
-@property (nonatomic, assign) YZVideoFormat format;
+@interface YXVideoData : NSObject
+/** see YXVideoFormat */
+@property (nonatomic, assign) YXVideoFormat format;
 
-/** see YZVideoFormat */
+/** see YXVideoFormat */
 @property (nonatomic, assign) CVPixelBufferRef pixelBuffer;
 
 /** input video width */
@@ -50,7 +50,7 @@ typedef NS_ENUM(NSUInteger, YZVideoFormat) {
 
 
 /** set the video rotation degree */
-@property (nonatomic, assign) YZVideoRotation rotation;
+@property (nonatomic, assign) YXVideoRotation rotation;
 
 /** mirror */
 @property (nonatomic, assign) BOOL mirror;

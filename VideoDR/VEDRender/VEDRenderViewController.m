@@ -12,7 +12,7 @@
 #import "VEDREncoder.h"
 #import "VEDRDecoder.h"
 
-#import <YZVideoRender/YZVideoRender.h>
+#import <YXVideo/YXVideo.h>
 
 
 #define MTK 1
@@ -32,7 +32,7 @@
 @property (nonatomic, strong) VEDRCapture *capture;
 
 
-@property (nonatomic, strong) YZVideoShow *display;
+@property (nonatomic, strong) YXVideoShow *display;
 @end
 
 @implementation VEDRenderViewController
@@ -47,7 +47,7 @@
     // Do any additional setup after loading the view.
     
     
-    _display = [[YZVideoShow alloc] init];
+    _display = [[YXVideoShow alloc] init];
 //    [_display setViewFillMode:YZVideoFillModeScaleAspectFit];/
     [_display setVideoShowView:_showPlayer];
     
@@ -98,16 +98,16 @@
 //        [self testI420:pixelBuffer];
         NSLog(@"xxx002");
         
-        YZVideoData *data = [[YZVideoData alloc] init];
-        data.format = YZVideoFormatPixelBuffer;
+        YXVideoData *data = [[YXVideoData alloc] init];
+        data.format = YXVideoFormatPixelBuffer;
         data.pixelBuffer = pixelBuffer;
         data.cropTop = 60;
         data.cropBottom = 60;
         [_display displayVideo:data];
     } else {
         NSLog(@"xxx003");
-        YZVideoData *data = [[YZVideoData alloc] init];
-        data.format = YZVideoFormatPixelBuffer;
+        YXVideoData *data = [[YXVideoData alloc] init];
+        data.format = YXVideoFormatPixelBuffer;
         data.pixelBuffer = pixelBuffer;
         [_display displayVideo:data];
     }
@@ -115,8 +115,8 @@
 }
 
 - (void)testI420:(CVPixelBufferRef)pixelBuffer {
-    YZVideoData *data = [[YZVideoData alloc] init];
-    data.format = YZVideoFormatI420;
+    YXVideoData *data = [[YXVideoData alloc] init];
+    data.format = YXVideoFormatI420;
     data.width = (int)CVPixelBufferGetWidth(pixelBuffer);
     data.height = (int)CVPixelBufferGetHeight(pixelBuffer);
     CVPixelBufferLockBaseAddress(pixelBuffer, 0);
@@ -149,8 +149,8 @@
 
 - (void)testNV12:(CVPixelBufferRef)pixelBuffer {
     
-    YZVideoData *data = [[YZVideoData alloc] init];
-    data.format = YZVideoFormatNV12;
+    YXVideoData *data = [[YXVideoData alloc] init];
+    data.format = YXVideoFormatNV12;
     data.width = (int)CVPixelBufferGetWidth(pixelBuffer);
     data.height = (int)CVPixelBufferGetHeight(pixelBuffer);
     CVPixelBufferLockBaseAddress(pixelBuffer, 0);

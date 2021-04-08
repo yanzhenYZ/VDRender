@@ -6,11 +6,11 @@ typedef NS_ENUM(NSUInteger, YZVideoFillMode) {
     YZVideoFillModeScaleAspectFill, /** Same as UIViewContentModeScaleAspectFill */
 };
 
-@class YZVideoData;
-@interface YZVideoShow : NSObject
+@class YXVideoData;
+@interface YXVideoShow : NSObject
 /**
  *  isSupportAdditionalFeatures
- *  @abstract   The additional features contain YZVideoData's cropLeft, cropTop, cropRight, cropBottom, mirror and rotation.
+ *  @abstract   The additional features contain YXVideoData's cropLeft, cropTop, cropRight, cropBottom, mirror and rotation.
  *
  *  @return     YES             The device is supported.
  *              NO              The device is not supported
@@ -20,5 +20,5 @@ typedef NS_ENUM(NSUInteger, YZVideoFillMode) {
 - (void)setVideoShowView:(UIView *)view; //set video show view
 - (void)setViewFillMode:(YZVideoFillMode)mode; //see YZVideoFillMode
 
-- (void)displayVideo:(YZVideoData *)videoData; //show video
+- (void)displayVideo:(YXVideoData *)videoData; //show video
 @end
