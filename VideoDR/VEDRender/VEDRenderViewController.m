@@ -35,6 +35,15 @@
 @property (nonatomic, strong) YXVideoShow *display;
 @end
 
+/**
+ YX001: 支持附加功能
+ YX002: 切换显示视图
+ 
+ todo
+ YX003: 显示模式
+ */
+
+
 @implementation VEDRenderViewController
 
 - (void)dealloc
@@ -45,10 +54,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+#pragma mark - YX001
+    NSLog(@"_____YX001:%d", [YXVideoShow isSupportAdditionalFeatures]);
     
     _display = [[YXVideoShow alloc] init];
-//    [_display setViewFillMode:YZVideoFillModeScaleAspectFit];/
+    [_display setViewFillMode:YZVideoFillModeScaleAspectFit];
     [_display setVideoShowView:_showPlayer];
     
     _encoder = [[VEDREncoder alloc] init];
@@ -83,9 +93,16 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-//    _decoder = [[VEDRDecoder alloc] init];
-//    _decoder.type = 1;
-//    _decoder.delegate = self;
+    [self switchShowView];
+}
+
+#pragma mark - YX002
+- (void)switchShowView {
+    if (self.showPlayer.subviews.count > 0) {
+        [_display setVideoShowView:_mainPlayer];
+    } else {
+        [_display setVideoShowView:_showPlayer];
+    }
 }
 
 #pragma mark - VEDRDecoderDelegate
@@ -93,10 +110,10 @@
     OSType type = CVPixelBufferGetPixelFormatType(pixelBuffer);
     if (type == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange) {
         [self testNV12:pixelBuffer];
-        NSLog(@"xxx001");
+//        NSLog(@"xxx001");
     } else if (type == kCVPixelFormatType_420YpCbCr8Planar) {
 //        [self testI420:pixelBuffer];
-        NSLog(@"xxx002");
+//        NSLog(@"xxx002");
         
         YXVideoData *data = [[YXVideoData alloc] init];
         data.format = YXVideoFormatPixelBuffer;
@@ -105,7 +122,7 @@
         data.cropBottom = 60;
         [_display displayVideo:data];
     } else {
-        NSLog(@"xxx003");
+//        NSLog(@"xxx003");
         YXVideoData *data = [[YXVideoData alloc] init];
         data.format = YXVideoFormatPixelBuffer;
         data.pixelBuffer = pixelBuffer;
