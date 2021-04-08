@@ -96,19 +96,21 @@
 - (IBAction)segment:(UISegmentedControl *)sender {
     //[self setFillMode:sender.selectedSegmentIndex];
     //return;
-    if (sender.selectedSegmentIndex == 0) {
-        _decoder = [[VEDRDecoder alloc] init];
-        _decoder.type = 3;
-        _decoder.delegate = self;
-    } else if (sender.selectedSegmentIndex == 1) {
-        _decoder = [[VEDRDecoder alloc] init];
-        _decoder.type = 1;
-        _decoder.delegate = self;
-    } else {
-        _decoder = [[VEDRDecoder alloc] init];
-        _decoder.type = 0;
-        _decoder.delegate = self;
-    }
+    
+#pragma mark - YX0010
+//    if (sender.selectedSegmentIndex == 0) {
+//        _decoder = [[VEDRDecoder alloc] init];
+//        _decoder.type = 3;
+//        _decoder.delegate = self;
+//    } else if (sender.selectedSegmentIndex == 1) {
+//        _decoder = [[VEDRDecoder alloc] init];
+//        _decoder.type = 1;
+//        _decoder.delegate = self;
+//    } else {
+//        _decoder = [[VEDRDecoder alloc] init];
+//        _decoder.type = 0;
+//        _decoder.delegate = self;
+//    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -135,32 +137,22 @@
 -(void)decoder:(VEDRDecoder *)decoder didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer {
     //[self displayPixelBuffer:pixelBuffer];
     
-    [self displayI420:pixelBuffer];
+    //[self displayI420:pixelBuffer];
     
     //[self displayNV12:pixelBuffer];
     
+#pragma mark - YX0010
 //    OSType type = CVPixelBufferGetPixelFormatType(pixelBuffer);
 //    if (type == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange) {
-//        [self testNV12:pixelBuffer];
-////        NSLog(@"xxx001");
+//        [self displayNV12:pixelBuffer];
+//        NSLog(@"xxx001");
 //    } else if (type == kCVPixelFormatType_420YpCbCr8Planar) {
-////        [self testI420:pixelBuffer];
-////        NSLog(@"xxx002");
-//
-//        YXVideoData *data = [[YXVideoData alloc] init];
-//        data.format = YXVideoFormatPixelBuffer;
-//        data.pixelBuffer = pixelBuffer;
-//        data.cropTop = 60;
-//        data.cropBottom = 60;
-//        [_display displayVideo:data];
+//        [self displayI420:pixelBuffer];
+//        NSLog(@"xxx002");
 //    } else {
-////        NSLog(@"xxx003");
-//        YXVideoData *data = [[YXVideoData alloc] init];
-//        data.format = YXVideoFormatPixelBuffer;
-//        data.pixelBuffer = pixelBuffer;
-//        [_display displayVideo:data];
+//        NSLog(@"xxx003");
+//        [self displayPixelBuffer:pixelBuffer];
 //    }
-////
 }
 
 #pragma mark - YX006
