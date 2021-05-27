@@ -31,6 +31,8 @@
         self.commandQueue = [self.device newCommandQueue];
         CVMetalTextureCacheCreate(NULL, NULL, self.device, NULL, &_textureCache);
         _filter = [[MPSImageGaussianBlur alloc] initWithDevice:self.device sigma:0];
+        
+        self.layer.backgroundColor = UIColor.redColor.CGColor;
     }
     return self;
 }

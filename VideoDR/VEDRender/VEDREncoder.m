@@ -37,8 +37,8 @@ void VEDRVideoCompressionOutputCallback(void *outputCallbackRefCon,
     //todo
     // Check if we have got a key frame first 判断当前帧是否为关键帧
     BOOL keyframe = !CFDictionaryContainsKey((CFDictionaryRef) CFArrayGetValueAtIndex(CMSampleBufferGetSampleAttachmentsArray(sampleBuffer, true), 0), kCMSampleAttachmentKey_NotSync);
-    if (keyframe && !encoder.gotPPS)
-    //if (keyframe)
+//    if (keyframe && !encoder.gotPPS)
+    if (keyframe)
     {
         CMFormatDescriptionRef format = CMSampleBufferGetFormatDescription(sampleBuffer);
         size_t sparameterSetSize, sparameterSetCount;
@@ -100,7 +100,7 @@ void VEDRVideoCompressionOutputCallback(void *outputCallbackRefCon,
     VTEncodeInfoFlags flags;
     CMTime presentationTimeStamp = CMTimeMake(++_frames, 1000);
     OSStatus status = VTCompressionSessionEncodeFrame(_encodeSession, pixelBuffer, presentationTimeStamp, kCMTimeInvalid, NULL, NULL, &flags);
-    //kVTVideoDecoderBadDataErr
+//    kVTVideoDecoderBadDataErr
     if (status != noErr) {
         NSLog(@"Encoder Error:%d", status);
     }
@@ -114,7 +114,7 @@ void VEDRVideoCompressionOutputCallback(void *outputCallbackRefCon,
         sleep(1);
     }
     
-    int videoMaxKeyframeInterval = 10;
+    int videoMaxKeyframeInterval = 15;
     int fps = 10;
     int bitrate = 800 * 1000;
     // 设置关键帧间隔，即gop size
@@ -154,12 +154,14 @@ void VEDRVideoCompressionOutputCallback(void *outputCallbackRefCon,
 }
 #pragma mark - helper
 - (void)sendSps:(NSData *)sps pps:(NSData *)pps {
+    NSLog(@"___S_12345");
     if ([_delegate respondsToSelector:@selector(encoder:sendSps:pps:)]) {
         [_delegate encoder:self sendSps:sps pps:pps];
     }
 }
 
 - (void)sendData:(NSData *)data isKeyframe:(BOOL)isKeyframe {
+    NSLog(@"___S_123456:%d", isKeyframe);
     if ([_delegate respondsToSelector:@selector(encoder:sendData:isKeyFrame:)]) {
         [_delegate encoder:self sendData:data isKeyFrame:isKeyframe];
     }

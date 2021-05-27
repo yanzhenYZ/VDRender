@@ -77,6 +77,14 @@ static void VEDRDidDecompressH264(void * CM_NULLABLE decompressionOutputRefCon,
      参考工程中的图片或者http://www.cnblogs.com/sunminmin/p/4976418.html
      //rtsp://192.168.2.73:1935/vod/sample.mp4
      */
+    
+    //NSLog(@"____1234:%d", data.length);
+//    for (int i = 0; i < data.length; i++) {
+//        if (frame[i] == 0) {
+//            
+//        }
+//    }
+    
     //用前4个字节来表示nalSize
     frame[0] = pNalSize[3];
     frame[1] = pNalSize[2];

@@ -27,6 +27,9 @@
 @property (nonatomic, strong) YXLayerPlayer *player;
 #endif
 
+@property (nonatomic, strong) NSLock *lock;
+@property (nonatomic, assign) CGSize size;
+
 @property (nonatomic, strong) VEDREncoder *encoder;
 @property (nonatomic, strong) VEDRDecoder *decoder;
 @property (nonatomic, strong) VEDRCapture *capture;
@@ -48,7 +51,6 @@
  YX008: rotation
  YX009: mirror
  
- todo
  YX0010: 中途切换format
  
  */
@@ -65,18 +67,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 #pragma mark - YX001
-    NSLog(@"_____YX001:%d", [YXVideoShow isSupportAdditionalFeatures]);
-    
+//    NSLog(@"_____YX001:%d", [YXVideoShow isSupportAdditionalFeatures]);
+//
     _display = [[YXVideoShow alloc] init];
     [_display setViewFillMode:YXVideoFillModeScaleAspectFit];
     [_display setVideoShowView:_showPlayer];
     
-    _encoder = [[VEDREncoder alloc] init];
-    _encoder.delegate = self;
-    [_encoder startEncode:360 height:640];
+    _size = CGSizeMake(1280, 720);
+    [self resetEncoder];
 
     _decoder = [[VEDRDecoder alloc] init];
-    _decoder.type = 3;
+    _decoder.type = 1;
 #pragma mark - YX004 -- 类型
 //    _decoder.type = 1;//0,1,2,3
 
@@ -86,11 +87,33 @@
 #pragma mark - YX006 -- must type = 1 or 2
 //    _decoder.type = 1;
     
+    
+    _lock = [[NSLock alloc] init];
+//    _player = [[YXSMKTView alloc] initWithFrame:self.view.bounds];
+//    [self.view addSubview:_player];
+//    
     _decoder.delegate = self;
     
     _capture = [[VEDRCapture alloc] initWithPlayer:_mainPlayer];
     _capture.delegate = self;
     [_capture startRunning];
+    
+//    [NSTimer scheduledTimerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
+//        [self resetEncoder];
+//    }];
+}
+
+- (void)resetEncoder {
+    [_lock lock];
+    [_encoder stop];
+    _encoder = nil;
+    
+    _size = CGSizeMake(_size.height, _size.width);
+    
+    _encoder = [[VEDREncoder alloc] init];
+    _encoder.delegate = self;
+    [_encoder startEncode:_size.width height:_size.height];
+    [_lock unlock];
 }
 
 - (IBAction)segment:(UISegmentedControl *)sender {
@@ -135,7 +158,16 @@
 
 #pragma mark - VEDRDecoderDelegate
 -(void)decoder:(VEDRDecoder *)decoder didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer {
-    //[self displayPixelBuffer:pixelBuffer];
+//    [_player displayVideo:pixelBuffer];
+    [self displayPixelBuffer:pixelBuffer];
+    
+    
+    
+    
+    
+    
+    
+    
     
     //[self displayI420:pixelBuffer];
     
@@ -252,6 +284,7 @@
 }
 
 - (void)encoder:(VEDREncoder *)encoder sendData:(NSData *)data isKeyFrame:(BOOL)isKey {
+//    NSLog(@"123");
     const char bytes[] = "\x00\x00\x00\x01";
     size_t length = (sizeof bytes) - 1;
     NSData *ByteHeader = [NSData dataWithBytes:bytes length:length];
@@ -263,7 +296,9 @@
 
 #pragma mark - VEDRCaptureDelegate
 - (void)capture:(VEDRCapture *)capture pixelBuffer:(CVPixelBufferRef)pixelBuffer {
+    [_lock lock];
     [self.encoder encodePixelBuffer:pixelBuffer];
+    [_lock unlock];
 }
 
 #pragma mark - UI
