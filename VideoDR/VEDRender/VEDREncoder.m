@@ -130,6 +130,7 @@ void VEDRVideoCompressionOutputCallback(void *outputCallbackRefCon,
     VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_AllowFrameReordering, kCFBooleanFalse);
     //if baseline delete this mode
     VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_H264EntropyMode, kVTH264EntropyMode_CABAC);
+    //VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_AspectRatio16x9, kCFBooleanTrue);
     OSStatus status = VTCompressionSessionPrepareToEncodeFrames(_encodeSession);
     if (status != noErr) {
         NSLog(@"Encoder H264: prepare to encode frame failed");
@@ -154,14 +155,14 @@ void VEDRVideoCompressionOutputCallback(void *outputCallbackRefCon,
 }
 #pragma mark - helper
 - (void)sendSps:(NSData *)sps pps:(NSData *)pps {
-    NSLog(@"___S_12345");
+//    NSLog(@"___S_12345");
     if ([_delegate respondsToSelector:@selector(encoder:sendSps:pps:)]) {
         [_delegate encoder:self sendSps:sps pps:pps];
     }
 }
 
 - (void)sendData:(NSData *)data isKeyframe:(BOOL)isKeyframe {
-    NSLog(@"___S_123456:%d", isKeyframe);
+    //NSLog(@"___S_123456:%d", isKeyframe);
     if ([_delegate respondsToSelector:@selector(encoder:sendData:isKeyFrame:)]) {
         [_delegate encoder:self sendData:data isKeyFrame:isKeyframe];
     }

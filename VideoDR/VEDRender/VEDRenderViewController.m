@@ -73,7 +73,7 @@
     [_display setViewFillMode:YXVideoFillModeScaleAspectFit];
     [_display setVideoShowView:_showPlayer];
     
-    _size = CGSizeMake(1280, 720);
+    _size = CGSizeMake(640, 360);
     [self resetEncoder];
 
     _decoder = [[VEDRDecoder alloc] init];
