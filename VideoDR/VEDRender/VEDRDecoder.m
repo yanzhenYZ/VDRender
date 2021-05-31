@@ -194,7 +194,12 @@ static void VEDRDidDecompressH264(void * CM_NULLABLE decompressionOutputRefCon,
                                           &_decompressionSession);
     CFRelease(attributes);
     if(status != noErr) {
-        NSLog(@"YXDecoder Error code: %d",(int)status);
+        NSLog(@"VEDRDecoder Error code: %d",(int)status);
+        if (status == kVTInvalidSessionErr) {
+            _spsSize = 0;
+            _ppsSize = 0;
+            [self initH264Decoder:YES];
+        }
         return NO;
     }
     return YES;

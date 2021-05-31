@@ -100,9 +100,12 @@ void VEDRVideoCompressionOutputCallback(void *outputCallbackRefCon,
     VTEncodeInfoFlags flags;
     CMTime presentationTimeStamp = CMTimeMake(++_frames, 1000);
     OSStatus status = VTCompressionSessionEncodeFrame(_encodeSession, pixelBuffer, presentationTimeStamp, kCMTimeInvalid, NULL, NULL, &flags);
-    //kVTVideoDecoderBadDataErr
+//    kVTVideoDecoderBadDataErr
     if (status != noErr) {
-        NSLog(@"Encoder Error:%d", status);
+        if (status == kVTInvalidSessionErr) {
+            [self startEncode:720 height:1280];
+        }
+        NSLog(@"VEDREncoder Encoder Error:%d", status);
     }
 }
 
