@@ -7,34 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B0CA3B829B6DC5000AD643D /* H264FileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0CA3B729B6DC5000AD643D /* H264FileParser.m */; };
+		9B0CA3BB29B6DCFD00AD643D /* 1.h264 in Resources */ = {isa = PBXBuildFile; fileRef = 9B0CA3B929B6DCFD00AD643D /* 1.h264 */; };
+		9B0CA3BC29B6DCFD00AD643D /* 2.h264 in Resources */ = {isa = PBXBuildFile; fileRef = 9B0CA3BA29B6DCFD00AD643D /* 2.h264 */; };
 		9BBCC60C260B18B200D4E37B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC60B260B18B200D4E37B /* AppDelegate.m */; };
 		9BBCC615260B18B200D4E37B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BBCC613260B18B200D4E37B /* Main.storyboard */; };
 		9BBCC617260B18B300D4E37B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BBCC616260B18B300D4E37B /* Assets.xcassets */; };
 		9BBCC61A260B18B300D4E37B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BBCC618260B18B300D4E37B /* LaunchScreen.storyboard */; };
 		9BBCC61D260B18B300D4E37B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC61C260B18B300D4E37B /* main.m */; };
 		9BBCC630260B1C4F00D4E37B /* Render.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BBCC62E260B1C4F00D4E37B /* Render.storyboard */; };
-		9BBCC635260B1CA000D4E37B /* RenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC634260B1CA000D4E37B /* RenderViewController.m */; };
-		9BBCC639260B1CDC00D4E37B /* RenderCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC638260B1CDC00D4E37B /* RenderCapture.m */; };
 		9BBCC647260B213D00D4E37B /* Encoder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BBCC645260B213D00D4E37B /* Encoder.storyboard */; };
-		9BBCC64C260B215F00D4E37B /* EncoderCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC64B260B215F00D4E37B /* EncoderCapture.m */; };
-		9BBCC651260B217600D4E37B /* EncoderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC650260B217600D4E37B /* EncoderViewController.m */; };
-		9BBCC656260B229400D4E37B /* H264HwEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC655260B229400D4E37B /* H264HwEncoder.m */; };
 		9BBCC65B260B2EE100D4E37B /* YXFileHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC65A260B2EE100D4E37B /* YXFileHandle.m */; };
-		9BBCC665260B337000D4E37B /* EncoderUse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BBCC663260B337000D4E37B /* EncoderUse.storyboard */; };
-		9BBCC66A260B339600D4E37B /* EncoderUseCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC669260B339600D4E37B /* EncoderUseCapture.m */; };
-		9BBCC66F260B33A100D4E37B /* EUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC66E260B33A100D4E37B /* EUseViewController.m */; };
-		9BBCC674260B34E700D4E37B /* EUseH264HwEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC673260B34E700D4E37B /* EUseH264HwEncoder.m */; };
-		9BBCC684260C2BD300D4E37B /* VED.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BBCC682260C2BD300D4E37B /* VED.storyboard */; };
-		9BBCC689260C2DA500D4E37B /* VEDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC688260C2DA500D4E37B /* VEDViewController.m */; };
-		9BBCC68E260C2DBA00D4E37B /* VEDCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC68D260C2DBA00D4E37B /* VEDCapture.m */; };
-		9BBCC692260C2DC900D4E37B /* VEDH264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC691260C2DC900D4E37B /* VEDH264Encoder.m */; };
-		9BBCC696260C2DD700D4E37B /* VEDH264Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC695260C2DD700D4E37B /* VEDH264Decoder.m */; };
 		9BBCC69C260C366900D4E37B /* YXLayerPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC69B260C366900D4E37B /* YXLayerPlayer.m */; };
-		9BBCC6A7260C3C7C00D4E37B /* VEDUse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BBCC6A5260C3C7C00D4E37B /* VEDUse.storyboard */; };
-		9BBCC6AE260C3E2900D4E37B /* VEDUseCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6AD260C3E2900D4E37B /* VEDUseCapture.m */; };
-		9BBCC6B3260C3E7F00D4E37B /* VEDUseEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6B2260C3E7F00D4E37B /* VEDUseEncoder.m */; };
-		9BBCC6B7260C3E8A00D4E37B /* VEDUseDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6B6260C3E8A00D4E37B /* VEDUseDecoder.m */; };
-		9BBCC6BB260C3E9D00D4E37B /* VEDUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6BA260C3E9D00D4E37B /* VEDUseViewController.m */; };
 		9BBCC6D6260C88EC00D4E37B /* VEDRender.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BBCC6D4260C88EC00D4E37B /* VEDRender.storyboard */; };
 		9BBCC6DA260C891800D4E37B /* VEDRenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6D9260C891800D4E37B /* VEDRenderViewController.m */; };
 		9BBCC6DE260C8A0000D4E37B /* VEDRCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC6DD260C8A0000D4E37B /* VEDRCapture.m */; };
@@ -44,6 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B0CA3B629B6DC5000AD643D /* H264FileParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = H264FileParser.h; sourceTree = "<group>"; };
+		9B0CA3B729B6DC5000AD643D /* H264FileParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = H264FileParser.m; sourceTree = "<group>"; };
+		9B0CA3B929B6DCFD00AD643D /* 1.h264 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.h264; sourceTree = "<group>"; };
+		9B0CA3BA29B6DCFD00AD643D /* 2.h264 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2.h264; sourceTree = "<group>"; };
 		9BBCC607260B18B200D4E37B /* VideoDR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoDR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BBCC60A260B18B200D4E37B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9BBCC60B260B18B200D4E37B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -53,46 +41,11 @@
 		9BBCC61B260B18B300D4E37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BBCC61C260B18B300D4E37B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9BBCC62F260B1C4F00D4E37B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Render.storyboard; sourceTree = "<group>"; };
-		9BBCC633260B1CA000D4E37B /* RenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderViewController.h; sourceTree = "<group>"; };
-		9BBCC634260B1CA000D4E37B /* RenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RenderViewController.m; sourceTree = "<group>"; };
-		9BBCC637260B1CDC00D4E37B /* RenderCapture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderCapture.h; sourceTree = "<group>"; };
-		9BBCC638260B1CDC00D4E37B /* RenderCapture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RenderCapture.m; sourceTree = "<group>"; };
 		9BBCC646260B213D00D4E37B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Encoder.storyboard; sourceTree = "<group>"; };
-		9BBCC64A260B215F00D4E37B /* EncoderCapture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncoderCapture.h; sourceTree = "<group>"; };
-		9BBCC64B260B215F00D4E37B /* EncoderCapture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncoderCapture.m; sourceTree = "<group>"; };
-		9BBCC64F260B217600D4E37B /* EncoderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncoderViewController.h; sourceTree = "<group>"; };
-		9BBCC650260B217600D4E37B /* EncoderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncoderViewController.m; sourceTree = "<group>"; };
-		9BBCC654260B229400D4E37B /* H264HwEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = H264HwEncoder.h; sourceTree = "<group>"; };
-		9BBCC655260B229400D4E37B /* H264HwEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = H264HwEncoder.m; sourceTree = "<group>"; };
 		9BBCC659260B2EE100D4E37B /* YXFileHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXFileHandle.h; sourceTree = "<group>"; };
 		9BBCC65A260B2EE100D4E37B /* YXFileHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXFileHandle.m; sourceTree = "<group>"; };
-		9BBCC664260B337000D4E37B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EncoderUse.storyboard; sourceTree = "<group>"; };
-		9BBCC668260B339600D4E37B /* EncoderUseCapture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncoderUseCapture.h; sourceTree = "<group>"; };
-		9BBCC669260B339600D4E37B /* EncoderUseCapture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncoderUseCapture.m; sourceTree = "<group>"; };
-		9BBCC66D260B33A100D4E37B /* EUseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EUseViewController.h; sourceTree = "<group>"; };
-		9BBCC66E260B33A100D4E37B /* EUseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EUseViewController.m; sourceTree = "<group>"; };
-		9BBCC672260B34E700D4E37B /* EUseH264HwEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EUseH264HwEncoder.h; sourceTree = "<group>"; };
-		9BBCC673260B34E700D4E37B /* EUseH264HwEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EUseH264HwEncoder.m; sourceTree = "<group>"; };
-		9BBCC683260C2BD300D4E37B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/VED.storyboard; sourceTree = "<group>"; };
-		9BBCC687260C2DA500D4E37B /* VEDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDViewController.h; sourceTree = "<group>"; };
-		9BBCC688260C2DA500D4E37B /* VEDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDViewController.m; sourceTree = "<group>"; };
-		9BBCC68C260C2DBA00D4E37B /* VEDCapture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDCapture.h; sourceTree = "<group>"; };
-		9BBCC68D260C2DBA00D4E37B /* VEDCapture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDCapture.m; sourceTree = "<group>"; };
-		9BBCC690260C2DC900D4E37B /* VEDH264Encoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDH264Encoder.h; sourceTree = "<group>"; };
-		9BBCC691260C2DC900D4E37B /* VEDH264Encoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDH264Encoder.m; sourceTree = "<group>"; };
-		9BBCC694260C2DD700D4E37B /* VEDH264Decoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDH264Decoder.h; sourceTree = "<group>"; };
-		9BBCC695260C2DD700D4E37B /* VEDH264Decoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDH264Decoder.m; sourceTree = "<group>"; };
 		9BBCC69A260C366900D4E37B /* YXLayerPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXLayerPlayer.h; sourceTree = "<group>"; };
 		9BBCC69B260C366900D4E37B /* YXLayerPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXLayerPlayer.m; sourceTree = "<group>"; };
-		9BBCC6A6260C3C7C00D4E37B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/VEDUse.storyboard; sourceTree = "<group>"; };
-		9BBCC6AC260C3E2900D4E37B /* VEDUseCapture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDUseCapture.h; sourceTree = "<group>"; };
-		9BBCC6AD260C3E2900D4E37B /* VEDUseCapture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDUseCapture.m; sourceTree = "<group>"; };
-		9BBCC6B1260C3E7F00D4E37B /* VEDUseEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDUseEncoder.h; sourceTree = "<group>"; };
-		9BBCC6B2260C3E7F00D4E37B /* VEDUseEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDUseEncoder.m; sourceTree = "<group>"; };
-		9BBCC6B5260C3E8A00D4E37B /* VEDUseDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDUseDecoder.h; sourceTree = "<group>"; };
-		9BBCC6B6260C3E8A00D4E37B /* VEDUseDecoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDUseDecoder.m; sourceTree = "<group>"; };
-		9BBCC6B9260C3E9D00D4E37B /* VEDUseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDUseViewController.h; sourceTree = "<group>"; };
-		9BBCC6BA260C3E9D00D4E37B /* VEDUseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDUseViewController.m; sourceTree = "<group>"; };
 		9BBCC6D5260C88EC00D4E37B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/VEDRender.storyboard; sourceTree = "<group>"; };
 		9BBCC6D8260C891800D4E37B /* VEDRenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEDRenderViewController.h; sourceTree = "<group>"; };
 		9BBCC6D9260C891800D4E37B /* VEDRenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEDRenderViewController.m; sourceTree = "<group>"; };
@@ -118,6 +71,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B0CA3B529B6DC3300AD643D /* H264 */ = {
+			isa = PBXGroup;
+			children = (
+				9B0CA3B629B6DC5000AD643D /* H264FileParser.h */,
+				9B0CA3B729B6DC5000AD643D /* H264FileParser.m */,
+				9B0CA3B929B6DCFD00AD643D /* 1.h264 */,
+				9B0CA3BA29B6DCFD00AD643D /* 2.h264 */,
+			);
+			path = H264;
+			sourceTree = "<group>";
+		};
 		9BBCC5FE260B18B200D4E37B = {
 			isa = PBXGroup;
 			children = (
@@ -139,19 +103,12 @@
 			children = (
 				9BBCC60A260B18B200D4E37B /* AppDelegate.h */,
 				9BBCC60B260B18B200D4E37B /* AppDelegate.m */,
+				9B0CA3B529B6DC3300AD643D /* H264 */,
 				9BBCC6CD260C87FE00D4E37B /* VEDRender */,
-				9BBCC6AB260C3E1400D4E37B /* VEDUse */,
-				9BBCC686260C2D9700D4E37B /* VED */,
-				9BBCC667260B338300D4E37B /* EncoderUse */,
-				9BBCC649260B214D00D4E37B /* Encoder */,
-				9BBCC632260B1C8700D4E37B /* Render */,
 				9BBCC658260B2ECB00D4E37B /* Tool */,
 				9BBCC698260C35C100D4E37B /* Player */,
 				9BBCC613260B18B200D4E37B /* Main.storyboard */,
 				9BBCC6D4260C88EC00D4E37B /* VEDRender.storyboard */,
-				9BBCC6A5260C3C7C00D4E37B /* VEDUse.storyboard */,
-				9BBCC682260C2BD300D4E37B /* VED.storyboard */,
-				9BBCC663260B337000D4E37B /* EncoderUse.storyboard */,
 				9BBCC645260B213D00D4E37B /* Encoder.storyboard */,
 				9BBCC62E260B1C4F00D4E37B /* Render.storyboard */,
 				9BBCC616260B18B300D4E37B /* Assets.xcassets */,
@@ -160,30 +117,6 @@
 				9BBCC61C260B18B300D4E37B /* main.m */,
 			);
 			path = VideoDR;
-			sourceTree = "<group>";
-		};
-		9BBCC632260B1C8700D4E37B /* Render */ = {
-			isa = PBXGroup;
-			children = (
-				9BBCC633260B1CA000D4E37B /* RenderViewController.h */,
-				9BBCC634260B1CA000D4E37B /* RenderViewController.m */,
-				9BBCC637260B1CDC00D4E37B /* RenderCapture.h */,
-				9BBCC638260B1CDC00D4E37B /* RenderCapture.m */,
-			);
-			path = Render;
-			sourceTree = "<group>";
-		};
-		9BBCC649260B214D00D4E37B /* Encoder */ = {
-			isa = PBXGroup;
-			children = (
-				9BBCC64F260B217600D4E37B /* EncoderViewController.h */,
-				9BBCC650260B217600D4E37B /* EncoderViewController.m */,
-				9BBCC64A260B215F00D4E37B /* EncoderCapture.h */,
-				9BBCC64B260B215F00D4E37B /* EncoderCapture.m */,
-				9BBCC654260B229400D4E37B /* H264HwEncoder.h */,
-				9BBCC655260B229400D4E37B /* H264HwEncoder.m */,
-			);
-			path = Encoder;
 			sourceTree = "<group>";
 		};
 		9BBCC658260B2ECB00D4E37B /* Tool */ = {
@@ -195,34 +128,6 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
-		9BBCC667260B338300D4E37B /* EncoderUse */ = {
-			isa = PBXGroup;
-			children = (
-				9BBCC66D260B33A100D4E37B /* EUseViewController.h */,
-				9BBCC66E260B33A100D4E37B /* EUseViewController.m */,
-				9BBCC668260B339600D4E37B /* EncoderUseCapture.h */,
-				9BBCC669260B339600D4E37B /* EncoderUseCapture.m */,
-				9BBCC672260B34E700D4E37B /* EUseH264HwEncoder.h */,
-				9BBCC673260B34E700D4E37B /* EUseH264HwEncoder.m */,
-			);
-			path = EncoderUse;
-			sourceTree = "<group>";
-		};
-		9BBCC686260C2D9700D4E37B /* VED */ = {
-			isa = PBXGroup;
-			children = (
-				9BBCC687260C2DA500D4E37B /* VEDViewController.h */,
-				9BBCC688260C2DA500D4E37B /* VEDViewController.m */,
-				9BBCC68C260C2DBA00D4E37B /* VEDCapture.h */,
-				9BBCC68D260C2DBA00D4E37B /* VEDCapture.m */,
-				9BBCC690260C2DC900D4E37B /* VEDH264Encoder.h */,
-				9BBCC691260C2DC900D4E37B /* VEDH264Encoder.m */,
-				9BBCC694260C2DD700D4E37B /* VEDH264Decoder.h */,
-				9BBCC695260C2DD700D4E37B /* VEDH264Decoder.m */,
-			);
-			path = VED;
-			sourceTree = "<group>";
-		};
 		9BBCC698260C35C100D4E37B /* Player */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,21 +137,6 @@
 				9BBCC6EE260C9ABD00D4E37B /* YXSMKTView.m */,
 			);
 			path = Player;
-			sourceTree = "<group>";
-		};
-		9BBCC6AB260C3E1400D4E37B /* VEDUse */ = {
-			isa = PBXGroup;
-			children = (
-				9BBCC6B9260C3E9D00D4E37B /* VEDUseViewController.h */,
-				9BBCC6BA260C3E9D00D4E37B /* VEDUseViewController.m */,
-				9BBCC6AC260C3E2900D4E37B /* VEDUseCapture.h */,
-				9BBCC6AD260C3E2900D4E37B /* VEDUseCapture.m */,
-				9BBCC6B1260C3E7F00D4E37B /* VEDUseEncoder.h */,
-				9BBCC6B2260C3E7F00D4E37B /* VEDUseEncoder.m */,
-				9BBCC6B5260C3E8A00D4E37B /* VEDUseDecoder.h */,
-				9BBCC6B6260C3E8A00D4E37B /* VEDUseDecoder.m */,
-			);
-			path = VEDUse;
 			sourceTree = "<group>";
 		};
 		9BBCC6CD260C87FE00D4E37B /* VEDRender */ = {
@@ -321,13 +211,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B0CA3BB29B6DCFD00AD643D /* 1.h264 in Resources */,
 				9BBCC6D6260C88EC00D4E37B /* VEDRender.storyboard in Resources */,
+				9B0CA3BC29B6DCFD00AD643D /* 2.h264 in Resources */,
 				9BBCC630260B1C4F00D4E37B /* Render.storyboard in Resources */,
 				9BBCC61A260B18B300D4E37B /* LaunchScreen.storyboard in Resources */,
 				9BBCC617260B18B300D4E37B /* Assets.xcassets in Resources */,
-				9BBCC684260C2BD300D4E37B /* VED.storyboard in Resources */,
-				9BBCC6A7260C3C7C00D4E37B /* VEDUse.storyboard in Resources */,
-				9BBCC665260B337000D4E37B /* EncoderUse.storyboard in Resources */,
 				9BBCC647260B213D00D4E37B /* Encoder.storyboard in Resources */,
 				9BBCC615260B18B200D4E37B /* Main.storyboard in Resources */,
 			);
@@ -340,31 +229,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BBCC696260C2DD700D4E37B /* VEDH264Decoder.m in Sources */,
-				9BBCC6B7260C3E8A00D4E37B /* VEDUseDecoder.m in Sources */,
-				9BBCC689260C2DA500D4E37B /* VEDViewController.m in Sources */,
-				9BBCC64C260B215F00D4E37B /* EncoderCapture.m in Sources */,
-				9BBCC656260B229400D4E37B /* H264HwEncoder.m in Sources */,
 				9BBCC6DA260C891800D4E37B /* VEDRenderViewController.m in Sources */,
 				9BBCC60C260B18B200D4E37B /* AppDelegate.m in Sources */,
 				9BBCC6E6260C8A1F00D4E37B /* VEDRDecoder.m in Sources */,
-				9BBCC6AE260C3E2900D4E37B /* VEDUseCapture.m in Sources */,
 				9BBCC6E2260C8A0C00D4E37B /* VEDREncoder.m in Sources */,
-				9BBCC6B3260C3E7F00D4E37B /* VEDUseEncoder.m in Sources */,
 				9BBCC69C260C366900D4E37B /* YXLayerPlayer.m in Sources */,
-				9BBCC68E260C2DBA00D4E37B /* VEDCapture.m in Sources */,
 				9BBCC61D260B18B300D4E37B /* main.m in Sources */,
-				9BBCC66F260B33A100D4E37B /* EUseViewController.m in Sources */,
+				9B0CA3B829B6DC5000AD643D /* H264FileParser.m in Sources */,
 				9BBCC6DE260C8A0000D4E37B /* VEDRCapture.m in Sources */,
 				9BBCC6EF260C9ABD00D4E37B /* YXSMKTView.m in Sources */,
-				9BBCC6BB260C3E9D00D4E37B /* VEDUseViewController.m in Sources */,
-				9BBCC66A260B339600D4E37B /* EncoderUseCapture.m in Sources */,
-				9BBCC692260C2DC900D4E37B /* VEDH264Encoder.m in Sources */,
-				9BBCC651260B217600D4E37B /* EncoderViewController.m in Sources */,
-				9BBCC639260B1CDC00D4E37B /* RenderCapture.m in Sources */,
 				9BBCC65B260B2EE100D4E37B /* YXFileHandle.m in Sources */,
-				9BBCC635260B1CA000D4E37B /* RenderViewController.m in Sources */,
-				9BBCC674260B34E700D4E37B /* EUseH264HwEncoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,30 +275,6 @@
 				9BBCC646260B213D00D4E37B /* Base */,
 			);
 			name = Encoder.storyboard;
-			sourceTree = "<group>";
-		};
-		9BBCC663260B337000D4E37B /* EncoderUse.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9BBCC664260B337000D4E37B /* Base */,
-			);
-			name = EncoderUse.storyboard;
-			sourceTree = "<group>";
-		};
-		9BBCC682260C2BD300D4E37B /* VED.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9BBCC683260C2BD300D4E37B /* Base */,
-			);
-			name = VED.storyboard;
-			sourceTree = "<group>";
-		};
-		9BBCC6A5260C3C7C00D4E37B /* VEDUse.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9BBCC6A6260C3C7C00D4E37B /* Base */,
-			);
-			name = VEDUse.storyboard;
 			sourceTree = "<group>";
 		};
 		9BBCC6D4260C88EC00D4E37B /* VEDRender.storyboard */ = {
@@ -559,7 +409,7 @@
 				CURRENT_PROJECT_VERSION = 210324;
 				DEVELOPMENT_TEAM = 7XP66VHL84;
 				INFOPLIST_FILE = VideoDR/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -579,7 +429,7 @@
 				CURRENT_PROJECT_VERSION = 210324;
 				DEVELOPMENT_TEAM = 7XP66VHL84;
 				INFOPLIST_FILE = VideoDR/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
