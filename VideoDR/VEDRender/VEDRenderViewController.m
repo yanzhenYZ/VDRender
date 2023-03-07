@@ -7,12 +7,14 @@
 
 #import "VEDRenderViewController.h"
 #import "H264FileParser.h"
-#import "YXSMKTView.h"
+//#import "YXSMKTView.h"
 #import "YXLayerPlayer.h"
 #import "VEDRCapture.h"
 #import "VEDREncoder.h"
 #import "VEDRDecoder.h"
 
+
+#import "VideoBgraPlayer.h"
 
 #define MTK 1
 
@@ -21,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *showPlayer;
 
 #if MTK
-@property (nonatomic, strong) YXSMKTView *player;
+@property (nonatomic, strong) OmniRtcVideoBgraPlayer *player;
 #else
 @property (nonatomic, strong) YXLayerPlayer *player;
 #endif
@@ -46,17 +48,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-#if MTK
-    _player = [[YXSMKTView alloc] initWithFrame:self.showPlayer.bounds];
-    _player.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self.showPlayer addSubview:_player];
-#else
-    YXLayerPlayer *player = [[YXLayerPlayer alloc] initWithFrame:self.showPlayer.bounds];
-    player.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self.showPlayer addSubview:player];
-    _player = player;
-#endif
-    
+    _player = [[OmniRtcVideoBgraPlayer alloc] init];
+    [_player setRemoteVideoViewInMainThread:self.showPlayer fillMode:UIViewContentModeScaleAspectFit mirror:NO];
     
 #if 1
     NSString *filePath = [NSBundle.mainBundle pathForResource:@"2.h264" ofType:nil];

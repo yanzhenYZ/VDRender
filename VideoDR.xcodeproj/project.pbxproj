@@ -10,6 +10,12 @@
 		9B0CA3B829B6DC5000AD643D /* H264FileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0CA3B729B6DC5000AD643D /* H264FileParser.m */; };
 		9B0CA3BB29B6DCFD00AD643D /* 1.h264 in Resources */ = {isa = PBXBuildFile; fileRef = 9B0CA3B929B6DCFD00AD643D /* 1.h264 */; };
 		9B0CA3BC29B6DCFD00AD643D /* 2.h264 in Resources */ = {isa = PBXBuildFile; fileRef = 9B0CA3BA29B6DCFD00AD643D /* 2.h264 */; };
+		9B0CA3C329B71D0800AD643D /* OmniRtcDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0CA3BF29B71D0800AD643D /* OmniRtcDevice.m */; };
+		9B0CA3C429B71D0800AD643D /* OmniRtcOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0CA3C029B71D0800AD643D /* OmniRtcOrientation.m */; };
+		9B0CA3D329B71DB100AD643D /* VideoBgraPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0CA3CB29B71DB100AD643D /* VideoBgraPlayer.m */; };
+		9B0CA3D429B71DB100AD643D /* VideoI420Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0CA3CC29B71DB100AD643D /* VideoI420Player.m */; };
+		9B0CA3D529B71DB100AD643D /* VideoNV12Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0CA3D029B71DB100AD643D /* VideoNV12Player.m */; };
+		9B0CA3D629B71DB100AD643D /* VideoPlayerBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0CA3D129B71DB100AD643D /* VideoPlayerBackView.m */; };
 		9BBCC60C260B18B200D4E37B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCC60B260B18B200D4E37B /* AppDelegate.m */; };
 		9BBCC615260B18B200D4E37B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BBCC613260B18B200D4E37B /* Main.storyboard */; };
 		9BBCC617260B18B300D4E37B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BBCC616260B18B300D4E37B /* Assets.xcassets */; };
@@ -32,6 +38,21 @@
 		9B0CA3B729B6DC5000AD643D /* H264FileParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = H264FileParser.m; sourceTree = "<group>"; };
 		9B0CA3B929B6DCFD00AD643D /* 1.h264 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.h264; sourceTree = "<group>"; };
 		9B0CA3BA29B6DCFD00AD643D /* 2.h264 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2.h264; sourceTree = "<group>"; };
+		9B0CA3BE29B71D0800AD643D /* OmniRtcOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OmniRtcOrientation.h; sourceTree = "<group>"; };
+		9B0CA3BF29B71D0800AD643D /* OmniRtcDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OmniRtcDevice.m; sourceTree = "<group>"; };
+		9B0CA3C029B71D0800AD643D /* OmniRtcOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OmniRtcOrientation.m; sourceTree = "<group>"; };
+		9B0CA3C229B71D0800AD643D /* OmniRtcDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OmniRtcDevice.h; sourceTree = "<group>"; };
+		9B0CA3C729B71D1600AD643D /* OmniRtcVertexFragment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OmniRtcVertexFragment.h; sourceTree = "<group>"; };
+		9B0CA3C829B71D1600AD643D /* OmniRtcI420.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OmniRtcI420.h; sourceTree = "<group>"; };
+		9B0CA3C929B71D1600AD643D /* OmniRtcNV12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OmniRtcNV12.h; sourceTree = "<group>"; };
+		9B0CA3CB29B71DB100AD643D /* VideoBgraPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoBgraPlayer.m; sourceTree = "<group>"; };
+		9B0CA3CC29B71DB100AD643D /* VideoI420Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoI420Player.m; sourceTree = "<group>"; };
+		9B0CA3CD29B71DB100AD643D /* VideoNV12Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoNV12Player.h; sourceTree = "<group>"; };
+		9B0CA3CE29B71DB100AD643D /* VideoPlayerBackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerBackView.h; sourceTree = "<group>"; };
+		9B0CA3CF29B71DB100AD643D /* VideoBgraPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoBgraPlayer.h; sourceTree = "<group>"; };
+		9B0CA3D029B71DB100AD643D /* VideoNV12Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoNV12Player.m; sourceTree = "<group>"; };
+		9B0CA3D129B71DB100AD643D /* VideoPlayerBackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerBackView.m; sourceTree = "<group>"; };
+		9B0CA3D229B71DB100AD643D /* VideoI420Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoI420Player.h; sourceTree = "<group>"; };
 		9BBCC607260B18B200D4E37B /* VideoDR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoDR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BBCC60A260B18B200D4E37B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9BBCC60B260B18B200D4E37B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -82,6 +103,44 @@
 			path = H264;
 			sourceTree = "<group>";
 		};
+		9B0CA3BD29B71CC600AD643D /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				9B0CA3C229B71D0800AD643D /* OmniRtcDevice.h */,
+				9B0CA3BF29B71D0800AD643D /* OmniRtcDevice.m */,
+				9B0CA3BE29B71D0800AD643D /* OmniRtcOrientation.h */,
+				9B0CA3C029B71D0800AD643D /* OmniRtcOrientation.m */,
+				9B0CA3CA29B71DB100AD643D /* player */,
+				9B0CA3C629B71D1600AD643D /* Shaders */,
+			);
+			path = SDK;
+			sourceTree = "<group>";
+		};
+		9B0CA3C629B71D1600AD643D /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				9B0CA3C729B71D1600AD643D /* OmniRtcVertexFragment.h */,
+				9B0CA3C829B71D1600AD643D /* OmniRtcI420.h */,
+				9B0CA3C929B71D1600AD643D /* OmniRtcNV12.h */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		9B0CA3CA29B71DB100AD643D /* player */ = {
+			isa = PBXGroup;
+			children = (
+				9B0CA3CE29B71DB100AD643D /* VideoPlayerBackView.h */,
+				9B0CA3D129B71DB100AD643D /* VideoPlayerBackView.m */,
+				9B0CA3D229B71DB100AD643D /* VideoI420Player.h */,
+				9B0CA3CC29B71DB100AD643D /* VideoI420Player.m */,
+				9B0CA3CF29B71DB100AD643D /* VideoBgraPlayer.h */,
+				9B0CA3CB29B71DB100AD643D /* VideoBgraPlayer.m */,
+				9B0CA3CD29B71DB100AD643D /* VideoNV12Player.h */,
+				9B0CA3D029B71DB100AD643D /* VideoNV12Player.m */,
+			);
+			path = player;
+			sourceTree = "<group>";
+		};
 		9BBCC5FE260B18B200D4E37B = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +162,7 @@
 			children = (
 				9BBCC60A260B18B200D4E37B /* AppDelegate.h */,
 				9BBCC60B260B18B200D4E37B /* AppDelegate.m */,
+				9B0CA3BD29B71CC600AD643D /* SDK */,
 				9B0CA3B529B6DC3300AD643D /* H264 */,
 				9BBCC6CD260C87FE00D4E37B /* VEDRender */,
 				9BBCC658260B2ECB00D4E37B /* Tool */,
@@ -229,16 +289,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B0CA3D629B71DB100AD643D /* VideoPlayerBackView.m in Sources */,
 				9BBCC6DA260C891800D4E37B /* VEDRenderViewController.m in Sources */,
 				9BBCC60C260B18B200D4E37B /* AppDelegate.m in Sources */,
+				9B0CA3C329B71D0800AD643D /* OmniRtcDevice.m in Sources */,
+				9B0CA3D529B71DB100AD643D /* VideoNV12Player.m in Sources */,
+				9B0CA3D329B71DB100AD643D /* VideoBgraPlayer.m in Sources */,
 				9BBCC6E6260C8A1F00D4E37B /* VEDRDecoder.m in Sources */,
 				9BBCC6E2260C8A0C00D4E37B /* VEDREncoder.m in Sources */,
 				9BBCC69C260C366900D4E37B /* YXLayerPlayer.m in Sources */,
 				9BBCC61D260B18B300D4E37B /* main.m in Sources */,
 				9B0CA3B829B6DC5000AD643D /* H264FileParser.m in Sources */,
+				9B0CA3D429B71DB100AD643D /* VideoI420Player.m in Sources */,
 				9BBCC6DE260C8A0000D4E37B /* VEDRCapture.m in Sources */,
 				9BBCC6EF260C9ABD00D4E37B /* YXSMKTView.m in Sources */,
 				9BBCC65B260B2EE100D4E37B /* YXFileHandle.m in Sources */,
+				9B0CA3C429B71D0800AD643D /* OmniRtcOrientation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
