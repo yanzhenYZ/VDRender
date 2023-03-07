@@ -83,32 +83,8 @@
 }
 
 #pragma mark - H264FileParserDelegate
-- (void)parser:(H264FileParser *)parser sps:(NSData *)sps pps:(NSData *)pps {
-    const char bytes[] = "\x00\x00\x00\x01";
-    size_t length = (sizeof bytes) - 1;
-    NSData *ByteHeader = [NSData dataWithBytes:bytes length:length];
-    //发sps
-    NSMutableData *h264Data = [[NSMutableData alloc] init];
-    [h264Data appendData:ByteHeader];
-    [h264Data appendData:sps];
-    [_decoder decodeData:h264Data];
-    
-    //发pps
-    [h264Data resetBytesInRange:NSMakeRange(0, [h264Data length])];
-    [h264Data setLength:0];
-    [h264Data appendData:ByteHeader];
-    [h264Data appendData:pps];
-    [_decoder decodeData:h264Data];
-}
-
 - (void)parser:(H264FileParser *)parser h264Data:(NSData *)data {
-    const char bytes[] = "\x00\x00\x00\x01";
-    size_t length = (sizeof bytes) - 1;
-    NSData *ByteHeader = [NSData dataWithBytes:bytes length:length];
-    NSMutableData *h264Data = [[NSMutableData alloc] init];
-    [h264Data appendData:ByteHeader];
-    [h264Data appendData:data];
-    [_decoder decodeData:h264Data];
+    [_decoder decodeData:data];
 }
 
 #pragma mark - VEDRDecoderDelegate

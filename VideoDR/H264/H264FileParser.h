@@ -18,8 +18,6 @@
 
 
 @protocol H264FileParserDelegate <NSObject>
-
-- (void)parser:(H264FileParser *)parser sps:(NSData *)sps pps:(NSData *)pps;
 - (void)parser:(H264FileParser *)parser h264Data:(NSData *)data;
 @end
 
