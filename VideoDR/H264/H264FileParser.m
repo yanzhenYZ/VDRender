@@ -11,14 +11,19 @@
 @property (nonatomic, copy) NSString *file;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSMutableData *h264Data;
+
+@property (nonatomic) int frameCount;
 @end
 
-@implementation H264FileParser
+@implementation H264FileParser {
+    dispatch_queue_t _queue;
+}
 - (instancetype)initWithFile:(NSString *)file {
     self = [super init];
     if (self) {
         _file = file;
         _h264Data = [NSMutableData dataWithContentsOfFile:file];
+        _queue = dispatch_queue_create("cn.h264.test", NULL);
     }
     return self;
 }
@@ -31,10 +36,18 @@
     }];
 }
 
-//只考虑0x00000001
+
 - (void)parserH264Data {
+    dispatch_async(_queue, ^{
+        [self getH264Data];
+    });
+}
+
+//只考虑0x00000001
+- (void)getH264Data {
     if (_h264Data.length <= 0) {
         [self stop];
+        NSLog(@"done:%d", _frameCount);
         return;
     }
     NSData *data = [self getFrame:_h264Data];
@@ -42,6 +55,10 @@
     [_h264Data replaceBytesInRange:NSMakeRange(0, data.length) withBytes:0 length:0];
     //NSLog(@"%d", bytes[4] & 0x1F);
     //NSLog(@"%d", _h264Data.length);
+    //1.h164 total 130 //126->127方向变化
+//    if (_frameCount++ > 127) {
+//        return;
+//    }
     if ([_delegate respondsToSelector:@selector(parser:h264Data:)]) {
         [_delegate parser:self h264Data:data];
     }

@@ -73,56 +73,6 @@
             </objects>
             <point key="canvasLocation" x="481" y="194"/>
         </scene>
-        <!--Render-->
-        <scene sceneID="2q0-Um-9P3">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Render" id="PJU-ul-lTm" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="RHf-4O-8bu"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8jG-Td-iEx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1145" y="-126"/>
-        </scene>
-        <!--Encoder-->
-        <scene sceneID="VUD-wX-0Mx">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Encoder" id="2pT-b7-8ZK" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Mhx-8r-hR2"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bgf-eg-pnB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1225" y="-49"/>
-        </scene>
-        <!--EncoderUse-->
-        <scene sceneID="6Ng-LS-PcM">
-            <objects>
-                <viewControllerPlaceholder storyboardName="EncoderUse" id="vU1-mG-3YO" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="FV6-B9-2nl"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vOb-z1-fX7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1314" y="17"/>
-        </scene>
-        <!--VED-->
-        <scene sceneID="nkb-cN-DnC">
-            <objects>
-                <viewControllerPlaceholder storyboardName="VED" id="BNA-V6-4RE" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="sGt-Ai-9Ba"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KCv-E2-pUw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1399" y="63"/>
-        </scene>
-        <!--VEDUse-->
-        <scene sceneID="pSJ-75-0LO">
-            <objects>
-                <viewControllerPlaceholder storyboardName="VEDUse" id="nGm-TR-dQj" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="qbp-Ho-4C7"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="j87-Lb-zKT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1743" y="17"/>
-        </scene>
         <!--VEDRender-->
         <scene sceneID="Hak-GB-QV6">
             <objects>
