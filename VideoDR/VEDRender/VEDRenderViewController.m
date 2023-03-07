@@ -59,7 +59,7 @@
     
     
 #if 1
-    NSString *filePath = [NSBundle.mainBundle pathForResource:@"1.h264" ofType:nil];
+    NSString *filePath = [NSBundle.mainBundle pathForResource:@"2.h264" ofType:nil];
     _parser = [[H264FileParser alloc] initWithFile:filePath];
     _parser.delegate = self;
 #else
