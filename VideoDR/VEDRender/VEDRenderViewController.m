@@ -15,6 +15,7 @@
 
 
 #import "VideoBgraPlayer.h"
+#import "VideoI420Player.h"
 
 #define MTK 1
 
@@ -23,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *showPlayer;
 
 #if MTK
-@property (nonatomic, strong) OmniRtcVideoBgraPlayer *player;
+@property (nonatomic, strong) OmniRtcVideoI420Player *player;
 #else
 @property (nonatomic, strong) YXLayerPlayer *player;
 #endif
@@ -48,7 +49,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _player = [[OmniRtcVideoBgraPlayer alloc] init];
+    _player = [[OmniRtcVideoI420Player alloc] init];
     [_player setRemoteVideoViewInMainThread:self.showPlayer fillMode:UIViewContentModeScaleAspectFit mirror:NO];
     
 #if 1
